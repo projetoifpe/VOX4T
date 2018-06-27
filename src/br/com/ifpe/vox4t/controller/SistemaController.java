@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
-	@Author: rique
+	@Author: rique.
 */
 
 @Controller
@@ -12,7 +12,6 @@ public class SistemaController {
 	
 	@RequestMapping("home")
 	public String index() {
-		
 		return "index";
 	}
 }
