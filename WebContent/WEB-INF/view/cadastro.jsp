@@ -57,7 +57,8 @@ input.alinha {
                 <div class="form-group">
                     <label for="birthDate" class="col-sm-3 control-label">Data de Nascimento</label>
                     <div class="col-sm-9">
-                        <input type="date" id="birthDate" class="form-control" style="width: 250px;" required>
+                    <!-- Coloca a mascara aqui!! -->
+                        <input type="text" id="birthDate" class="form-control" style="width: 250px;" placeholder="Data de nascimento" required>
                     </div>
                 </div>
                 <div class="form-group">
