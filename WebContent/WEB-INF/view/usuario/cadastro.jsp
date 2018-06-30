@@ -29,9 +29,8 @@
 <style type="text/css">
 *[role="form"] {
     padding: 15px;
-    margin-top: 220px;
+    margin-top: 260px;
     margin-left: 220px;
-    background-color: #fff;
     border-radius: 0.3em;
 }
 
@@ -40,43 +39,44 @@ input.alinha {
     margin-bottom: 1em;
 }
 
-
-
-
 </style>
   <title>Teste cadastro</title>
 </head>
 <body>
+	
 <div class="container">
             <form class="form-horizontal" role="form" method="post" action="save">
+            <div>
+		<p style="color: red; margin-left: 230px;">${msgSucesso}</p>
+	</div>
                 <div class="form-group">
                     <label for="firstName" class="col-sm-3 control-label">Nome</label>
                     <div class="col-sm-9">
-                        <input type="text" id="firstName" name="nome" placeholder="Nome" class="form-control" style="width: 250px;" required>
+                        <input type="text" name="nome" placeholder="Nome" class="form-control" style="width: 250px;" maxlength="45" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="email" class="col-sm-3 control-label">Email</label>
                     <div class="col-sm-9">
-                        <input type="email" id="email" name="email" placeholder="Email" class="form-control" style="width: 250px;" required>
+                        <input type="email" name="email" placeholder="Email" class="form-control" style="width: 250px;" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="password" class="col-sm-3 control-label">Senha</label>
                     <div class="col-sm-9">
-                        <input type="password" id="password" name="senha" placeholder="Senha" class="form-control" style="width: 250px;" required>
+                        <input type="password" name="senha" placeholder="Senha" class="form-control" style="width: 250px;" minlength = "6" maxlength="45" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="confpassword" class="col-sm-3 control-label">Confirmar Senha</label>
                     <div class="col-sm-9">
-                        <input type="password" id="confpassword" placeholder="Confirmar senha" class="form-control" style="width: 250px;" required>
+                        <input type="password" placeholder="Confirmar senha" class="form-control" style="width: 250px;" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="date" class="col-sm-3 control-label">Data de Nascimento</label>
                     <div class="col-sm-9">
-                         <input type="text" id="date" name="data" OnKeyUp="mascaraData(this);" class="form-control" style="width: 250px;" placeholder="Data de nascimento" required>
+                         <input type="text" name="dataNascimento" OnKeyUp="mascaraData(this);" class="form-control" style="width: 250px;" placeholder="Data de nascimento" required>
                     </div>
                 </div>
                 <div class="form-group">
@@ -84,13 +84,13 @@ input.alinha {
                     <div class="col-sm-6">
                         <div class="row">
                             <div class="col-sm-4">
-                                <label class="radio-inline"><input type="radio" id="feminino" name="sexo" value="F" required>Feminino</label>   
+                                <label class="radio-inline"><input type="radio" name="sexo" value="F" required>Feminino</label>   
                             </div>
                             <div class="col-sm-4">
-                                <label class="radio-inline"><input type="radio" id="masculino" name="sexo" value="M">Masculino</label>        
+                                <label class="radio-inline"><input type="radio" name="sexo" value="M">Masculino</label>        
                             </div>
                             <div class="col-sm-4">
-                                <label class="radio-inline"><input type="radio" id="outro" name="sexo" value="O"> Outros</label>
+                                <label class="radio-inline"><input type="radio" name="sexo" value="O"> Outros</label>
                             </div>
                         </div>
                     </div>
@@ -102,11 +102,5 @@ input.alinha {
                 </div>
             </form> 
         </div> 
-        
-        <br>
-        
-        <div>
-        	<p color="red">${msgSucesso}</p>
-        </div>
 </body>
 </html>
