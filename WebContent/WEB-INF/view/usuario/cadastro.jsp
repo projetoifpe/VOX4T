@@ -10,6 +10,22 @@
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.min.js"></script>
 <!--<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>-->
 
+<script language="JavaScript" type="text/javascript">
+   function mascaraData(campoData){
+              var data = campoData.value;
+              if (data.length == 2){
+                  data = data + '/';
+                  document.forms[0].data.value = data;
+      return true;              
+              }
+              if (data.length == 5){
+                  data = data + '/';
+                  document.forms[0].data.value = data;
+                  return true;
+              }
+         }
+</script>
+
 <style type="text/css">
 *[role="form"] {
     padding: 15px;
@@ -58,16 +74,9 @@ input.alinha {
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="birthDate" class="col-sm-3 control-label">Data de Nascimento</label>
+                    <label for="date" class="col-sm-3 control-label">Data de Nascimento</label>
                     <div class="col-sm-9">
-                    
-                    
-                    
-                    <!-- Coloca a mascara aqui!! -->
-                    
-                    
-                    
-                        <input type="text" id="birthDate" name="dataNascimento" class="form-control" style="width: 250px;" placeholder="Data de nascimento" required>
+                         <input type="text" id="date" name="data" OnKeyUp="mascaraData(this);" class="form-control" style="width: 250px;" placeholder="Data de nascimento" required>
                     </div>
                 </div>
                 <div class="form-group">
