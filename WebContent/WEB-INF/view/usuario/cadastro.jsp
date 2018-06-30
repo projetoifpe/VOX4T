@@ -76,7 +76,7 @@ input.alinha {
                 <div class="form-group">
                     <label for="date" class="col-sm-3 control-label">Data de Nascimento</label>
                     <div class="col-sm-9">
-                         <input type="text" name="dataNascimento" OnKeyUp="mascaraData(this);" class="form-control" style="width: 250px;" placeholder="Data de nascimento" required>
+                         <input type="text" id="data" name="dataNascimento" OnKeyUp="mascaraData(this);" class="form-control" style="width: 250px;" placeholder="Data de nascimento" required>
                     </div>
                 </div>
                 <div class="form-group">
