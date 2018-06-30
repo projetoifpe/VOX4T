@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -29,23 +32,23 @@ input.alinha {
 </head>
 <body>
 <div class="container">
-            <form class="form-horizontal" role="form">
+            <form class="form-horizontal" role="form" method="post" action="save">
                 <div class="form-group">
                     <label for="firstName" class="col-sm-3 control-label">Nome</label>
                     <div class="col-sm-9">
-                        <input type="text" id="firstName" placeholder="Nome" class="form-control" style="width: 250px;" required>
+                        <input type="text" id="firstName" name="nome" placeholder="Nome" class="form-control" style="width: 250px;" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="email" class="col-sm-3 control-label">Email</label>
                     <div class="col-sm-9">
-                        <input type="email" id="email" placeholder="Email" class="form-control" style="width: 250px;" required>
+                        <input type="email" id="email" name="email" placeholder="Email" class="form-control" style="width: 250px;" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="password" class="col-sm-3 control-label">Senha</label>
                     <div class="col-sm-9">
-                        <input type="password" id="password" placeholder="Senha" class="form-control" style="width: 250px;" required>
+                        <input type="password" id="password" name="senha" placeholder="Senha" class="form-control" style="width: 250px;" required>
                     </div>
                 </div>
                 <div class="form-group">
@@ -64,7 +67,7 @@ input.alinha {
                     
                     
                     
-                        <input type="text" id="birthDate" class="form-control" style="width: 250px;" placeholder="Data de nascimento" required>
+                        <input type="text" id="birthDate" name="dataNascimento" class="form-control" style="width: 250px;" placeholder="Data de nascimento" required>
                     </div>
                 </div>
                 <div class="form-group">
@@ -72,13 +75,13 @@ input.alinha {
                     <div class="col-sm-6">
                         <div class="row">
                             <div class="col-sm-4">
-                                <label class="radio-inline"><input type="radio" id="feminino" name="genero" value="Female" required>Feminino</label>   
+                                <label class="radio-inline"><input type="radio" id="feminino" name="sexo" value="F" required>Feminino</label>   
                             </div>
                             <div class="col-sm-4">
-                                <label class="radio-inline"><input type="radio" id="masculino" name="genero" value="Male">Masculino</label>        
+                                <label class="radio-inline"><input type="radio" id="masculino" name="sexo" value="M">Masculino</label>        
                             </div>
                             <div class="col-sm-4">
-                                <label class="radio-inline"><input type="radio" id="outro" name="genero" value="Unknown"> Outros</label>
+                                <label class="radio-inline"><input type="radio" id="outro" name="sexo" value="O"> Outros</label>
                             </div>
                         </div>
                     </div>
@@ -90,5 +93,11 @@ input.alinha {
                 </div>
             </form> 
         </div> 
+        
+        <br>
+        
+        <div>
+        	<p color="red">${msgSucesso}</p>
+        </div>
 </body>
 </html>
