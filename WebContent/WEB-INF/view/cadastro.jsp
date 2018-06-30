@@ -45,7 +45,7 @@ input.alinha {
                 <div class="form-group">
                     <label for="password" class="col-sm-3 control-label">Senha</label>
                     <div class="col-sm-9">
-                        <input type="password" id="password" placeholder="senha" class="form-control" style="width: 250px;" required>
+                        <input type="password" id="password" placeholder="Senha" class="form-control" style="width: 250px;" required>
                     </div>
                 </div>
                 <div class="form-group">
