@@ -15,8 +15,8 @@ public class SistemaController {
 		return "index";
 	}
 
-	/*@RequestMapping("cadastro")
-	public String cadastro() {
-		return "cadastro";
+	/*@RequestMapping("/teste")
+	public String teste() {
+		return "teste";
 	}*/
 }

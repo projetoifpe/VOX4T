@@ -8,7 +8,106 @@
 <head>
   <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/bootstrap/css/bootstrap.min.css" />
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.min.js"></script>
-<!--<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>-->
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/jquery.min.js"></script>
+<link rel="stylesheet" href="http://jqueryvalidation.org/files/demo/site-demos.css">
+ <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"> </script> 
+<link href="Content/Style.css" rel="stylesheet" type="text/css" media="all" />
+<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.10.0/jquery.validate.min.js"></script>
+<script>
+
+$(document).ready(function() {
+    $('#contactForm').bootstrapValidator({
+    	 container: '#messages',
+    	        feedbackIcons: {
+    	        	valid: 'glyphicon glyphicon-ok',
+    	            invalid: 'glyphicon glyphicon-remove',
+    	            validating: 'glyphicon glyphicon-refresh'
+    	        },
+
+
+
+    	        fields: {
+    	          	email: {
+    	          		required: true,
+    	          			email: true,
+    	               validators: {
+    	                   notEmpty: {
+    	                       message: 'email não informado'
+    	                   },
+    	                   emailAddress: {
+    	                       message: 'E-mail inválido'
+    	                   }
+    	               }
+    	           },
+    	           
+    	           key: {
+    	       	   	validators: {
+    	       	   	  notEmpty: {
+    	                       message: 'Informe uma senha'
+    	                   },
+    	                   stringLength: {
+    	                       min: 6,
+    	                       max: 45,
+    	                       message: 'minimo 6 caracteres'
+    	               }
+    	           }
+    	           },
+    	           
+    	           confSenha: {
+    	              	validators: {
+    	                   notEmpty: {
+    	                       message: 'confirme sua senha'
+    	                   },
+    	                   stringLength: {
+    	                       min: 6,
+    	                       max: 45,
+    	                       message: 'minimo 6 caracteres'
+    	               
+    	           }
+    	           	}
+    	       	
+    	           },
+    	           
+    	           sexo: {
+    	       	   	validators: {
+    	                   notEmpty: {
+    	                       message: 'genero não informado'
+    	                   },
+    	                        }
+    	           },
+    	          nome: {
+    	               validators: {
+    	                   notEmpty: {
+    	                       message: 'Informe seu nome'
+    	                   },
+    	                   stringLength: {
+    	                       max: 100,
+    	                       message: 'maximo 100 caracteres'
+    	                   }
+    	               }
+    	           },
+    	           data: {
+    	               validators: {
+    	                   notEmpty: {
+    	                       message: 'Informe sua data de nascimento'
+    	                   },
+    	                   stringLength: {
+    	                       max: 10,
+    	                       min: 10,
+    	                       message: 'Data Invalida'
+    	                   }
+    	               }
+    	        
+    	            }
+    	        },
+    	   	   
+        	    });
+   	   
+ });
+
+</script>
+
 
 <script language="JavaScript" type="text/javascript">
    function mascaraData(campoData){
@@ -28,9 +127,9 @@
 
 <style type="text/css">
 *[role="form"] {
-    padding: 15px;
-    margin-top: 260px;
-    margin-left: 220px;
+    padding: 0px;
+    margin-top: 120px;
+    margin-left: 260px;
     border-radius: 0.3em;
 }
 
@@ -38,60 +137,69 @@ input.alinha {
     margin-left: 5em;
     margin-bottom: 1em;
 }
+.sex{
+padding: 15px;
+margin-top: -20px;
+}
 
 </style>
   <title>Teste cadastro</title>
 </head>
 <body>
-	
-<div class="container">
-            <form class="form-horizontal" role="form" method="post" action="save">
-            <div>
-		<p style="color: red; margin-left: 230px;">${msgSucesso}</p>
-	</div>
+	<div><p style="color: red; margin-left: 230px;">${msgSucesso}</p></div>
+      
+		<div class="container">
+            <form id="contactForm" class="form-horizontal" role="form" method="post" action="save">
                 <div class="form-group">
-                    <label for="firstName" class="col-sm-3 control-label">Nome</label>
-                    <div class="col-sm-9">
-                        <input type="text" name="nome" placeholder="Nome" class="form-control" style="width: 250px;" maxlength="45" required>
-                    </div>
-                </div>
+        <div class="col-md-7 col-md-offset-3">
+            <div id="messages"></div>
+        </div>
+    </div>       
+       <div class="form-group">
+        <label for="nome" class="col-md-3 control-label">Nome</label>
+        <div class="col-md-6">
+            <input type="text" class="form-control" id="nome" placeholder="Informe seu nome" name="nome" style="width: 420px;" minlength = "6" maxlength="45" required/>
+        </div>
+    </div>
                 <div class="form-group">
                     <label for="email" class="col-sm-3 control-label">Email</label>
-                    <div class="col-sm-9">
-                        <input type="email" name="email" placeholder="Email" class="form-control" style="width: 250px;" required>
+                    <div class="col-md-6">
+                        <input type="email" name="email" placeholder="Informe seu Email" class="form-control" style="width: 420px;" required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="password" class="col-sm-3 control-label">Senha</label>
-                    <div class="col-sm-9">
-                        <input type="password" name="senha" placeholder="Senha" class="form-control" style="width: 250px;" minlength = "6" maxlength="45" required>
+                    <label for="senha" class="col-sm-3 control-label">Senha</label>
+                    <div class="col-md-6">
+                        <input type="password" name="key" id="key" placeholder="Escolha uma senha" class="form-control" style="width: 420px;" minlength = "6" maxlength="45" required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="confpassword" class="col-sm-3 control-label">Confirmar Senha</label>
-                    <div class="col-sm-9">
-                        <input type="password" placeholder="Confirmar senha" class="form-control" style="width: 250px;" required>
-                    </div>
+                    <label for="confSenha" class="col-sm-3 control-label">Confirmar Senha</label>
+                    <div class="col-md-6">
+                        <input type="password" name="confSenha" placeholder="Confirme a senha" class="form-control" style="width: 420px;" data-match="#key" data-match-error="senhas não correspondem" required>
+					<div class="help-block with-errors"></div>
+					
+					</div>
                 </div>
+
                 <div class="form-group">
                     <label for="date" class="col-sm-3 control-label">Data de Nascimento</label>
-                    <div class="col-sm-9">
-                         <input type="text" id="data" name="dataNascimento" OnKeyUp="mascaraData(this);" class="form-control" style="width: 250px;" placeholder="Data de nascimento" required>
+                    <div class="col-md-6">
+                         <input type="text" name="data" name="dataNascimento" OnKeyUp="mascaraData(this);" class="form-control" style="width: 420px;" placeholder="Data de nascimento" required>
                     </div>
                 </div>
+         
                 <div class="form-group">
                     <label class="control-label col-sm-3">Genero</label>
-                    <div class="col-sm-6">
+                    <div class="col-md-6">
                         <div class="row">
-                            <div class="col-sm-4">
-                                <label class="radio-inline"><input type="radio" name="sexo" value="F" required>Feminino</label>   
+                            <div>
+                                <label class="sex"><input type="radio" name="sexo" class="form-control" value="F" required>Feminino</label>   
+                             </div>
+                            <div>
+                                <label class="sex"><input type="radio" name="sexo" class="form-control"  value="M">Masculino</label>        
                             </div>
-                            <div class="col-sm-4">
-                                <label class="radio-inline"><input type="radio" name="sexo" value="M">Masculino</label>        
-                            </div>
-                            <div class="col-sm-4">
-                                <label class="radio-inline"><input type="radio" name="sexo" value="O"> Outros</label>
-                            </div>
+                           
                         </div>
                     </div>
                 </div>
@@ -103,4 +211,5 @@ input.alinha {
             </form> 
         </div> 
 </body>
+
 </html>
