@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Teste</h1>
+	<div><h1 style="color: red; margin-left: 230px;">${msg}</h1></div>
 </body>
 </html>

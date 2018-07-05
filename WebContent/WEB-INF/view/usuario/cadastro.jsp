@@ -170,7 +170,7 @@ margin-top: -20px;
                 <div class="form-group">
                     <label for="senha" class="col-sm-3 control-label">Senha</label>
                     <div class="col-md-6">
-                        <input type="password" name="key" id="key" placeholder="Escolha uma senha" class="form-control" style="width: 420px;" minlength = "6" maxlength="45" required>
+                        <input type="password" name="senha" id="key" placeholder="Escolha uma senha" class="form-control" style="width: 420px;" minlength = "6" maxlength="45" required>
                     </div>
                 </div>
                 <div class="form-group">
@@ -185,7 +185,7 @@ margin-top: -20px;
                 <div class="form-group">
                     <label for="date" class="col-sm-3 control-label">Data de Nascimento</label>
                     <div class="col-md-6">
-                         <input type="text" name="data" name="dataNascimento" OnKeyUp="mascaraData(this);" class="form-control" style="width: 420px;" placeholder="Data de nascimento" required>
+                         <input type="text" name="dataNascimento" OnKeyUp="mascaraData(this);" class="form-control" style="width: 420px;" placeholder="Data de nascimento" required>
                     </div>
                 </div>
          
