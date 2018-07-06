@@ -36,7 +36,7 @@ public class UsuarioController {
 	@RequestMapping("/usuario/login")
 	public String loginUsuario() {
 
-		return "usuario/login";
+		return "usuario/loginModal";
 	}
 
 	@RequestMapping("/usuario/loginCheck")
