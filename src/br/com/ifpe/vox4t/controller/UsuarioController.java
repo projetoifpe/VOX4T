@@ -1,8 +1,11 @@
 package br.com.ifpe.vox4t.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import br.com.ifpe.vox4t.dao.UsuarioDAO;
 import br.com.ifpe.vox4t.model.Usuario;
@@ -41,7 +44,8 @@ public class UsuarioController {
 
 		boolean result = false;
 		UsuarioDAO dao = new UsuarioDAO();
-		result = dao.logar(usuario.getEmail(), usuario.getSenha());
+		result = dao.logar(usuario);
+		
 		if (result == true) {
 			attr.addAttribute("msg", "Usuario Logado com sucesso."); // Envia string msg para o html.
 			return "index";

@@ -7,6 +7,9 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Restrictions;
+
 import br.com.ifpe.vox4t.model.Usuario;
 
 /**
@@ -27,25 +30,40 @@ public class UsuarioDAO {
 		factory.close();
 	}
 
-	public boolean logar(String email, String senha) {
+	public boolean logar(Usuario usuario) {
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
 		EntityManager manager = factory.createEntityManager();
 		Query query = null;
-		query = manager.createQuery("select nome FROM Usuario WHERE email = :paramEmail AND senha = :paramSenha");
+		query = manager.createQuery("FROM Usuario");
+		/*
+		WHERE email = :paramEmail AND senha = :paramSenha"
 		query.setParameter("paramEmail", email);
 		query.setParameter("paramSenha", senha);
+		*/
+		System.out.println(usuario.getEmail());
 		List<Usuario> lista = query.getResultList();
 		manager.close();
 		factory.close();
-		return true;
-		//TENHO QUE ARRUMAR ESSA CONDICIONAL ABAIXO
-		/*
-		if (lista != null) {
-			return false;
-		} else {
+		
+		if (lista.size() > 0) {
 			return true;
+		} else {
+			return false;
 		}
-		*/
+	
 	}
+/*
+	 
+	public Usuario logar(String email,String password){
+		DetachedCriteria detachedCriteria =  DetachedCriteria.forClass(Usuario.class);
+		detachedCriteria.add(Restrictions.eq("email", email));
+		detachedCriteria.add(Restrictions.eq("senha", password));
+		List<Usuario> findByCriteria = (List<Usuario>) hibernateTemplate.findByCriteria(detachedCriteria);
+		if(findByCriteria !=null && findByCriteria.size()>0)
+		return findByCriteria.get(0);
+		else
+			return null;
+}
+*/
 
 }
