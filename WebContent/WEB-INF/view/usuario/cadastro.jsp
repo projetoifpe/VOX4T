@@ -149,7 +149,7 @@ margin-top: -20px;
 	<div><p style="color: red; margin-left: 230px;">${msgSucesso}</p></div>
       
 		<div class="container">
-            <form id="contactForm" class="form-horizontal" role="form" method="post" action="save">
+            <form id="contactForm" class="form-horizontal" method="post" action="save">
                 <div class="form-group">
         <div class="col-md-7 col-md-offset-3">
             <div id="messages"></div>

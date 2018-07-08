@@ -7,8 +7,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-import org.hibernate.criterion.DetachedCriteria;
-import org.hibernate.criterion.Restrictions;
 
 import br.com.ifpe.vox4t.model.Usuario;
 
@@ -30,24 +28,30 @@ public class UsuarioDAO {
 		factory.close();
 	}
 
-	public boolean logar(Usuario usuario) {
+	public boolean logar(String emailUsuario, String senhaUsuario) {
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
 		EntityManager manager = factory.createEntityManager();
 		Query query = null;
-		query = manager.createQuery("FROM Usuario");
+		query = manager.createQuery("FROM Usuario WHERE email = :paramEmail AND senha = :paramSenha");
+		query.setParameter("paramEmail", emailUsuario);
+		query.setParameter("paramSenha", senhaUsuario);
+		
 		/*
 		WHERE email = :paramEmail AND senha = :paramSenha"
 		query.setParameter("paramEmail", email);
 		query.setParameter("paramSenha", senha);
 		*/
-		System.out.println(usuario.getEmail());
+		System.out.println(emailUsuario);
+		@SuppressWarnings("unchecked")
 		List<Usuario> lista = query.getResultList();
 		manager.close();
 		factory.close();
 		
 		if (lista.size() > 0) {
+			System.out.println("Encontrou");
 			return true;
 		} else {
+			System.out.println("Não encontrou");
 			return false;
 		}
 	

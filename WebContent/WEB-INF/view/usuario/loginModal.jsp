@@ -85,7 +85,7 @@
 </head>
 <body>
 
-	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/jquery.min.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/jquery.validate.min.js"></script>
 	
@@ -130,7 +130,7 @@
     <div class="modal-dialog">
          <div class="modal-content">
               <div class="login-form">
-              	<form action="/examples/actions/confirmation.php" method="post" name="formLogin" id="formLogin">
+              	<form action="loginCheck" method="post" name="formLogin" id="formLogin">
         			
         			<h2 class="text-center">Entrar</h2>   
         			
@@ -162,9 +162,10 @@
             			<a href="#" class="btn btn-primary"><i class="fab fa-facebook-square"></i>&nbsp; Facebook</a>
 						<a href="#" class="btn btn-danger"><i class="fab fa-google-plus-g"></i>&nbsp; Google</a>
         		  </div>
+        		  
     			</form>
     
-    			<p class="text-center text-muted small">Vocẽ não tem uma conta? <a href="cadastro">Cadastre-se aqui!</a></p>
+    			<p class="text-center text-muted small">Você não tem uma conta? <a href="cadastro">Cadastre-se aqui!</a></p>
 			
 			</div>
          </div>
