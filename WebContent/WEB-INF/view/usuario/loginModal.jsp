@@ -85,7 +85,7 @@
 </head>
 <body>
 
-	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/jquery.min.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/jquery.validate.min.js"></script>
 	
