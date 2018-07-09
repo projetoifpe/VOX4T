@@ -12,7 +12,7 @@ import br.com.ifpe.vox4t.dao.UsuarioDAO;
 import br.com.ifpe.vox4t.model.Usuario;
 
 /**
- * @Author: rique
+ * @Author: henrique
  */
 
 @Controller

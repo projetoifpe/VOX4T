@@ -11,7 +11,7 @@ import javax.persistence.Query;
 import br.com.ifpe.vox4t.model.Usuario;
 
 /**
- * @Author: rique
+ * @Author: henrique
  */
 
 public class UsuarioDAO {
