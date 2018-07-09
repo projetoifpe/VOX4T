@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Teste de login</title>
 </head>
 <body>
+	<p>Bem vindo, ${usuarioLogado.nome}</p><br>
 	<div><h1 style="color: red; margin-left: 230px;">${msg}</h1></div>
 </body>
 </html>
