@@ -1,6 +1,8 @@
 package br.com.ifpe.vox4t.controller;
 
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,7 +43,7 @@ public class UsuarioController {
 	}
 
 	@RequestMapping("/usuario/loginCheck")
-	public String loginCheck(@RequestParam("email") String emailUsuario,@RequestParam("senha") String senhaUsuario, Model attr) {
+	public String loginCheck(@RequestParam("email") String emailUsuario,@RequestParam("senha") String senhaUsuario, Model attr, HttpSession session) {
 		
 		
 		boolean result = false;
@@ -50,6 +52,8 @@ public class UsuarioController {
 		
 		if (result == true) {
 			attr.addAttribute("msg", "Usuario Logado com sucesso."); // Envia string msg para o html.
+			Usuario usuario = dao.buscarPorEmail(emailUsuario);
+			session.setAttribute("usuarioLogado", usuario);
 			return "index";
 		}
 		else {

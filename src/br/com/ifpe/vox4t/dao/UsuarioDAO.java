@@ -35,13 +35,6 @@ public class UsuarioDAO {
 		query = manager.createQuery("FROM Usuario WHERE email = :paramEmail AND senha = :paramSenha");
 		query.setParameter("paramEmail", emailUsuario);
 		query.setParameter("paramSenha", senhaUsuario);
-		
-		/*
-		WHERE email = :paramEmail AND senha = :paramSenha"
-		query.setParameter("paramEmail", email);
-		query.setParameter("paramSenha", senha);
-		*/
-		System.out.println(emailUsuario);
 		@SuppressWarnings("unchecked")
 		List<Usuario> lista = query.getResultList();
 		manager.close();
@@ -56,18 +49,22 @@ public class UsuarioDAO {
 		}
 	
 	}
-/*
-	 
-	public Usuario logar(String email,String password){
-		DetachedCriteria detachedCriteria =  DetachedCriteria.forClass(Usuario.class);
-		detachedCriteria.add(Restrictions.eq("email", email));
-		detachedCriteria.add(Restrictions.eq("senha", password));
-		List<Usuario> findByCriteria = (List<Usuario>) hibernateTemplate.findByCriteria(detachedCriteria);
-		if(findByCriteria !=null && findByCriteria.size()>0)
-		return findByCriteria.get(0);
-		else
-			return null;
-}
-*/
+	public Usuario buscarPorEmail(String email) {
+
+		Usuario obj = null;
+
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
+		EntityManager manager = factory.createEntityManager();
+		Query query = null;
+		query = manager.createQuery("FROM Usuario WHERE email = :paramEmail");
+		query.setParameter("paramEmail", email);
+		
+		obj = (Usuario) query.getSingleResult();
+		
+		manager.close();
+		factory.close();
+		
+		return obj;
+	    }
 
 }
