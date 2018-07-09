@@ -40,14 +40,17 @@ public class UsuarioController {
 	}
 
 	@RequestMapping("/usuario/loginCheck")
-	public String loginCheck(Usuario usuario, Model attr) {
-
+	public String loginCheck(@RequestParam("email") String emailUsuario,@RequestParam("senha") String senhaUsuario, Model attr, HttpSession session) {
+		
+		
 		boolean result = false;
 		UsuarioDAO dao = new UsuarioDAO();
-		result = dao.logar(usuario);
+		result = dao.logar(emailUsuario,senhaUsuario);
 		
 		if (result == true) {
 			attr.addAttribute("msg", "Usuario Logado com sucesso."); // Envia string msg para o html.
+			Usuario usuario = dao.buscarPorEmail(emailUsuario);
+			session.setAttribute("usuarioLogado", usuario);
 			return "index";
 		}
 		else {
