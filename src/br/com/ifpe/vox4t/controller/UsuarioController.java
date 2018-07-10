@@ -1,5 +1,6 @@
 package br.com.ifpe.vox4t.controller;
 
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -11,7 +12,7 @@ import br.com.ifpe.vox4t.dao.UsuarioDAO;
 import br.com.ifpe.vox4t.model.Usuario;
 
 /**
- * @Author: rique
+ * @Author: henrique
  */
 
 @Controller
@@ -33,13 +34,19 @@ public class UsuarioController {
 
 		return "usuario/cadastro";
 	}
+	
+	
 	@RequestMapping("/usuario/login")
 	public String loginUsuario() {
 
 		return "usuario/loginModal";
 	}
 
+<<<<<<< HEAD
 	@RequestMapping("/usuario/loginCheck")
+=======
+	@RequestMapping("loginCheck")
+>>>>>>> refs/remotes/origin/Henrique
 	public String loginCheck(@RequestParam("email") String emailUsuario,@RequestParam("senha") String senhaUsuario, Model attr, HttpSession session) {
 		
 		
@@ -51,11 +58,15 @@ public class UsuarioController {
 			attr.addAttribute("msg", "Usuario Logado com sucesso."); // Envia string msg para o html.
 			Usuario usuario = dao.buscarPorEmail(emailUsuario);
 			session.setAttribute("usuarioLogado", usuario);
+<<<<<<< HEAD
 			return "index";
+=======
+			return "logado";
+>>>>>>> refs/remotes/origin/Henrique
 		}
 		else {
 			attr.addAttribute("msg", "Usuario ou senha incorretos."); // Envia string msg para o html.
-			return "index";
+			return "logado";
 		}
 	}
 

@@ -7,13 +7,11 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-import org.hibernate.criterion.DetachedCriteria;
-import org.hibernate.criterion.Restrictions;
 
 import br.com.ifpe.vox4t.model.Usuario;
 
 /**
- * @Author: rique
+ * @Author: henrique
  */
 
 public class UsuarioDAO {
@@ -30,7 +28,11 @@ public class UsuarioDAO {
 		factory.close();
 	}
 
+<<<<<<< HEAD
 public boolean logar(String emailUsuario, String senhaUsuario) {
+=======
+	public boolean logar(String emailUsuario, String senhaUsuario) {
+>>>>>>> refs/remotes/origin/Henrique
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
 		EntityManager manager = factory.createEntityManager();
 		Query query = null;
@@ -68,6 +70,9 @@ public boolean logar(String emailUsuario, String senhaUsuario) {
 		
 		return obj;
 	    }
+<<<<<<< HEAD
 
+=======
+>>>>>>> refs/remotes/origin/Henrique
 
 }
