@@ -42,11 +42,9 @@ public class UsuarioController {
 		return "usuario/loginModal";
 	}
 
-<<<<<<< HEAD
-	@RequestMapping("/usuario/loginCheck")
-=======
+
 	@RequestMapping("loginCheck")
->>>>>>> refs/remotes/origin/Henrique
+
 	public String loginCheck(@RequestParam("email") String emailUsuario,@RequestParam("senha") String senhaUsuario, Model attr, HttpSession session) {
 		
 		
@@ -58,11 +56,8 @@ public class UsuarioController {
 			attr.addAttribute("msg", "Usuario Logado com sucesso."); // Envia string msg para o html.
 			Usuario usuario = dao.buscarPorEmail(emailUsuario);
 			session.setAttribute("usuarioLogado", usuario);
-<<<<<<< HEAD
-			return "index";
-=======
+
 			return "logado";
->>>>>>> refs/remotes/origin/Henrique
 		}
 		else {
 			attr.addAttribute("msg", "Usuario ou senha incorretos."); // Envia string msg para o html.

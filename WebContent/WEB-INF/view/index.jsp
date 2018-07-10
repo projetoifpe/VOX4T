@@ -3,10 +3,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<<<<<<< HEAD
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Teste de login</title>
-=======
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -98,16 +94,12 @@
 </style>
 <!-- FIM DO CSS MODAL LOGIN -->
 
->>>>>>> refs/remotes/origin/Henrique
 </head>
 
 <!-- Fim CABEÇALHO -->
 
 <body>
-<<<<<<< HEAD
-	<p>Bem vindo, ${usuarioLogado.nome}</p><br>
-	<div><h1 style="color: red; margin-left: 230px;">${msg}</h1></div>
-=======
+
  	
  	<!-- Bootstrap core JavaScript -->
     <script src="<%=request.getContextPath()%>/resources/externo/js/jquery.min.js"></script>
@@ -280,8 +272,5 @@
  </div>
  
  <!-- FIM MODAL LOGIN -->
-	
-	
->>>>>>> refs/remotes/origin/Henrique
 </body>
 </html>
