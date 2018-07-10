@@ -6,7 +6,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-  <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/bootstrap/css/bootstrap.css" />
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.min.js"></script>
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="http://code.jquery.com/jquery.min.js"></script>
@@ -33,10 +33,10 @@ $(document).ready(function() {
     	          			email: true,
     	               validators: {
     	                   notEmpty: {
-    	                       message: 'email não informado'
+    	                       message: 'Email não informado'
     	                   },
     	                   emailAddress: {
-    	                       message: 'E-mail inválido'
+    	                       message: 'Insira um email válido'
     	                   }
     	               }
     	           },
@@ -49,7 +49,7 @@ $(document).ready(function() {
     	                   stringLength: {
     	                       min: 6,
     	                       max: 45,
-    	                       message: 'minimo 6 caracteres'
+    	                       message: 'Mínimo 6 caracteres'
     	               }
     	           }
     	           },
@@ -57,12 +57,12 @@ $(document).ready(function() {
     	           confSenha: {
     	              	validators: {
     	                   notEmpty: {
-    	                       message: 'confirme sua senha'
+    	                       message: 'Confirme sua senha'
     	                   },
     	                   stringLength: {
     	                       min: 6,
     	                       max: 45,
-    	                       message: 'minimo 6 caracteres'
+    	                       message: 'Mínimo 6 caracteres'
     	               
     	           }
     	           	}
@@ -72,7 +72,7 @@ $(document).ready(function() {
     	           sexo: {
     	       	   	validators: {
     	                   notEmpty: {
-    	                       message: 'genero não informado'
+    	                       message: 'Gênero não informado'
     	                   },
     	                        }
     	           },
@@ -83,7 +83,7 @@ $(document).ready(function() {
     	                   },
     	                   stringLength: {
     	                       max: 100,
-    	                       message: 'maximo 100 caracteres'
+    	                       message: 'Minimo 6 caracteres'
     	                   }
     	               }
     	           },
@@ -95,7 +95,7 @@ $(document).ready(function() {
     	                   stringLength: {
     	                       max: 10,
     	                       min: 10,
-    	                       message: 'Data Invalida'
+    	                       message: 'Data Inválida'
     	                   }
     	               }
     	        
@@ -149,7 +149,7 @@ margin-top: -20px;
 	<div><p style="color: red; margin-left: 230px;">${msgSucesso}</p></div>
       
 		<div class="container">
-            <form id="contactForm" class="form-horizontal" role="form" method="post" action="save">
+            <form id="contactForm" class="form-horizontal" method="post" action="save">
                 <div class="form-group">
         <div class="col-md-7 col-md-offset-3">
             <div id="messages"></div>

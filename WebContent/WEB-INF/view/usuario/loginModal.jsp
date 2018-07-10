@@ -8,12 +8,17 @@
 
 <title>LoginModal</title>
 
+<<<<<<< HEAD
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/resources/bootstrap/css/bootstrap.min.css" />
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
 	integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
 	crossorigin="anonymous">
+=======
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/bootstrap/css/bootstrap.css" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+>>>>>>> refs/remotes/origin/Henrique
 
 
 <style type="text/css">
@@ -99,6 +104,7 @@
 </head>
 <body>
 
+<<<<<<< HEAD
 	<script type="text/javascript"
 		src="<%=request.getContextPath()%>/resources/bootstrap/js/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript"
@@ -108,6 +114,13 @@
 	<script type="text/javascript"
 		src="<%=request.getContextPath()%>/resources/bootstrap/js/facebook.js"></script>
 
+=======
+	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/jquery.validate.min.js"></script>
+	
+	
+>>>>>>> refs/remotes/origin/Henrique
 	<script>
 	
 	//VALIDAÇÃO COM JQUERY VALIDATE -----------------------------------------------------------------------
@@ -145,6 +158,7 @@
 	</center>
 
 
+<<<<<<< HEAD
 	<div class="modal fade" id="modal-mensagem" tabindex="-1">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -193,6 +207,49 @@
 					</p>
 
 				</div>
+=======
+ <div class="modal fade" id="modal-mensagem" tabindex="-1">
+    <div class="modal-dialog">
+         <div class="modal-content">
+              <div class="login-form">
+              	<form action="loginCheck" method="post" name="formLogin" id="formLogin">
+        			
+        			<h2 class="text-center">Entrar</h2>   
+        			
+        		   <div class="form-group">
+        				<div class="input-group">
+                			<span class="input-group-addon"><i class="fa fa-user"></i></span>
+                			<input type="email" class="form-control" name="email" id="email" class="required" placeholder="Email">				
+            			</div>            			
+        		   </div>
+				   
+				   
+				   <div class="form-group">
+            			<div class="input-group">
+                			<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                			<input type="password" class="form-control" name="senha" id="senha" class="required" placeholder="Senha">				
+            			</div>
+        		  </div>
+        		          
+        		  
+        		  <div class="form-group">
+            			<button type="submit" class="btn btn-primary login-btn btn-block">Login</button>
+        		  </div>
+       
+        		  
+        		  <p class="text-center">Entrar com redes sociais</p>
+        		  
+        		  
+        		  <div class="text-center social-btn">
+            			<a href="#" class="btn btn-primary"><i class="fab fa-facebook-square"></i>&nbsp; Facebook</a>
+						<a href="#" class="btn btn-danger"><i class="fab fa-google-plus-g"></i>&nbsp; Google</a>
+        		  </div>
+        		  
+    			</form>
+    
+    			<p class="text-center text-muted small">Você não tem uma conta? <a href="cadastro">Cadastre-se aqui!</a></p>
+			
+>>>>>>> refs/remotes/origin/Henrique
 			</div>
 		</div>
 	</div>
