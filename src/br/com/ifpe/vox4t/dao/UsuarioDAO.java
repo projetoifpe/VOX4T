@@ -10,7 +10,7 @@ import javax.persistence.Query;
 import br.com.ifpe.vox4t.model.Usuario;
 
 /**
- * @Author: rique
+ * @Author: henrique
  */
 
 public class UsuarioDAO {
@@ -27,7 +27,8 @@ public class UsuarioDAO {
 		factory.close();
 	}
 
-public boolean logar(String emailUsuario, String senhaUsuario) {
+
+	public boolean logar(String emailUsuario, String senhaUsuario) {
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
 		EntityManager manager = factory.createEntityManager();
 		Query query = null;
@@ -43,11 +44,12 @@ public boolean logar(String emailUsuario, String senhaUsuario) {
 			System.out.println("Encontrou");
 			return true;
 		} else {
-			System.out.println("Não encontrou");
+			System.out.println("NÃ£o encontrou");
 			return false;
 		}
-	
+		
 	}
+	
 	public Usuario buscarPorEmail(String email) {
 
 		Usuario obj = null;
@@ -65,6 +67,4 @@ public boolean logar(String emailUsuario, String senhaUsuario) {
 		
 		return obj;
 	    }
-
-
 }

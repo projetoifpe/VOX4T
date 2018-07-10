@@ -1,5 +1,6 @@
 package br.com.ifpe.vox4t.controller;
 
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -11,7 +12,7 @@ import br.com.ifpe.vox4t.dao.UsuarioDAO;
 import br.com.ifpe.vox4t.model.Usuario;
 
 /**
- * @Author: rique
+ * @Author: henrique
  */
 
 @Controller
@@ -33,6 +34,8 @@ public class UsuarioController {
 
 		return "usuario/cadastro";
 	}
+	
+	
 	@RequestMapping("/usuario/login")
 	public String loginUsuario() {
 
