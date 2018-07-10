@@ -7,9 +7,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-import org.hibernate.criterion.DetachedCriteria;
-import org.hibernate.criterion.Restrictions;
-
 import br.com.ifpe.vox4t.model.Usuario;
 
 /**
@@ -46,7 +43,7 @@ public boolean logar(String emailUsuario, String senhaUsuario) {
 			System.out.println("Encontrou");
 			return true;
 		} else {
-			System.out.println("NÃ£o encontrou");
+			System.out.println("Não encontrou");
 			return false;
 		}
 	
