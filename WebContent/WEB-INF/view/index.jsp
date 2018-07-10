@@ -99,6 +99,13 @@
 <!-- Fim CABEÇALHO -->
 
 <body>
+ 	
+ 	<!-- Bootstrap core JavaScript -->
+    <script src="<%=request.getContextPath()%>/resources/externo/js/jquery.min.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="<%=request.getContextPath()%>/resources/externo/js/coming-soon.min.js"></script>
 
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.min.js"></script>
@@ -213,12 +220,7 @@
 
 
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="<%=request.getContextPath()%>/resources/externo/js/jquery.min.js"></script>
-    <script src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Custom scripts for this template -->
-    <script src="<%=request.getContextPath()%>/resources/externo/js/coming-soon.min.js"></script>
+   
 	
 	<!-- INICIO MODAL LOGIN -->
 	

@@ -33,10 +33,10 @@ $(document).ready(function() {
     	          			email: true,
     	               validators: {
     	                   notEmpty: {
-    	                       message: 'email não informado'
+    	                       message: 'Email não informado'
     	                   },
     	                   emailAddress: {
-    	                       message: 'E-mail inválido'
+    	                       message: 'Insira um email válido'
     	                   }
     	               }
     	           },
@@ -49,7 +49,7 @@ $(document).ready(function() {
     	                   stringLength: {
     	                       min: 6,
     	                       max: 45,
-    	                       message: 'minimo 6 caracteres'
+    	                       message: 'Mínimo 6 caracteres'
     	               }
     	           }
     	           },
@@ -57,12 +57,12 @@ $(document).ready(function() {
     	           confSenha: {
     	              	validators: {
     	                   notEmpty: {
-    	                       message: 'confirme sua senha'
+    	                       message: 'Confirme sua senha'
     	                   },
     	                   stringLength: {
     	                       min: 6,
     	                       max: 45,
-    	                       message: 'minimo 6 caracteres'
+    	                       message: 'Mínimo 6 caracteres'
     	               
     	           }
     	           	}
@@ -72,7 +72,7 @@ $(document).ready(function() {
     	           sexo: {
     	       	   	validators: {
     	                   notEmpty: {
-    	                       message: 'genero não informado'
+    	                       message: 'Gênero não informado'
     	                   },
     	                        }
     	           },
@@ -83,7 +83,7 @@ $(document).ready(function() {
     	                   },
     	                   stringLength: {
     	                       max: 100,
-    	                       message: 'maximo 100 caracteres'
+    	                       message: 'Minimo 6 caracteres'
     	                   }
     	               }
     	           },
@@ -95,7 +95,7 @@ $(document).ready(function() {
     	                   stringLength: {
     	                       max: 10,
     	                       min: 10,
-    	                       message: 'Data Invalida'
+    	                       message: 'Data Inválida'
     	                   }
     	               }
     	        
