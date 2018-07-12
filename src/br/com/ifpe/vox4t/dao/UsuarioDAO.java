@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
@@ -49,6 +50,7 @@ public class UsuarioDAO {
 		}
 	
 	}
+	
 	public Usuario buscarPorEmail(String email) {
 
 		Usuario obj = null;
@@ -59,12 +61,17 @@ public class UsuarioDAO {
 		query = manager.createQuery("FROM Usuario WHERE email = :paramEmail");
 		query.setParameter("paramEmail", email);
 		
-		obj = (Usuario) query.getSingleResult();
+		try {
+			obj = (Usuario) query.getSingleResult();
+		}catch(NoResultException nre) {
+			return null;
+		}
 		
 		manager.close();
 		factory.close();
 		
 		return obj;
-	    }
+	    
+	}
 
 }
