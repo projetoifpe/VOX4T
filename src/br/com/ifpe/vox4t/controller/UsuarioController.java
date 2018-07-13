@@ -42,7 +42,7 @@ public class UsuarioController {
 
 		return "usuario/loginModal";
 	}
-
+	
 	@RequestMapping("loginCheck")
 	public String loginCheck(@RequestParam("email") String emailUsuario,@RequestParam("senha") String senhaUsuario, Model attr, HttpSession session) {
 		

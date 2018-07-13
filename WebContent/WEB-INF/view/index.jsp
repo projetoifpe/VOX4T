@@ -3,6 +3,37 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<div id="fb-root"></div>
+<script>
+(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = 'https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v3.0&appId=1924110817611014&autoLogAppEvents=1';
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+
+
+//FUNÇÃO CHAMADA ASSIM QUE EXECUTA O PROCESSO DE LOGIN	
+function checkLoginState() {
+	FB.getLoginStatus(function(response) {
+		var token = response.authResponse.accessToken;
+		   //console.log(token);
+		   ExibeDados(token);
+		});
+}
+
+//FUNÇÃO CHAMADA PARA EXIBIR OS DADOS DO USUÁRIO LOGADO	
+function ExibeDados(token){
+	
+	FB.api(
+		'/me?fields=name,email,gender,birthday',
+		function(response) {
+			console.log(response);
+		}
+		);
+}
+</script>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -99,7 +130,6 @@
 <!-- Fim CABEÇALHO -->
 
 <body>
-
  	
  	<!-- Bootstrap core JavaScript -->
     <script src="<%=request.getContextPath()%>/resources/externo/js/jquery.min.js"></script>
@@ -231,8 +261,10 @@
         		  
         		  
         		  <div class="text-center social-btn">
-            			<a href="#" class="btn btn-primary"><i class="fab fa-facebook-square"></i>&nbsp; Facebook</a>
+
 						<a href="#" class="btn btn-danger"><i class="fab fa-google-plus-g"></i>&nbsp; Google</a>
+						<br> <br> 
+								<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="true" data-auto-logout-link="true" data-use-continue-as="true" scope="public_profile"  onlogin="checkLoginState();"></div>
         		  </div>
         		  
     			</form>
@@ -245,5 +277,7 @@
  </div>
  
  <!-- FIM MODAL LOGIN -->
+	
+	
 </body>
 </html>
