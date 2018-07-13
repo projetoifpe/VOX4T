@@ -37,7 +37,7 @@ $('#cadastroForm').validate({
 		},
 		
 		dataNascimento:{
-			required:true
+			
 		}
 			
 	},
@@ -65,8 +65,7 @@ $('#cadastroForm').validate({
 		},
 		
 		dataNascimento:{
-			required:"Digite a data",
-			date:"Digite uma data válida"
+			required:"Digite a data"
 		},
 		
 		genero:{
@@ -87,8 +86,15 @@ $('#cadastroForm').validate({
 //Máscara da data//
 
 $(document).ready(function(){
-	$('.date').mask('00/00/0000');
- });
+	/*$('.date').mask('00/00/0000',{
+		alias:"dd/MM/yyyy",
+		placeholder: "__/__/___"
+	});*/
+	
+	$('#dataNascimento').inputmask("99/99/9999");
+
+	
+});
 
 /**************************************************************************************************************/
 

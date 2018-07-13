@@ -10,6 +10,7 @@
 
 <meta charset="utf-8">
  
+ 
 <!-- Import do jQuery 3.3.1 -->
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/jquery-3.3.1.min.js"></script>
 
@@ -17,7 +18,7 @@
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/jquery.validate.min.js"></script>
 
 <!-- Import da máscara -->
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/jquery.mask.min.js"></script>
+<script type="text/javascript" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/jquery.inputmask.bundle.js"></script>
 
 <!-- Import de uma lista de funções personalizadas em JS -->
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/functions.js" charset="utf-8"></script>
@@ -114,7 +115,7 @@
                 <div class="form-group">
                     <label for="date" class="col-sm-3 control-label">Data de Nascimento</label>
                     <div class="col-md-6">
-                         <input type="text" name="dataNascimento" maxlength="10" id="dataNascimento" class="form-control date" style="width: 420px;" placeholder="Data de nascimento" required>
+                         <input type="text" name="dataNascimento" maxlength="10" id="dataNascimento" class="form-control" style="width: 420px;" placeholder="Data de nascimento" required>
                     </div>
                 </div>
                 
