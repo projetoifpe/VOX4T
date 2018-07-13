@@ -32,7 +32,7 @@ public class UsuarioController {
 		dao.salvar(usuario);
 
 		attr.addAttribute("msgSucesso", "Usuario adcionado com sucesso."); // Envia string msg para o html.
-
+		dao.fecharConexao();
 		return "usuario/cadastro";
 	}
 	
@@ -97,7 +97,7 @@ public class UsuarioController {
 	public String emailDisponivel(@RequestParam("email") String email, UsuarioDAO user) {
 		
 		Boolean disponivel = user.buscarPorEmail(email) == null;
-		
+		user.fecharConexao();
 		return disponivel.toString();
 	}
 
