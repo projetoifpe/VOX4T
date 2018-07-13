@@ -75,11 +75,9 @@ public class UsuarioDAO {
 		factory.close();
 		
 		return obj;
-<<<<<<< HEAD
+
 	    }
-=======
-	    
-	}
+
 	//ESTE METODO VAI PRA CLASSE TWITTER FUTURAMENTE
 	public List<Status> testeTwitter() throws TwitterException {
 		
@@ -101,5 +99,5 @@ public class UsuarioDAO {
 		return status;
 	}
 
->>>>>>> refs/remotes/origin/Henrique
+
 }
