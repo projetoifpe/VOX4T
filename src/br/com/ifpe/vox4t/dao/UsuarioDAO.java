@@ -19,31 +19,37 @@ import twitter4j.conf.ConfigurationBuilder;
  */
 
 public class UsuarioDAO {
-
+	
+	private EntityManagerFactory factory = null;
+	private EntityManager manager = null;
 	private static final String PERSISTENCE_UNIT = "vox4t";
+	
+	public UsuarioDAO(){
+		 this.factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
+		 this.manager = this.factory.createEntityManager();
+	}
+
 
 	public void salvar(Usuario usuario) {
-		EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
-		EntityManager manager = factory.createEntityManager();
-		manager.getTransaction().begin();
-		manager.persist(usuario);
-		manager.getTransaction().commit();
-		manager.close();
-		factory.close();
+		
+	   
+		this.manager.getTransaction().begin();
+		this.manager.persist(usuario);
+		this.manager.getTransaction().commit();
+		
+		
 	}
 
 
 	public boolean logar(String emailUsuario, String senhaUsuario) {
-		EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
-		EntityManager manager = factory.createEntityManager();
+		
 		Query query = null;
 		query = manager.createQuery("FROM Usuario WHERE email = :paramEmail AND senha = :paramSenha");
 		query.setParameter("paramEmail", emailUsuario);
 		query.setParameter("paramSenha", senhaUsuario);
 		@SuppressWarnings("unchecked")
 		List<Usuario> lista = query.getResultList();
-		manager.close();
-		factory.close();
+		
 		
 		if (lista.size() > 0) {
 			System.out.println("Encontrou");
@@ -59,8 +65,7 @@ public class UsuarioDAO {
 
 		Usuario obj = null;
 
-		EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
-		EntityManager manager = factory.createEntityManager();
+		
 		Query query = null;
 		query = manager.createQuery("FROM Usuario WHERE email = :paramEmail");
 		query.setParameter("paramEmail", email);
@@ -70,9 +75,6 @@ public class UsuarioDAO {
 		}catch(NoResultException nre) {
 			return null;
 		}
-		
-		manager.close();
-		factory.close();
 		
 		return obj;
 
@@ -97,6 +99,11 @@ public class UsuarioDAO {
 		List<Status> status = twitter.getUserTimeline("@jctransito");
 		
 		return status;
+	}
+	
+	public void fecharConexao() {
+		this.manager.close();
+		this.factory.close();
 	}
 
 

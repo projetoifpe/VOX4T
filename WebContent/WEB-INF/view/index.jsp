@@ -23,15 +23,22 @@ function checkLoginState() {
 		});
 }
 
-//FUNÇÃO CHAMADA PARA EXIBIR OS DADOS DO USUÁRIO LOGADO	
+//FUNÇÃO CHAMADA APÓS A AUTENTICAÇÃO COM O FACEBOOK - RETORNA OS DADOS DO USUÁRIO LOGADO	
 function ExibeDados(token){
 	
-	FB.api(
-		'/me?fields=name,email,gender,birthday',
-		function(response) {
-			console.log(response);
-		}
-		);
+	FB.api('/me?fields=name,email,gender,birthday',function(response) {
+		
+		//Acessa o controller que recebe os dados do usuário e ativa a sessão do usuário
+		$.post("https://localhost:8443/VOX4T/usuario/facebook?nome="+response.name+"&email="+response.email, function(data){
+			if(data == "true"){
+				//Url para a tela inicial
+				window.location.href = "/VOX4T/usuario/logadoFacebook";
+			}
+		});
+		
+		
+		
+		});
 }
 </script>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -190,7 +197,7 @@ function ExibeDados(token){
 
 
                 </ul>
-
+<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with"  data-auto-logout-link="true" data-use-continue-as="true"   onlogin="checkLoginState();"></div>
                     <a href="<%=request.getContextPath()%>/usuario/cadastro" class="btn btn-outline-success my-2 my-sm-0" style="margin-right: 6px">Cadastre-se</a>
                     <button class="btn btn-outline-success my-2 my-sm-0" data-toggle="modal" data-target="#modal-mensagem">Login</button>
 

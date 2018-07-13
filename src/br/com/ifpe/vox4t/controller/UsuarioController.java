@@ -37,10 +37,34 @@ public class UsuarioController {
 	}
 	
 	
-	@RequestMapping("/usuario/login")
-	public String loginUsuario() {
+	@RequestMapping("/usuario/facebook")
+	@ResponseBody
+	public String loginUsuario(@RequestParam("nome") String nome,@RequestParam("email") String email,HttpSession session) {
+		Boolean retorno = false;
+		Usuario usuarioFacebook = new Usuario();
+		usuarioFacebook.setNome(nome);
+		usuarioFacebook.setEmail(email);
+		UsuarioDAO dao = new UsuarioDAO();
 
-		return "usuario/loginModal";
+		if(dao.buscarPorEmail(email) == null) {
+			
+			dao.salvar(usuarioFacebook);
+			session.setAttribute("usuarioLogado", usuarioFacebook);
+			retorno = true;
+		}else {
+			session.setAttribute("usuarioLogado", usuarioFacebook);
+			retorno = true;
+		}
+		
+		dao.fecharConexao();
+		
+		return retorno.toString();
+	}
+	
+	@RequestMapping("/usuario/logadoFacebook")
+	public String logadoFacebook() {
+
+		return "logado";
 	}
 	
 	@RequestMapping("loginCheck")
@@ -55,12 +79,17 @@ public class UsuarioController {
 			attr.addAttribute("msg", "Usuario Logado com sucesso."); // Envia string msg para o html.
 			Usuario usuario = dao.buscarPorEmail(emailUsuario);
 			session.setAttribute("usuarioLogado", usuario);
+			dao.fecharConexao();
 			return "logado";
 		}
 		else {
+			dao.fecharConexao();
 			attr.addAttribute("msg", "Usuario ou senha incorretos."); // Envia string msg para o html.
 			return "logado";
 		}
+		
+		
+		
 	}
 	
 	@RequestMapping("/usuario/disponivel")
