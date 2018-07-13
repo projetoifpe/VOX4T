@@ -197,7 +197,7 @@ function ExibeDados(token){
 
 
                 </ul>
-<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with"  data-auto-logout-link="true" data-use-continue-as="true"   onlogin="checkLoginState();"></div>
+
                     <a href="<%=request.getContextPath()%>/usuario/cadastro" class="btn btn-outline-success my-2 my-sm-0" style="margin-right: 6px">Cadastre-se</a>
                     <button class="btn btn-outline-success my-2 my-sm-0" data-toggle="modal" data-target="#modal-mensagem">Login</button>
 
