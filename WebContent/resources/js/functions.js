@@ -8,6 +8,7 @@ $(document).ready(function(){
 
 $('#cadastroForm').validate({
 	
+	
 	rules:{
 		nome:{
 			required:true
