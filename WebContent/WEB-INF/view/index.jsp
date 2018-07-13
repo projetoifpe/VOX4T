@@ -147,7 +147,7 @@
 	    <div class="overlay">
 
         <nav class="navbar navbar-expand-lg navbar-light bg-dark" style="background-color: ;">
-            <a class="navbar-brand text-success" href="#">VOX4T</a>
+            <a class="navbar-brand text-success" href="<%=request.getContextPath()%>/home">VOX4T</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -196,33 +196,6 @@
 
 -->
 
-
-
-
-    <div class="social-icons">
-        <ul class="list-unstyled text-center mb-0">
-            <li class="list-unstyled-item">
-                <a href="#">
-            <i class="fa fa-twitter"></i>
-          </a>
-            </li>
-            <li class="list-unstyled-item">
-                <a href="#">
-            <i class="fa fa-facebook"></i>
-          </a>
-            </li>
-            <li class="list-unstyled-item">
-                <a href="#">
-            <i class="fa fa-google"></i>
-          </a>
-            </li>
-        </ul>
-    </div>
-
-
-
-   
-	
 	<!-- INICIO MODAL LOGIN -->
 	
 	<div class="modal fade" id="modal-mensagem" tabindex="-1">
