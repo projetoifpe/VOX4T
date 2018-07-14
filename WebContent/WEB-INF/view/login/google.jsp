@@ -6,29 +6,29 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
   <script src="https://apis.google.com/js/api:client.js"></script>
   <script>
-  var googleUser = {};
-  var startApp = function() {
-    gapi.load('auth2', function(){
-      // Retrieve the singleton for the GoogleAuth library and set up the client.
-      auth2 = gapi.auth2.init({
-        client_id: '686903218226-p5t42arftgs3onms88c2pvhj4j5tlvfb.apps.googleusercontent.com',
-        cookiepolicy: 'single_host_origin',
-        // Request scopes in addition to 'profile' and 'email'
-        //scope: 'additional_scope'
-      });
-      attachSignin(document.getElementById('customBtn'));
-    });
-  };
-
-  function attachSignin(element) {
-    console.log(element.id);
-    auth2.attachClickHandler(element, {},
-        function(googleUser) {
-          document.getElementById('googleName').value = googleUser.getBasicProfile().getName();
-        }, function(error) {
-          alert(JSON.stringify(error, undefined, 2));
-        });
-  }
+	  var googleUser = {};
+	  var startApp = function() {
+	    gapi.load('auth2', function(){
+	      // Retrieve the singleton for the GoogleAuth library and set up the client.
+	      auth2 = gapi.auth2.init({
+	        client_id: '686903218226-p5t42arftgs3onms88c2pvhj4j5tlvfb.apps.googleusercontent.com',
+	        cookiepolicy: 'single_host_origin',
+	        // Request scopes in addition to 'profile' and 'email'
+	        //scope: 'additional_scope'
+	      });
+	      attachSignin(document.getElementById('customBtn'));
+	    });
+	  };
+	
+	  function attachSignin(element) {
+	    console.log(element.id);
+	    auth2.attachClickHandler(element, {},
+	        function(googleUser) {
+	          document.getElementById('googleName').value = googleUser.getBasicProfile().getName();
+	        }, function(error) {
+	          alert(JSON.stringify(error, undefined, 2));
+	        });
+	  }
   
   
   </script>

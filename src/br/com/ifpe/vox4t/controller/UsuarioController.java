@@ -61,11 +61,42 @@ public class UsuarioController {
 		return retorno.toString();
 	}
 	
+	@RequestMapping("/usuario/google")
+	@ResponseBody
+	public String loginGoogle(@RequestParam("nome") String nome,@RequestParam("email") String email,HttpSession session) {
+		Boolean retorno = false;
+		Usuario usuarioGoogle = new Usuario();
+		usuarioGoogle.setNome(nome);
+		usuarioGoogle.setEmail(email);
+		UsuarioDAO dao = new UsuarioDAO();
+
+		if(dao.buscarPorEmail(email) == null) {
+			
+			dao.salvar(usuarioGoogle);
+			session.setAttribute("usuarioLogado", usuarioGoogle);
+			retorno = true;
+		}else {
+			session.setAttribute("usuarioLogado", usuarioGoogle);
+			retorno = true;
+		}
+		
+		dao.fecharConexao();
+		
+		return retorno.toString();
+	}
+	
 	@RequestMapping("/usuario/logadoFacebook")
 	public String logadoFacebook() {
 
 		return "logado";
 	}
+	
+	@RequestMapping("/usuario/logadoGoogle")
+	public String logadoGoogle() {
+
+		return "logado";
+	}
+	
 	
 	@RequestMapping("loginCheck")
 	public String loginCheck(@RequestParam("email") String emailUsuario,@RequestParam("senha") String senhaUsuario, Model attr, HttpSession session) {

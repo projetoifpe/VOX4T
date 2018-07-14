@@ -3,6 +3,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
+<!-- LOGIN API GOOGLE -->
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<meta name="google-signin-client_id" content="686903218226-p5t42arftgs3onms88c2pvhj4j5tlvfb.apps.googleusercontent.com">
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/google.js"></script>
+
 <div id="fb-root"></div>
 <script>
 (function(d, s, id) {
@@ -47,11 +53,15 @@ function ExibeDados(token){
     <meta name="author" content="">
 
     <title>Index</title>
-
+	
+	<!-- FONTE ROBOTO -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+	
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/bootstrap/css/bootstrap.min.css" />
    	
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+   
     <!-- Custom fonts for this template -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
@@ -59,9 +69,23 @@ function ExibeDados(token){
 
     <!-- Custom styles for this template -->
     <link href="<%=request.getContextPath()%>/resources/externo/css/coming-soon.css" rel="stylesheet">
+    
+    <!-- CSS do botão do Google -->
+	<link   rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/style/google.css" />
+	
+	 <!-- Bootstrap core JavaScript -->
+    <script src="<%=request.getContextPath()%>/resources/externo/js/jquery.min.js"></script>    
+    <script src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+    <!-- Custom scripts for this template -->
+    <script src="<%=request.getContextPath()%>/resources/externo/js/coming-soon.min.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/jquery.validate.min.js"></script>
+	
 	
 	<!-- CSS DO MODAL DO LOGIN -->
-<style type="text/css">
+	<style type="text/css">
 	.login-form {
 		width: 300px;
 		margin: 30px auto;
@@ -138,18 +162,9 @@ function ExibeDados(token){
 
 <body>
  	
- 	<!-- Bootstrap core JavaScript -->
-    <script src="<%=request.getContextPath()%>/resources/externo/js/jquery.min.js"></script>
-    <script src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Custom scripts for this template -->
-    <script src="<%=request.getContextPath()%>/resources/externo/js/coming-soon.min.js"></script>
 
-	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/jquery-3.3.1.min.js"></script>
-	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/jquery.validate.min.js"></script>
-	
-	
+		
 	<script>
 	
 	//VALIDAÇÃO COM JQUERY VALIDATE -----------------------------------------------------------------------
@@ -268,10 +283,19 @@ function ExibeDados(token){
         		  
         		  
         		  <div class="text-center social-btn">
-
-						<a href="#" class="btn btn-danger"><i class="fab fa-google-plus-g"></i>&nbsp; Google</a>
-						<br> <br> 
-								<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with"  scope="public_profile"  onlogin="checkLoginState();"></div>
+						
+						<!-- BOTÃO LOGIN GOOGLE -->
+						<div id="gSignInWrapper">
+						    <div id="customBtn" class="customGPlusSignIn">
+						      <span class="icon"></span>
+						      <span class="buttonText">Entrar com o Google</span>
+						    </div>
+					  	</div>
+					  	<script>startApp();</script>
+						<br> 
+						
+						<!-- BOTÃO LOGIN FACEBOOK -->
+						<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with"  scope="public_profile"  onlogin="checkLoginState();"></div>
         		  </div>
         		  
     			</form>
@@ -284,7 +308,6 @@ function ExibeDados(token){
  </div>
  
  <!-- FIM MODAL LOGIN -->
-	
 	
 </body>
 </html>
