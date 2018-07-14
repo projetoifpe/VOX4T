@@ -6,7 +6,7 @@
 <head>
 
 <!-- LOGIN API GOOGLE -->
-<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script src="https://apis.google.com/js/platform.js"></script>
 <meta name="google-signin-client_id" content="686903218226-p5t42arftgs3onms88c2pvhj4j5tlvfb.apps.googleusercontent.com">
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/google.js"></script>
 
