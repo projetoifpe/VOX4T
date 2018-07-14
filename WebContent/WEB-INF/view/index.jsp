@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -72,17 +73,6 @@ function ExibeDados(token){
     
     <!-- CSS do botão do Google -->
 	<link   rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/style/google.css" />
-	
-	 <!-- Bootstrap core JavaScript -->
-    <script src="<%=request.getContextPath()%>/resources/externo/js/jquery.min.js"></script>    
-    <script src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-
-    <!-- Custom scripts for this template -->
-    <script src="<%=request.getContextPath()%>/resources/externo/js/coming-soon.min.js"></script>
-	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/jquery.validate.min.js"></script>
-	
 	
 	<!-- CSS DO MODAL DO LOGIN -->
 	<style type="text/css">
@@ -162,6 +152,16 @@ function ExibeDados(token){
 
 <body>
  	
+ 	<!-- Bootstrap core JavaScript -->
+    <script src="<%=request.getContextPath()%>/resources/externo/js/jquery.min.js"></script>    
+    <script src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+    <!-- Custom scripts for this template -->
+    <script src="<%=request.getContextPath()%>/resources/externo/js/coming-soon.min.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/jquery.validate.min.js"></script>
+	
 
 
 		
@@ -291,7 +291,7 @@ function ExibeDados(token){
 						      <span class="buttonText">Entrar com o Google</span>
 						    </div>
 					  	</div>
-					  	<script>startApp();</script>
+         					<script>startApp();</script>		  	
 						<br> 
 						
 						<!-- BOTÃO LOGIN FACEBOOK -->
