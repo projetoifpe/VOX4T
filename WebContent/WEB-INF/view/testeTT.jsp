@@ -8,9 +8,9 @@
 <title>TesteTwitter</title>
 </head>
 <body>
-	<c:forEach var="twitter" items="${listaTweets}">
-		<h4>${twitter.user.name}</h4><br>
-		<h6>${twitter.text}</h6>
+	<c:forEach var="twitter" items="${publicacao}">
+		<h4>${canal}</h4>
+		<h6>${twitter}</h6>
 		<br>
 		<br>
 	</c:forEach>
