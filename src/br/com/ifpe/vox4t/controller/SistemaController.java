@@ -1,6 +1,7 @@
 package br.com.ifpe.vox4t.controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -34,23 +35,23 @@ public class SistemaController {
 		System.out.println(nome);
 		
 		for(Status a: listaTweets){
-			if((!String.valueOf(a.getText().charAt(0)).equals("R") && !String.valueOf(a.getText().charAt(1)).equals("T"))){
-				if(!String.valueOf(a.getText().charAt(0)).equals("@")) {
-					
+			if((!String.valueOf(a.getText().charAt(0)).equals("R") && !String.valueOf(a.getText().charAt(1)).equals("T"))){	
 					String tt = a.getText();
+					String data = a.getCreatedAt().getHours() + ":" + a.getCreatedAt().getMinutes() + ":" + a.getCreatedAt().getSeconds();				System.out.println(data);
+					
+					System.out.println(data);
 					
 					try {
-						String ntt = tt.substring(0, tt.indexOf("goo.gl"));
+						String ntt = tt.substring(0, tt.indexOf("https"));
 						publicacoes.add(ntt);
 					}catch(Exception e) {
 						try {
-							String ntt = tt.substring(0, tt.indexOf("https"));
+							String ntt = tt.substring(0, tt.indexOf("goo.gl"));
 							publicacoes.add(ntt);
 						}catch(Exception e2) {
 							publicacoes.add(a.getText());
 						}
 					}
-				} 
 			}
 		}
 		
