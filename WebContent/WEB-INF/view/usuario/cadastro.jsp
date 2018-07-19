@@ -70,7 +70,9 @@
     <br>
     	
 		<div class="container">
-            
+             <div>
+			<p style="color: red; margin-left: 230px;">${msgSucesso}</p>
+		</div>
             <form id="cadastroForm" class="form-horizontal" method="post" action="save">
                 
                 <div class="form-group">
@@ -150,9 +152,7 @@
             </form> 
         </div>
         
-        <div>
-			<p style="color: red; margin-left: 230px;">${msgSucesso}</p>
-		</div>
+       
 	
 </body>
 

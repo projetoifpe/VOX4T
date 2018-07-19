@@ -1,14 +1,13 @@
 package br.com.ifpe.vox4t.controller;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import br.com.ifpe.vox4t.dao.UsuarioDAO;
+import br.com.ifpe.vox4t.dao.TwitterDAO;
 import twitter4j.Status;
 import twitter4j.TwitterException;
 
@@ -24,23 +23,20 @@ public class SistemaController {
 		return "index";
 	}
 	
-	@RequestMapping("testeTwitter")
+	@RequestMapping("exibicao")
 	public String testeTwitter(Model model) throws TwitterException {
-		UsuarioDAO user = new UsuarioDAO();
+		TwitterDAO user = new TwitterDAO();
 		
-		List<Status> listaTweets = user.testeTwitter();
+		List<Status> listaTweets = user.coletaTweets();
 		List<String> publicacoes = new ArrayList<>();
 		
 		String nome = listaTweets.get(0).getUser().getName();
-		System.out.println(nome);
 		
 		for(Status a: listaTweets){
 			if((!String.valueOf(a.getText().charAt(0)).equals("R") && !String.valueOf(a.getText().charAt(1)).equals("T"))){	
 					String tt = a.getText();
 					String data = a.getCreatedAt().getHours() + ":" + a.getCreatedAt().getMinutes() + ":" + a.getCreatedAt().getSeconds();				System.out.println(data);
-					
-					System.out.println(data);
-					
+									
 					try {
 						String ntt = tt.substring(0, tt.indexOf("https"));
 						publicacoes.add(ntt);
@@ -57,8 +53,7 @@ public class SistemaController {
 		
 		model.addAttribute("canal", nome);
 		model.addAttribute("publicacao", publicacoes);
-		System.out.println(publicacoes.get(0));
-		return "testeTT";
+		return "exibicao";
 	}
 
 	@RequestMapping("/login/google")
