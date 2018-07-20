@@ -2,6 +2,7 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+
 <!DOCTYPE html>
 <html lang="br">
 
@@ -87,8 +88,8 @@
                             <form action="">
 
                                 <input type="checkbox" name="categoria" value="Esporte">Esporte<br>
-                                <input type="checkbox" name="categoria" value="Noticias">NotÌcias<br>
-                                <input type="checkbox" name="categoria" value="Transito">Tr‚nsito<br>
+                                <input type="checkbox" name="categoria" value="Noticias">Not√≠cias<br>
+                                <input type="checkbox" name="categoria" value="Transito">Tr√¢nsito<br>
                                 <input type="checkbox" name="categoria" value="Famosos">Famosos<br>
 
                             </form>
