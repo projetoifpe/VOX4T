@@ -18,11 +18,6 @@ import twitter4j.TwitterException;
 @Controller
 public class SistemaController {
 	
-	@RequestMapping("home")
-	public String index() {
-		return "index";
-	}
-	
 	@RequestMapping("exibicao")
 	public String testeTwitter(Model model) throws TwitterException {
 		TwitterDAO user = new TwitterDAO();
