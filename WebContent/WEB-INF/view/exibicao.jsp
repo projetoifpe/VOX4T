@@ -20,7 +20,6 @@
 	
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/bootstrap/css/bootstrap.min.css" />
-     <link href="<%=request.getContextPath()%>/resources/bootstrap/css/bootstrap.css" rel="stylesheet">
     <!-- Custom fonts for this template -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
@@ -28,10 +27,9 @@
 
     <!-- Custom styles for this template -->
     <link href="<%=request.getContextPath()%>/resources/externo/css/coming-soon.css" rel="stylesheet">
-    
 </head>
 
-<body style="overflow:hidden;">
+<body style="overflow-y: hidden;overflow-x: hidden;">
 
 <!-- Bootstrap core JavaScript -->
 	<script src="<%=request.getContextPath()%>/resources/externo/js/jquery.min.js"></script>    
@@ -40,12 +38,12 @@
 	<script src="<%=request.getContextPath()%>/resources/externo/js/coming-soon.min.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/jquery.validate.min.js"></script>
-	
+
 
     <div class="overlay">
-
+<!-- NAV BAR -->
         <nav class="navbar navbar-expand-lg navbar-light bg-dark" style="background-color: ;">
-            <a class="navbar-brand text-success" href="#">VOX4T</a>
+            <a class="navbar-brand text-success" href="<%=request.getContextPath()%>/home">VOX4T</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -58,10 +56,10 @@
 
 
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="margin-right: 6px">Cadastre-se</button>
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
-                </form>
+
+                    <a href="<%=request.getContextPath()%>/usuario/cadastro" class="btn btn-outline-success my-2 my-sm-0" style="margin-right: 6px">Cadastre-se</a>
+                    <button class="btn btn-outline-success my-2 my-sm-0" data-toggle="modal" data-target="#modal-mensagem">Login</button>
+
             </div>
         </nav>
 
@@ -89,8 +87,8 @@
                             <form action="">
 
                                 <input type="checkbox" name="categoria" value="Esporte">Esporte<br>
-                                <input type="checkbox" name="categoria" value="Noticias">Not√≠cias<br>
-                                <input type="checkbox" name="categoria" value="Transito">Tr√¢nsito<br>
+                                <input type="checkbox" name="categoria" value="Noticias">NotÌcias<br>
+                                <input type="checkbox" name="categoria" value="Transito">Tr‚nsito<br>
                                 <input type="checkbox" name="categoria" value="Famosos">Famosos<br>
 
                             </form>
@@ -98,12 +96,12 @@
 
                     </div>
                 </div>
+<!-- DIV DO MEIO -->
+                <div class="col-md-8">
 
-                <div class="col-md-8" style="overflow-y: auto">
+                    <div class ="card"  style="width: 12 rem;height: 100%; margin-top: 8%;">
 
-                    <div class="card " style="width: 12 rem;height: 100%; margin-top: 8%; overf">
-
-                        <div class="card-body">
+                        <div class="card-body" style="overflow-y: scroll;">
                         
                         <c:forEach var="twitter" items="${publicacao}">
                         
@@ -150,7 +148,7 @@
                 </div>
 
             </div>
-
+	</div>
             
 </body>
 

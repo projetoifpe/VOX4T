@@ -35,7 +35,7 @@ public class SistemaController {
 		for(Status a: listaTweets){
 			if((!String.valueOf(a.getText().charAt(0)).equals("R") && !String.valueOf(a.getText().charAt(1)).equals("T"))){	
 					String tt = a.getText();
-					String data = a.getCreatedAt().getHours() + ":" + a.getCreatedAt().getMinutes() + ":" + a.getCreatedAt().getSeconds();				System.out.println(data);
+					String data = a.getCreatedAt().getHours() + ":" + a.getCreatedAt().getMinutes() + ":" + a.getCreatedAt().getSeconds();
 									
 					try {
 						String ntt = tt.substring(0, tt.indexOf("https"));
