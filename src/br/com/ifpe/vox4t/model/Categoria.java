@@ -23,9 +23,9 @@ public class Categoria {
 	@Column
 	private String nome;
 	
-	/*@Column(name = "id_administrador")
-	private int id_adm;
-	*/
+	@Column(name = "id_administrador")
+	private int idAdministrador;
+	
 //	-------------------GETTERS AND SETTERS------------------------------------------------------------------------
 	
 	
@@ -42,11 +42,12 @@ public class Categoria {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	/*public int getId_adm() {
-		return id_adm;
+	
+	public int getIdAdministrador() {
+		return idAdministrador;
 	}
-	public void setId_adm(int id_adm) {
-		this.id_adm = id_adm;
-	}*/
+	public void setIdAdministrador(int idAdministrador) {
+		this.idAdministrador = idAdministrador;
+	}
 	
 }
