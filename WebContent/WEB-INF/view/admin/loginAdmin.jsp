@@ -15,6 +15,9 @@
 	form {
 		margin-top: 220px;
 	}
+	 .error{
+             color:red
+       }
 	</style>
 
 </head>
@@ -39,22 +42,24 @@
 	</div>
 	</nav>
 
+	<!-- 
 	<div style="color: red;" align="center">
 		<h3>${msg}</h3>
 	</div>
-
+	 -->
 	<div class="row justify-content-center mb-5">
 		<form action="loginAdminCheck" method="post" id="formLoginAdmin">
 			<div class="form-row mb-2">
 				<div class="col-12">
 					<input type="email" class="form-control" id="email" name="email"
-						placeholder="E-mail">
+						placeholder="E-mail" required>
 				</div>
 			</div>
 			<div class="form-row mb-3">
 				<div class="col-12">
 					<input type="password" class="form-control" id="senha" name="senha"
-						placeholder="Senha">
+						placeholder="Senha" required>
+						<div style="color: red;" align="center">${msg}</div>
 				</div>
 			</div>
 			<div class="form-row ">
@@ -67,7 +72,7 @@
 	<script src="<%=request.getContextPath()%>/resources/bootstrap/js/jquery-3.3.1.min.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/bootstrap/js/jquery.validate.min.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script src="<%=request.getContextPath()%>/resources/js/functions.js"></script>
 	
 </body>
 </html>

@@ -34,8 +34,8 @@ public class AdminController {
 				return "admin/logado";
 			}
 			else {
-				attr.addAttribute("msg", "Não foi encontrado um administrador com o email e senha informados.");
-				return "admin/logado";
+				attr.addAttribute("msg", "E-mail ou senha incorreto(s)");
+				return "admin/loginAdmin";
 			}
 		}
 		

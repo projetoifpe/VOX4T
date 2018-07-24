@@ -113,3 +113,27 @@ $(document).ready(function(){
 });
 
 /**************************************************************************************************************/
+
+
+//Validação login administrador
+
+$("#formLoginAdmin").validate({
+    rules : {
+          email:{
+                 required:true
+          },
+          senha:{
+                 required:true
+          }                                
+    },
+    messages:{
+          email:{
+                 required:"Campo E-mail precisa ser preenchido",
+                 email:"Insira um endereço de e-mail válido."
+          },
+          senha:{
+                 required:"Campo senha precisa ser preenchido"
+          }    
+    }
+});
+
