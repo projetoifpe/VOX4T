@@ -14,7 +14,7 @@
 	<style>
 	form {
 		margin-top: 220px;
-	}
+	} 
 	 .error{
              color:red
        }

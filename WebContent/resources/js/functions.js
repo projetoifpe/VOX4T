@@ -125,7 +125,7 @@ $("#formLoginAdmin").validate({
           senha:{
                  required:true
           }                                
-    },
+    }, 
     messages:{
           email:{
                  required:"Campo E-mail precisa ser preenchido",

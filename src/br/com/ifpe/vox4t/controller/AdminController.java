@@ -38,7 +38,7 @@ public class AdminController {
 				return "admin/loginAdmin";
 			}
 		}
-		
+		 
 		 @RequestMapping("logout")
 	     public String logout(HttpSession session) {
 	         session.invalidate();

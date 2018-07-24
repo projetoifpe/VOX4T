@@ -13,7 +13,7 @@
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/resources/bootstrap/css/bootstrap.min.css" />
 </head>
-<body>
+<body> 
 
          <nav class="navbar navbar-expand-lg navbar-light bg-dark" style="background-color: ;">
          <div class="container">
