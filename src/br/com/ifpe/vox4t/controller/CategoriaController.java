@@ -39,7 +39,7 @@ public class CategoriaController {
 		List<Categoria> lista = dao.listar(null);
 		model.addAttribute("listaCategoria", lista);
 
-		return "categoria/listaCategoria";
+		return "categoria/selecaoCategoria";
 	}
 
 	@RequestMapping("/categoria/edit")
