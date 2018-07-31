@@ -88,8 +88,8 @@
                             <form action="">
 
                                 <input type="checkbox" name="categoria" value="Esporte">Esporte<br>
-                                <input type="checkbox" name="categoria" value="Noticias">Not√≠cias<br>
-                                <input type="checkbox" name="categoria" value="Transito">Tr√¢nsito<br>
+                                <input type="checkbox" name="categoria" value="Noticias">NotÌcias<br>
+                                <input type="checkbox" name="categoria" value="Transito">Tr‚nsito<br>
                                 <input type="checkbox" name="categoria" value="Famosos">Famosos<br>
 
                             </form>
@@ -100,16 +100,18 @@
 <!-- DIV DO MEIO -->
                 <div class="col-md-8">
 
-                    <div class ="card"  style="width: 12 rem;height: 100%; margin-top: 8%;">
+                    <div class ="card"  style="width: 12 rem;height: 100%; width: 900px; position:fixed;">
 
                         <div class="card-body" style="overflow-y: scroll;">
-                        
-                        <c:forEach var="twitter" items="${publicacao}">
-                        
-						<h4 class="card-title">${canal}</h4>
-						<p>${twitter}</p>
-						<br>
+                         <c:forEach var="nome" items="${canais}">
+	                       		<h4 class="card-title">${nome}</h4>
+	                        	<br>
+                        <c:forEach var="twitter" items="${publicacoes}">
+								<p>${twitter}</p>
+								<br>
 						</c:forEach>
+							</c:forEach> 
+							
                         </div>
 
                     </div>

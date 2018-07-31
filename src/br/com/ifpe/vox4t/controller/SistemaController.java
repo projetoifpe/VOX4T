@@ -22,32 +22,32 @@ public class SistemaController {
 	public String testeTwitter(Model model) throws TwitterException {
 		TwitterDAO user = new TwitterDAO();
 		
-		List<Status> listaTweets = user.coletaTweets();
+		List<List<Status>> listaTweets = user.coletaTweets();
 		List<String> publicacoes = new ArrayList<>();
 		
-		String nome = listaTweets.get(0).getUser().getName();
-		
-		for(Status a: listaTweets){
-			if((!String.valueOf(a.getText().charAt(0)).equals("R") && !String.valueOf(a.getText().charAt(1)).equals("T"))){	
-					String tt = a.getText();
-					String data = a.getCreatedAt().getHours() + ":" + a.getCreatedAt().getMinutes() + ":" + a.getCreatedAt().getSeconds();
-									
-					try {
-						String ntt = tt.substring(0, tt.indexOf("https"));
-						publicacoes.add(ntt);
-					}catch(Exception e) {
+		List<String> nomes = new ArrayList<>();
+		for (int i = 0; i < listaTweets.size(); i++) {
+			nomes.add(listaTweets.get(i).get(i).getUser().getName());
+			for(Status a: listaTweets.get(i)){
+				if((!String.valueOf(a.getText().charAt(0)).equals("R") && !String.valueOf(a.getText().charAt(1)).equals("T"))){	
+						String tt = a.getText();									
 						try {
-							String ntt = tt.substring(0, tt.indexOf("goo.gl"));
+							String ntt = tt.substring(0, tt.indexOf("https"));
 							publicacoes.add(ntt);
-						}catch(Exception e2) {
-							publicacoes.add(a.getText());
+						}catch(Exception e) {
+							try {
+								String ntt = tt.substring(0, tt.indexOf("goo.gl"));
+								publicacoes.add(ntt);
+							}catch(Exception e2) {
+								publicacoes.add(a.getText());
+							}
 						}
-					}
+				}
 			}
 		}
 		
-		model.addAttribute("canal", nome);
-		model.addAttribute("publicacao", publicacoes);
+		model.addAttribute("canais", nomes);
+		model.addAttribute("publicacoes", publicacoes);
 		return "exibicao";
 	}
 
