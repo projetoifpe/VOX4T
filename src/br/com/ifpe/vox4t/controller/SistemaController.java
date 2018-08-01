@@ -24,8 +24,9 @@ public class SistemaController {
 		TwitterDAO user = new TwitterDAO();
 		
 		List<List<Status>> listaTweets = user.coletaTweets();
-		List<String> publicacoes = new ArrayList<>();
-		
+		List<List<String>> publicacoes = new ArrayList<>();
+		List<String> lista = new ArrayList<>();
+
 		List<String> nomes = new ArrayList<>();
 		for (int i = 0; i < listaTweets.size(); i++) {
 			nomes.add(listaTweets.get(i).get(0).getUser().getName());
@@ -36,25 +37,30 @@ public class SistemaController {
 					String tt = a.getText();									
 					try {
 						String ntt = tt.substring(0, tt.indexOf("https"));
-						publicacoes.add(ntt);
+						lista.add(ntt);
 					}catch(Exception e) {
 						try {
 							String ntt = tt.substring(0, tt.indexOf("goo.gl"));
-							publicacoes.add(ntt);
+							lista.add(ntt);
 						}catch(Exception e2) {
-							publicacoes.add(a.getText());
+							lista.add(a.getText());
 						}
 					}
 				}	
 					
 				
 			}
+			List<String> lista2 = new ArrayList<>(lista);
+			lista2 = TratamentoPublicacao.converterAbreviacao(lista);
+			publicacoes.add(lista2);
+			lista.clear();
+			
 		}
 		
-		List<String> publiFinal = TratamentoPublicacao.converterAbreviacao(publicacoes);
+		
 		
 		model.addAttribute("canais", nomes);
-		model.addAttribute("publicacoes", publiFinal);
+		model.addAttribute("publicacoes", publicacoes);
 		return "exibicao";
 	}
 

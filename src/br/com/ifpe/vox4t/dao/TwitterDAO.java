@@ -27,7 +27,7 @@ public class TwitterDAO {
 		TwitterFactory tf = new TwitterFactory(cb.build());
 		twitter4j.Twitter twitter = tf.getInstance();
 		List<List<Status>> listaFinal = new ArrayList<List<Status>>();
-		String[] canais = {"@LegiaoDosHerois","@SantosFC","@governope"};
+		String[] canais = {"@LegiaoDosHerois","@SantosFC","@governope","@EPratica2","@hipsterrecifens","@OficialCelpe"};
 		for (String canal : canais) {
 			List<Status> status = twitter.getUserTimeline(canal);
 			listaFinal.add(status);

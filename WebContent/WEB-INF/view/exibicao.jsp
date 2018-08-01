@@ -103,15 +103,14 @@
                     <div class ="card"  style="width: 12 rem;height: 100%; width: 900px; position:fixed;">
 
                         <div class="card-body" style="overflow-y: scroll;">
-                         <c:forEach var="nome" items="${canais}">
-	                       		<h4 class="card-title">${nome}</h4>
-	                        	<br>
-                        <c:forEach var="twitter" items="${publicacoes}">
-								<p>${twitter}</p>
-								<br>
-						</c:forEach>
+	                        <c:forEach var = "i" begin = "0" end = "${publicacoes.size()-1}">
+								<h4 class="card-title">${canais.get(i)}</h4>
+				                <br>
+			                    <c:forEach var="twitter" items="${publicacoes.get(i)}">
+									<p>${twitter}</p>
+									<br>
+								</c:forEach>
 							</c:forEach> 
-							
                         </div>
 
                     </div>
