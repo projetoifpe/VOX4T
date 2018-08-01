@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.ifpe.vox4t.dao.TwitterDAO;
+import br.com.ifpe.vox4t.util.TratamentoPublicacao;
 import twitter4j.Status;
 import twitter4j.TwitterException;
 
@@ -27,27 +28,33 @@ public class SistemaController {
 		
 		List<String> nomes = new ArrayList<>();
 		for (int i = 0; i < listaTweets.size(); i++) {
-			nomes.add(listaTweets.get(i).get(i).getUser().getName());
+			nomes.add(listaTweets.get(i).get(0).getUser().getName());
 			for(Status a: listaTweets.get(i)){
-				if((!String.valueOf(a.getText().charAt(0)).equals("R") && !String.valueOf(a.getText().charAt(1)).equals("T"))){	
-						String tt = a.getText();									
+				if(a.getText().startsWith("RT") || a.getText().startsWith("@")){
+					continue;
+				}else {
+					String tt = a.getText();									
+					try {
+						String ntt = tt.substring(0, tt.indexOf("https"));
+						publicacoes.add(ntt);
+					}catch(Exception e) {
 						try {
-							String ntt = tt.substring(0, tt.indexOf("https"));
+							String ntt = tt.substring(0, tt.indexOf("goo.gl"));
 							publicacoes.add(ntt);
-						}catch(Exception e) {
-							try {
-								String ntt = tt.substring(0, tt.indexOf("goo.gl"));
-								publicacoes.add(ntt);
-							}catch(Exception e2) {
-								publicacoes.add(a.getText());
-							}
+						}catch(Exception e2) {
+							publicacoes.add(a.getText());
 						}
-				}
+					}
+				}	
+					
+				
 			}
 		}
 		
+		List<String> publiFinal = TratamentoPublicacao.converterAbreviacao(publicacoes);
+		
 		model.addAttribute("canais", nomes);
-		model.addAttribute("publicacoes", publicacoes);
+		model.addAttribute("publicacoes", publiFinal);
 		return "exibicao";
 	}
 

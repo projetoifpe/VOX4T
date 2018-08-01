@@ -1,9 +1,12 @@
 package br.com.ifpe.vox4t.util;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TratamentoPublicacao {
 	
 	//MÉTODO PARA CONVERTER UF PARA ESTADO
-	public static String converterEstado(String valor) {
+	private static String converterEst(String valor) {
 		String data = valor;
 
 		switch (valor.toUpperCase()) {
@@ -94,6 +97,45 @@ public class TratamentoPublicacao {
 		return data;
 	}
 	
+	//MÉTODO QUE CONVERTE ABREVIAÇÕES
+	private static String converterAbrev(String valor) {
+		String data = valor;
+
+		switch (valor.toUpperCase()) {
+
+		case "R.":
+			data = "rua";
+			break;
+		case "AV":
+			data = "avenida";
+			break;
+		case "AV.":
+			data = "avenida";
+			break;
+		}
+		return data;
+	}
+	
+	//METODO QUE EXECUTA A CONVERSÃO PARA A ABREVIACAO
+	public static List<String> converterAbreviacao(List<String> publi) {
+		
+		List<String> tratados = new ArrayList<>();
+		
+		for(String x: publi) {
+			
+			String lista[] = x.split(" ");
+			
+			for(int i = 0; i < lista.length; i++) {
+				lista[i] = converterEst(lista[i]);
+				lista[i] = converterAbrev(lista[i]);
+			}
+			
+			tratados.add(String.join(" ", lista));
+		}
+		
+		
+		return tratados;
+	}
 	
 	
 
