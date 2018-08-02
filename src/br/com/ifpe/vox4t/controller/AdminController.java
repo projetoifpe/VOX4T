@@ -44,9 +44,15 @@ public class AdminController {
 	         session.invalidate();
 	         return "redirect:admin";
 	     }
+		 
 		 @RequestMapping("admin/menu")
 	     public String adminUsuario() {
 	         return "admin/menu";
+	     }
+		 
+		 @RequestMapping("admin/gerenciar-usuario")
+	     public String adminGerenciaUsuario() {
+	         return "admin/gerenciaUsuario";
 	     }
 
 }

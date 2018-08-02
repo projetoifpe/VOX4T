@@ -63,7 +63,7 @@
             <div class="content">
                 <div class="row">
                     <div class="col-sm">
-                        <a class="btn btn-light" style="width: 33%">Usu√°rios</a>
+                        <a class="btn btn-light" style="width: 33%">Usu·rios</a>
                         <a class="btn btn-light" style="width: 33%">Categorias</a>
                         <a class="btn btn-light" style="width: 33%">Canal</a>    
                     </div>
@@ -89,6 +89,7 @@
                                         <th scope="col">Email</th>
                                         <th scope="col">Ativo</th>
                                         <th scope="col">Inativo</th>
+                                        <th scope="col">Excluir</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -97,19 +98,24 @@
                                         <td>Mark@</td>
                                         <td><input type="radio" id="" name="atividade"></td>
                                         <td><input type="radio" id="" name="atividade"></td>
+                                         <td><button >X</button></td>
                                     </tr>
                                     <tr>
                                         <th scope="row">Jacob</th>
                                         <td>Jacob@</td>
                                         <td><input type="radio" id="" name="atividade2"></td>
                                         <td><input type="radio" id="" name="atividade2"></td>
+                                         <td><button >X</button></td>
                                     </tr>
                                     <tr>
                                         <th scope="row">Larry</th>
-                                        <td>Larrsy@</td>
+                                        <td>Larry@</td>
                                         <td><input type="radio" id="" name="atividade3"></td>
                                         <td><input type="radio" id="" name="atividade3"></td>
+                                         <td><button >X</button></td>
                                     </tr>
+                                    
+                               
                                 </tbody>
                             </table>
 
