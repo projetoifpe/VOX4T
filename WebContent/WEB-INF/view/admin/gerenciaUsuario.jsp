@@ -106,7 +106,7 @@
                                     </tr>
                                     <tr>
                                         <th scope="row">Larry</th>
-                                        <td>Larry@</td>
+                                        <td>Larrsy@</td>
                                         <td><input type="radio" id="" name="atividade3"></td>
                                         <td><input type="radio" id="" name="atividade3"></td>
                                     </tr>
