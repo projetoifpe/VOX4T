@@ -57,11 +57,67 @@
 
 
 
-
-
-
 	</nav>
 
+
+            <div class="content">
+                <div class="row">
+                    <div class="col-sm">
+                        <a class="btn btn-light" style="width: 33%">Usuários</a>
+                        <a class="btn btn-light" style="width: 33%; margin-left:5%">Categorias</a>
+                        <a class="btn btn-light" style="width: 33%">Canal</a>    
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- USUÁRIOS -->
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-10">
+
+                        <div class="card" style="margin-top: 10px;">
+
+                            <form>
+                                <input type="text" class="form-control" style="width: 25%" placeholder="Buscar">
+
+                            </form>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Nome</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Ativo</th>
+                                        <th scope="col">Inativo</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">Mark</th>
+                                        <td>Mark@</td>
+                                        <td><input type="radio" id="" name="atividade"></td>
+                                        <td><input type="radio" id="" name="atividade"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Jacob</th>
+                                        <td>Jacob@</td>
+                                        <td><input type="radio" id="" name="atividade2"></td>
+                                        <td><input type="radio" id="" name="atividade2"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Larry</th>
+                                        <td>Larry@</td>
+                                        <td><input type="radio" id="" name="atividade3"></td>
+                                        <td><input type="radio" id="" name="atividade3"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
 
 
 
