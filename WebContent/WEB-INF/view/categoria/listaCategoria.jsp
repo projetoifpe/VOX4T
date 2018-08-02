@@ -16,6 +16,16 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
  </head>
+ 
+    <!-- modal confirmar exclusão de categoria -->
+<script>
+function del(id) {  
+    if (confirm('Excluir a categoria?')) {  
+        location.href = 'delete?id=' + id;
+    }
+}
+</script>
+<!-- fim do modal confirmar exclusão de categoria -->
 
 <body>
 
@@ -25,7 +35,7 @@
 	<table id="tabelaListaCategoria" class="table table-hover" style="margin-right:2% ;margin-left: 2%;">
 		<thead>
 			<tr>
-				<th style="width: 30%; vertical-align: middle; text-align: center;">Nome</th>
+				<th style="width: 20%; vertical-align: middle; text-align: center;">Nome</th>
 				<th style="width: 15%; vertical-align: middle; text-align: center;">Ações</th>
 			</tr>
 		</thead>
@@ -34,12 +44,12 @@
 					<td style="vertical-align: middle; text-align: center;">${categoria.nome}</td>
 					<td style="vertical-align: middle; text-align: center;">
 						<a href="edit?id=${categoria.id}" class="btn btn-primary" data-toggle="modal" data-target="#myModal" data-backdrop="static">Alterar Categoria</a> &nbsp; &nbsp;
-						<a href="delete?id=${categoria.id}" class="btn btn-primary">Remover Categoria</a>	
+						<a href="javascript:del(${categoria.id})" class="btn btn-danger" >Remover Categoria</a>	
+					
 					</td>
 				</tr>
 		</c:forEach>
 	</table>
-
 
 
 <!-- MODAL PARA ALTERAR -->

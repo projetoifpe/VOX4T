@@ -27,8 +27,7 @@
           <h4 class="modal-title">Alterar Categoria</h4>
             
             	<!-- Botão de fechar Modal -->
-          <button type="button"  onclick='atualiza();' class="close" data-dismiss="modal">&times;</button>
-
+          <a href="add" class="close" >&times;</a>
       </div>
         <!-- DIV do Modal -->
         <div class="modal-body">
@@ -45,8 +44,8 @@
         </div>
          		<!-- Submit -->
         <div class="modal-footer">
-        <a href="add" class="btn btn-danger" role="button">Fechar</a>
-        <button type="submit" class="btn btn-default" >Salvar</button>
+        <a href="add" class="btn btn-default" role="button">Fechar</a>
+        <button type="submit" class="btn btn-success" >Salvar</button>
         
         <!-- FIM da DIV do Modal -->
         </div>
