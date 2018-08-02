@@ -3,7 +3,7 @@
 <!DOCTYPE html>
     <html lang="br">
 
-    <!--  CABE«ALHO -->
+    <!--  CABE√áALHO -->
 
     <head>
     <style>
@@ -63,15 +63,15 @@
             <div class="content">
                 <div class="row">
                     <div class="col-sm">
-                        <a class="btn btn-light" style="width: 33%">Usu·rios</a>
-                        <a class="btn btn-light" style="width: 33%; margin-left:5%">Categorias</a>
+                        <a class="btn btn-light" style="width: 33%">Usu√°rios</a>
+                        <a class="btn btn-light" style="width: 33%">Categorias</a>
                         <a class="btn btn-light" style="width: 33%">Canal</a>    
                     </div>
                 </div>
             </div>
 
 
-            <!-- USU¡RIOS -->
+            <!-- USU√ÅRIOS -->
             <div class="content">
                 <div class="row">
                     <div class="col-md-10">
