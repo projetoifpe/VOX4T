@@ -8,7 +8,7 @@
 
 <style>
 .meio{
-margin-left: 45%;
+margin-left: 43%;
 }
 #sair {
 margin-left: 1100%;
@@ -99,7 +99,7 @@ margin-left: 5%;
         </div>
         
 	<hr> 
-	<h3><label class="meio">Listar Categorias</label></h3>
+	<h3><label class="meio">Lista de Categorias</label></h3>
 	<hr>
 	<c:import url="/categoria/list" />
 	

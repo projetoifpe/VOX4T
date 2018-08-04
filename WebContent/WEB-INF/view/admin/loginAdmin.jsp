@@ -26,7 +26,7 @@
 		style="background-color: ;">
 	<div class="container">
 		<a class="navbar-brand text-light h1 mb-0"
-			href="<%=request.getContextPath()%>/home">VOX4T</a>
+			href="<%=request.getContextPath()%>/admin/">VOX4T</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -35,7 +35,7 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav ml-auto">
-				<li class="nav-item"><a class="nav-link text-light" href="#">Sobre</a>
+				<li class="nav-item"><a class="nav-link text-light" href="#">Administrador</a>
 				</li>
 			</ul>
 		</div>

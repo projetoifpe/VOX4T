@@ -12,9 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-/**
-	@Author: rique
-*/
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name="usuario")
@@ -27,7 +25,7 @@ public class Usuario {
 	
 	@ManyToMany
 	@JoinColumn(name="id")
-	private List<UsuarioEscolheCategoria> usuarioEscolheCategoria; //TO DO
+	private List<UsuarioEscolheCategoria> usuarioEscolheCategoria; 
 	
 	@Column
 	private String nome;
@@ -39,6 +37,7 @@ public class Usuario {
 	private String senha;
 	
 	@Column(name="data_nascimento")
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date dataNascimento;
 	
 	@Column

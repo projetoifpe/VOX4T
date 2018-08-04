@@ -31,7 +31,7 @@ public class AdminController {
 				attr.addAttribute("msg", "Administrador Logado com sucesso.");
 				Admin admin = dao.buscarPorEmail(emailAdmin);
 				session.setAttribute("adminLogado", admin);
-				return "admin/logado";
+				return "admin/menu";
 			}
 			else {
 				attr.addAttribute("msg", "E-mail ou senha incorreto(s)");
@@ -42,7 +42,7 @@ public class AdminController {
 		 @RequestMapping("logout")
 	     public String logout(HttpSession session) {
 	         session.invalidate();
-	         return "redirect:admin";
+	         return "admin/loginAdmin";
 	     }
 		 
 		 @RequestMapping("admin/menu")

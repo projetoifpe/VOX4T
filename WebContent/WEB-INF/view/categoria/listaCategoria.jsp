@@ -43,8 +43,8 @@ function del(id) {
 				<tr>
 					<td style="vertical-align: middle; text-align: center;">${categoria.nome}</td>
 					<td style="vertical-align: middle; text-align: center;">
-						<a href="edit?id=${categoria.id}" class="btn btn-primary" data-toggle="modal" data-target="#myModal" data-backdrop="static">Alterar Categoria</a> &nbsp; &nbsp;
-						<a href="javascript:del(${categoria.id})" class="btn btn-danger" >Remover Categoria</a>	
+						<a title="alterar categoria" href="edit?id=${categoria.id}" class="btn btn-primary" data-toggle="modal" data-target="#myModal" data-backdrop="static"><i class="glyphicon glyphicon-pencil"></i></a> &nbsp; &nbsp;
+						<a title="remover categoria" class="btn btn-danger" href="javascript:del(${categoria.id})" ><i class="glyphicon glyphicon-remove"></i></a>	
 					
 					</td>
 				</tr>

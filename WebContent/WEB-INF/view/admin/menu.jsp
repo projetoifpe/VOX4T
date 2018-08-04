@@ -36,7 +36,7 @@ label{margin-left: 45%;margin-top: 0px;}
         <nav class="navbar navbar-expand-lg navbar-light bg-dark" style="background-color: ;">
             
             <!-- Logo VOX4T redireciona para a pagina inicial -->
-            <a id="vox" class="navbar-brand text-light" href="<%=request.getContextPath()%>">VOX4T</a>
+            <a id="vox" class="navbar-brand text-light" href="<%=request.getContextPath()%>/admin/menu">VOX4T</a>
             
             <!-- esconde um botão -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
