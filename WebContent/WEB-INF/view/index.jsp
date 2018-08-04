@@ -141,14 +141,10 @@ function ExibeDados(token){
     .modal-dialog{
     	width: 400px;
     }
-
+<!-- FIM DO CSS MODAL LOGIN -->
     
 </style>
-<!-- FIM DO CSS MODAL LOGIN -->
-
 </head>
-
-<!-- Fim CABEÇALHO -->
 
 <body>
  	
@@ -191,11 +187,12 @@ function ExibeDados(token){
 	    });
 
 	}); 
+	 </script>
 	
 	//---------------------------------------------------------------------------------------------
 	
 	
-	</script>
+	
 	    <div class="overlay">
 
         <nav class="navbar navbar-expand-lg navbar-light bg-dark" style="background-color: ;">
@@ -249,7 +246,7 @@ function ExibeDados(token){
 -->
 
 	<!-- INICIO MODAL LOGIN -->
-	
+<button class="btn btn-outline-success my-2 my-sm-0" data-toggle="modal" data-target="#modal-mensagem">Login</button>	
 	<div class="modal fade" id="modal-mensagem" tabindex="-1">
     <div class="modal-dialog">
          <div class="modal-content">

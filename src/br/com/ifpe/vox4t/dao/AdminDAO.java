@@ -40,25 +40,19 @@ public class AdminDAO {
 	    
 	}
 	
-	public boolean logar(String emailAdmin, String senhaAdmin) {
+	public boolean logar(Admin adm) {
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
 		EntityManager manager = factory.createEntityManager();
 		Query query = null;
 		query = manager.createQuery("FROM Admin WHERE email = :paramEmail AND senha = :paramSenha");
-		query.setParameter("paramEmail", emailAdmin);
-		query.setParameter("paramSenha", senhaAdmin);
+		query.setParameter("paramEmail", adm.getEmail());
+		query.setParameter("paramSenha", adm.getSenha());
 		@SuppressWarnings("unchecked")
 		List<Admin> lista = query.getResultList();
 		manager.close();
 		factory.close();
 		
-		if (lista.size() > 0) {
-			System.out.println("Encontrou");
-			return true;
-		} else {
-			System.out.println("Não encontrou");
-			return false;
-		}
+		if (lista.size() > 0) {return true;} else {return false;}
 	
 	}
 	

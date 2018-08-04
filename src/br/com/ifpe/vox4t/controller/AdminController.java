@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import br.com.ifpe.vox4t.dao.AdminDAO;
 import br.com.ifpe.vox4t.model.Admin;
+import br.com.ifpe.vox4t.util.Criptografia;
 
 @Controller
 public class AdminController {
@@ -20,16 +21,16 @@ public class AdminController {
      }
 	 
 		@RequestMapping("loginAdminCheck")
-		public String loginAdminCheck(@RequestParam("email") String emailAdmin,@RequestParam("senha") String senhaAdmin, Model attr, HttpSession session) {
+		public String loginAdminCheck(Admin adm, Model attr, HttpSession session) {
 			
 			boolean result = false;
 			
 			AdminDAO dao = new AdminDAO();
-			result = dao.logar(emailAdmin,senhaAdmin);
+			result = dao.logar(adm);
 			
 			if (result == true) {
 				attr.addAttribute("msg", "Administrador Logado com sucesso.");
-				Admin admin = dao.buscarPorEmail(emailAdmin);
+				Admin admin = dao.buscarPorEmail(adm.getEmail());
 				session.setAttribute("adminLogado", admin);
 				return "admin/menu";
 			}

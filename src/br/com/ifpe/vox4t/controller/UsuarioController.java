@@ -101,7 +101,7 @@ public class UsuarioController {
 
 	@RequestMapping("loginCheck")
 
-	public String loginCheck(Usuario usuario,	Model attr, HttpSession session) {
+	public String loginCheck(Usuario usuario, Model attr, HttpSession session) {
 
 		boolean result = false;
 
@@ -112,15 +112,10 @@ public class UsuarioController {
 		if (result == true) {
 
 			attr.addAttribute("msg", "Usuario Logado com sucesso."); // Envia string msg para o html.
-
 			Usuario user = dao.buscarPorEmail(usuario.getEmail());
-
 			session.setAttribute("usuarioLogado", user);
-
 			dao.fecharConexao();
-
-			return "logado";
-		}
+			return "logado";}
 
 		else {
 			dao.fecharConexao();
@@ -129,7 +124,6 @@ public class UsuarioController {
 			return "logado";
 
 		}
-
 	}
 
 	@RequestMapping("/usuario/disponivel")

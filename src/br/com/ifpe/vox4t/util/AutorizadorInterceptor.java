@@ -17,6 +17,9 @@ Exception {
 	|| uri.contains("img") 
 	|| uri.contains("js")
 	|| uri.endsWith("admin")
+	|| uri.endsWith("usuario/cadastro")
+	|| uri.endsWith("usuario/save")
+	|| uri.endsWith("disponivel")
 	|| uri.endsWith("loginCheck")
 	|| uri.endsWith("loginAdminCheck")) {
 	return true;
