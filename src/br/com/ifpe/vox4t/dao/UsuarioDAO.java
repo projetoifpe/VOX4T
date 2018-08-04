@@ -41,25 +41,20 @@ public class UsuarioDAO {
 	}
 
 
-	public boolean logar(String emailUsuario, String senhaUsuario) {
+	public boolean logar(Usuario usuario) {
 		
 		Query query = null;
 		query = manager.createQuery("FROM Usuario WHERE email = :paramEmail AND senha = :paramSenha");
-		query.setParameter("paramEmail", emailUsuario);
-		query.setParameter("paramSenha", senhaUsuario);
+		query.setParameter("paramEmail", usuario.getEmail());
+		query.setParameter("paramSenha", usuario.getSenha());
 		@SuppressWarnings("unchecked")
 		List<Usuario> lista = query.getResultList();
 		
+		if (lista.size() > 0) {System.out.println("Encontrou");	return true;}
 		
-		if (lista.size() > 0) {
-			System.out.println("Encontrou");
-			return true;
-		} else {
-			System.out.println("Não encontrou");
-			return false;
-		}
+		else {System.out.println("Não encontrou");return false;}}
 		
-	}
+	
 	
 	public Usuario buscarPorEmail(String email) {
 
