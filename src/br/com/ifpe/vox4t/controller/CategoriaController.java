@@ -113,9 +113,9 @@ public class CategoriaController {
 	
 	@RequestMapping("/categoria/userunselect") // Usuário adciona categoria selecionada
 	@ResponseBody
-	public String categoriaDesSelecionada(@RequestParam("idUsuario") int idUsuario, @RequestParam("idCategoria") int idCategoria,
-			UsuarioEscolheCategoriaDAO userCatDao) {
+	public String categoriaDesSelecionada(@RequestParam("idUsuario") int idUsuario, @RequestParam("idCategoria") int idCategoria) {
 		
+		UsuarioEscolheCategoriaDAO userCatDao = new UsuarioEscolheCategoriaDAO();
 		
 		if(userCatDao.remover(idUsuario, idCategoria)) {
 			

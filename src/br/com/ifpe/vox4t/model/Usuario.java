@@ -25,10 +25,6 @@ public class Usuario {
 	@Column(name = "id_usuario")
 	private int id;
 	
-	@ManyToMany
-	@JoinColumn(name="id")
-	private List<UsuarioEscolheCategoria> usuarioEscolheCategoria; //TO DO
-	
 	@Column
 	private String nome;
 	

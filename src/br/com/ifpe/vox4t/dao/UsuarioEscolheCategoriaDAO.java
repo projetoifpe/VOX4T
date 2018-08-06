@@ -2,6 +2,7 @@ package br.com.ifpe.vox4t.dao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 import javax.persistence.TransactionRequiredException;
@@ -57,30 +58,51 @@ public class UsuarioEscolheCategoriaDAO {
 	/*public UsuarioEscolheCategoria buscarPorId(int idUsuario, int idCategoria) {
 		
 	}*/
-
-	@Transactional
+	
+	
 	public Boolean remover(int idUsuario, int idCategoria) {
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
+		EntityManager manager = factory.createEntityManager();
+		UsuarioEscolheCategoria usuarioEscolheCategoria = this.buscarPorids(idUsuario, idCategoria);
 		
+		UsuarioEscolheCategoria usuarioEscolheCategoriRemover  = manager.find(UsuarioEscolheCategoria.class, usuarioEscolheCategoria.getId());
+		
+		try {
+			manager.getTransaction().begin();
+			manager.remove(usuarioEscolheCategoriRemover);
+			manager.getTransaction().commit();
+			
+			return true;
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
+			return false;
+		}
+		
+		
+	}
+	
+	
+	public UsuarioEscolheCategoria buscarPorids(int idUsuario, int idCategoria) {
+
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
 		EntityManager manager = factory.createEntityManager();
 		
-		String hqlStr = "delete from UsuarioEscolheCategoria where idUsuario = ? and idCategoria = ?";
+		UsuarioEscolheCategoria obj = null;
 		
-		Query query = manager.createQuery("DELETE from UsuarioEscolheCategoria WHERE idUsuario = ?1 and idCategoria = ?2");
-		query.setParameter(1, idUsuario);
-		query.setParameter(2, idCategoria);
 		
-		int result = query.executeUpdate();
+		Query query = null;
+		query = manager.createQuery("FROM UsuarioEscolheCategoria WHERE idUsuario.id = :paramIdUsuario and idCategoria.id = :paramIdCategoria");
+		query.setParameter("paramIdUsuario", idUsuario);
+		query.setParameter("paramIdCategoria", idCategoria);
 		
 		try {
-			return result > 0;
-			
-		}catch(Exception e) {
-			System.out.println(result);
-			
-			return false;
+			obj = (UsuarioEscolheCategoria) query.getSingleResult();
+		}catch(NoResultException nre) {
+			return null;
 		}
-					
-}
+		
+		return obj;
+
+	   }
 
 }
