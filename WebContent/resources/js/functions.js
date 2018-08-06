@@ -113,3 +113,63 @@ $(document).ready(function(){
 });
 
 /**************************************************************************************************************/
+
+
+//Validação login administrador
+
+$("#formLoginAdmin").validate({
+    rules : {
+          email:{
+                 required:true
+          },
+          senha:{
+                 required:true
+          }                                
+    }, 
+    messages:{
+          email:{
+                 required:"Campo E-mail precisa ser preenchido",
+                 email:"Insira um endereço de e-mail válido."
+          },
+          senha:{
+                 required:"Campo senha precisa ser preenchido"
+          }    
+    }
+});
+
+
+
+//Envio dos dados AJAX Seleção categoria
+
+$(document).ready(function(){
+	
+	$('input[type=checkbox]').change(function(){
+		
+		if(this.checked){
+			/*$.ajax({
+	            url : 'userselect',
+	            type : 'POST',
+	            data : 'idCategoria=' + this.value + '&idUsuario='+1,
+	            success: function(data){
+	                $('#resultado').html(data);
+	            }
+	        });*/
+			alert(this.value);
+		}else{
+			alert(this.value);
+			/*
+			$.ajax({
+	            url : 'userunselect',
+	            type : 'POST',
+	            data : 'idCategoria=' + this.value + '&idUsuario='+1,
+	            success: function(data){
+	                $('#resultado').html(data);
+	            }
+	        });*/
+		}
+		
+	});
+
+
+});
+

@@ -11,9 +11,13 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 	<context:component-scan base-package="br.com.ifpe.vox4t" />
 	<mvc:resources mapping="/resources/**" location="/resources/" />
 	<mvc:annotation-driven />
+	
+	<bean id="txManager" class="org.springframework.transaction.jta.JtaTransactionManager" />
+		
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/view/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
+
 </beans>
