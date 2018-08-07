@@ -75,6 +75,7 @@ public class UsuarioDAO {
 
 	    }
 	
+	
 public Usuario buscarPorId(int id) {
 		
 		Usuario obj = null;
