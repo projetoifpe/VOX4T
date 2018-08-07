@@ -24,6 +24,7 @@ Exception {
 	|| uri.endsWith("disponivel")
 	|| uri.endsWith("loginCheck")
 	|| uri.endsWith("logout")
+	|| uri.endsWith("")
 	|| uri.endsWith("loginAdminCheck")) {
 	return true;
 	}	
@@ -31,7 +32,12 @@ Exception {
 	
 	
 	if (uri.endsWith("admin/menu")
-		||uri.endsWith("categoria/add")) {
+		||uri.endsWith("categoria/add")
+		||uri.endsWith("categoria/list")
+		||uri.endsWith("categoria/edit")
+		||uri.endsWith("categoria/update")
+		||uri.endsWith("categoria/delete")
+		||uri.endsWith("categoria/save")) {
 		
 		if (request.getSession().getAttribute("adminLogado") != null) {	 
 			
