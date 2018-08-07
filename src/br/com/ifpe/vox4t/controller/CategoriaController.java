@@ -2,15 +2,15 @@ package br.com.ifpe.vox4t.controller;
 
 import java.util.List;
 
-
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import br.com.ifpe.vox4t.model.Categoria;
 import br.com.ifpe.vox4t.dao.CategoriaDAO;
+import br.com.ifpe.vox4t.dao.UsuarioEscolheCategoriaDAO;
+import br.com.ifpe.vox4t.model.Categoria;
 
 /**
  * @Author: Hermes.Neto - vox4t;
@@ -76,6 +76,55 @@ public class CategoriaController {
 
 		return "forward:add";// Exclui a categoria informada pelo id.
 	}
+	
+	@RequestMapping("/categoria/select")
+	public String selectCategoria(Model model) {
+
+		CategoriaDAO dao = new CategoriaDAO();
+		List<Categoria> lista = dao.listar(null);
+		model.addAttribute("listaCategoria", lista);
+		
+
+		return "categoria/selecaoCategoria"; // Lista todas as categorias na página cadastro.
+	}
+	
+	
+	@RequestMapping("/categoria/userselect") // Usuário adciona categoria selecionada
+	@ResponseBody
+	public String categoriaSelecionada(@RequestParam("idUsuario") int idUsuario, @RequestParam("idCategoria") int idCategoria,
+			UsuarioEscolheCategoriaDAO userCatDao) {
+		
+		
+		if(userCatDao.salvar(idUsuario, idCategoria)) {
+			
+			Boolean sucesso = true;
+			
+			return sucesso.toString();
+		}
+		
+		return "false";
+		
+		
+	}
+	
+	
+	@RequestMapping("/categoria/userunselect") // Usuário adciona categoria selecionada
+	@ResponseBody
+	public String categoriaDesSelecionada(@RequestParam("idUsuario") int idUsuario, @RequestParam("idCategoria") int idCategoria) {
+		
+		UsuarioEscolheCategoriaDAO userCatDao = new UsuarioEscolheCategoriaDAO();
+		
+		if(userCatDao.remover(idUsuario, idCategoria)) {
+			
+			Boolean sucesso = true;
+			
+			return sucesso.toString();
+		}
+		
+		return "false";
+		
+		
+}
 	
 	
 }

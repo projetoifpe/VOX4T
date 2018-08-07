@@ -5,7 +5,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import br.com.ifpe.vox4t.model.Categoria;
+import br.com.ifpe.vox4t.model.Usuario;
 
 /**
 	@Author: rique
@@ -21,15 +26,27 @@ public class UsuarioEscolheCategoria {
 	@Column
 	private int id;
 	
-	@Column(name="id_usuario")
-	private int idUsuario;
+	@ManyToOne
+	@JoinColumn(name="id_usuario")
+	private Usuario idUsuario;
 	
-	@Column(name="id_categoria")
-	private int idCategoria;
+	@ManyToOne
+	@JoinColumn(name="id_categoria")
+	private Categoria idCategoria;
 
 	
 //-------------------------GETTERS AND SETTERS----------------------------------------------------------------------
-
+	
+	public UsuarioEscolheCategoria(){
+		
+	}
+	
+	/*public UsuarioEscolheCategoria(Object[] columns){
+		this.id = (columns[0] != null) ? ((int)columns[0]):0;
+		this.idUsuario = (columns[1] != null) ? ((int)columns[1]):0;
+		this.idCategoria = (columns[2] != null) ? ((int)columns[2]):0;
+	}*/
+	
 	
 	public int getId() {
 		return id;
@@ -39,23 +56,22 @@ public class UsuarioEscolheCategoria {
 		this.id = id;
 	}
 
-	public int getIdUsuario() {
+	public Usuario getIdUsuario() {
 		return idUsuario;
 	}
 
-	public void setIdUsuario(int idUsuario) {
+	public void setIdUsuario(Usuario idUsuario) {
 		this.idUsuario = idUsuario;
 	}
 
-	public int getIdCategoria() {
+	public Categoria getIdCategoria() {
 		return idCategoria;
 	}
 
-	public void setIdCategoria(int idCategoria) {
+	public void setIdCategoria(Categoria idCategoria) {
 		this.idCategoria = idCategoria;
 	}
 	
 	
 	
 }
-

@@ -74,6 +74,24 @@ public class UsuarioDAO {
 		return obj;
 
 	    }
+	
+public Usuario buscarPorId(int id) {
+		
+		Usuario obj = null;
+		
+		Query query = null;
+		query = manager.createQuery("FROM Usuario WHERE id = :paramId");
+		query.setParameter("paramId", id);
+		
+		try {
+			obj = (Usuario) query.getSingleResult();
+		}catch(NoResultException nre) {
+			return null;
+		}
+		
+		return obj;
+		
+}
 
 
 	

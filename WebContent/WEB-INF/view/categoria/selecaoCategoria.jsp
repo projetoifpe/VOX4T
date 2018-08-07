@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+ 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri = "http://www.springframework.org/tags/form" prefix = "form"%>    
 
@@ -37,42 +37,29 @@
 
 <div class="container">
 <div class="col-md-4">
-			<form>
+			
+			 <form>
+			
 				<h2>Seleção de categorias</h2>
-				<!-- <div class="form-check">
-					<label>
-						<input type="checkbox" name="check" checked> <span class="label-text">Option 01</span>
-					</label>
-				</div>
-				<div class="form-check">
-					<label>
-						<input type="checkbox" name="check"> <span class="label-text">Option 02</span>
-					</label>
-				</div>
-				<div class="form-check">
-					<label>
-						<input type="checkbox" name="check"> <span class="label-text">Option 03</span>
-					</label>
-				</div>
-				<div class="form-check">
-					<label>
-						<input type="checkbox" name="check" disabled> <span class="label-text">Option 04</span>
-					</label>
-				</div> -->
 				
+				<%int i=0; %>
 				
 				<c:forEach var="categoria" items="${listaCategoria}">
 					
-					<div class="form-check">
-						<label>
-							<input type="checkbox" name="categoriaNome"> <span class="label-text">${categoria.nome}</span>
-							<input type="hidden" name="categoriaId" value="${categoria.id}">
-						</label>
-					</div>
+						<input type="checkbox" name="categoriaNome<%=i%>" id="categoriaNome<%=i%>" value="${categoria.id}"> 
+						
+						<span class="label-text">${categoria.nome}</span>
+						
+						<br>
+						
+				<%i++; %>
 					
 				</c:forEach>
+
+				<input type="button" id="submitButton" class="btn" value="Selecionar">
 				
-			</form>
+			</form> 
+			
 
 </div>
 

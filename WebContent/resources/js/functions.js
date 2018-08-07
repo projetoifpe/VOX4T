@@ -137,3 +137,36 @@ $("#formLoginAdmin").validate({
     }
 });
 
+//Envio dos dados AJAX Seleção categoria
+
+$(document).ready(function(){
+	
+	$('input[type=checkbox]').change(function(){
+		
+		if(this.checked){
+	
+			$.ajax({
+	            url : 'userselect',
+	            type : 'POST',
+	            data : 'idCategoria=' + this.value + '&idUsuario='+1,
+	            success: function(data){
+	                $('#resultado').html(data);
+	            }
+	        });
+			
+		}else{
+			
+			$.ajax({
+	            url : 'userunselect',
+	            type : 'POST',
+	            data : 'idCategoria=' + this.value + '&idUsuario='+1,
+	            success: function(data){
+	                $('#resultado').html(data);
+	            }
+	        });
+		}
+		
+	});
+
+
+});
