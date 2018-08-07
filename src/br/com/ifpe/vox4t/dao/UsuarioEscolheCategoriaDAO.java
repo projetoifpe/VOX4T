@@ -84,6 +84,7 @@ public class UsuarioEscolheCategoriaDAO {
 	}
 	
 	
+	
 	public UsuarioEscolheCategoria buscarPorids(int idUsuario, int idCategoria) {
 
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);

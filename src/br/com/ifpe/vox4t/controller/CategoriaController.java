@@ -77,6 +77,7 @@ public class CategoriaController {
 		return "forward:add";// Exclui a categoria informada pelo id.
 	}
 	
+	
 	@RequestMapping("/categoria/select")
 	public String selectCategoria(Model model) {
 
