@@ -146,18 +146,18 @@ $(document).ready(function(){
 	$('input[type=checkbox]').change(function(){
 		
 		if(this.checked){
-			/*$.ajax({
+	
+			$.ajax({
 	            url : 'userselect',
 	            type : 'POST',
 	            data : 'idCategoria=' + this.value + '&idUsuario='+1,
 	            success: function(data){
 	                $('#resultado').html(data);
 	            }
-	        });*/
-			alert(this.value);
+	        });
+			
 		}else{
-			alert(this.value);
-			/*
+			
 			$.ajax({
 	            url : 'userunselect',
 	            type : 'POST',
@@ -165,7 +165,7 @@ $(document).ready(function(){
 	            success: function(data){
 	                $('#resultado').html(data);
 	            }
-	        });*/
+	        });
 		}
 		
 	});

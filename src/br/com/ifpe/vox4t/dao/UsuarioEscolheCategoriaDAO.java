@@ -34,24 +34,29 @@ public class UsuarioEscolheCategoriaDAO {
 		Usuario user = daoU.buscarPorId(idUsuario);
 		Categoria cat = daoC.buscarPorId(idCategoria);
 		
-		
 		userchoose.setIdCategoria(cat);
 		userchoose.setIdUsuario(user);
 		
-		try {
-			manager.getTransaction().begin();
-			manager.persist(userchoose);
-			manager.getTransaction().commit();
-			
-			manager.close();
-			factory.close();
-			
-			return true;
+		if(this.buscarPorids(idUsuario, idCategoria) == null){
 
-		}catch(Exception e) {
-			return false;
+			try {
+				manager.getTransaction().begin();
+				manager.persist(userchoose);
+				manager.getTransaction().commit();
+				
+				manager.close();
+				factory.close();
+				
+				return true;
+
+			}catch(Exception e) {
+				return false;
+			}
+
 		}
-			
+		
+		return false;
+					
 	}
 	
 	
