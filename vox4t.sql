@@ -35,7 +35,6 @@ CREATE TABLE `administrador` (
   `email` varchar(100) DEFAULT NULL,
   `senha` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id_administrador`),
-  CONSTRAINT `fk_categoria_admin` FOREIGN KEY (`id_administrador`) REFERENCES `categoria` (`id_categoria`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -88,7 +87,8 @@ CREATE TABLE `categoria` (
   `id_categoria` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(45) DEFAULT NULL,
   `id_administrador` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_categoria`)
+  PRIMARY KEY (`id_categoria`),
+  CONSTRAINT `fk_categoria_admin` FOREIGN KEY `categoria` (`id_categoria`) REFERENCES `administrador` (`id_administrador`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

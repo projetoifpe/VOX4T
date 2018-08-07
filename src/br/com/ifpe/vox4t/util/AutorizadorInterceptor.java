@@ -11,32 +11,60 @@ public class AutorizadorInterceptor extends HandlerInterceptorAdapter {
 public boolean preHandle(HttpServletRequest request,
 HttpServletResponse response, Object controller) throws
 Exception {
+	boolean retorno = false;
 	String uri = request.getRequestURI();
 	if (uri.contains("bootstrap") 
 	|| uri.contains("css") 
 	|| uri.contains("img") 
 	|| uri.contains("js")
+	|| uri.contains("google")
 	|| uri.endsWith("admin")
 	|| uri.endsWith("usuario/cadastro")
 	|| uri.endsWith("usuario/save")
 	|| uri.endsWith("disponivel")
 	|| uri.endsWith("loginCheck")
+	|| uri.endsWith("logout")
 	|| uri.endsWith("loginAdminCheck")) {
 	return true;
 	}	
 	
-	if (request.getSession().getAttribute("adminLogado") != null) {	 
-		uri.endsWith("admin/menu");
-		uri.endsWith("categoria/add");
-		return true;} response.sendRedirect("/VOX4T/admin");
+	
+	
+	if (uri.endsWith("admin/menu")
+		||uri.endsWith("categoria/add")) {
+		
+		if (request.getSession().getAttribute("adminLogado") != null) {	 
+			
+			retorno = true;
+		}else {
+			response.sendRedirect("/VOX4T/admin");
+			retorno = false;
+				
+		}
 
+	}else {
+		
 		if (request.getSession().getAttribute("usuarioLogado") != null){
-			uri.contains("admin"); 
-			uri.endsWith("loginAdminCheck");
-			return false;}
+			uri.endsWith("exibir");
+			retorno = true;
+			}
+		else {
 			response.sendRedirect("/VOX4T");
-			return false;
-	};
+			retorno = false;
+		}
+		
+	}
+	
+	
+	
+	return retorno;
+	
+	
+
+	
+			
+			
+	}
 
 }
 
