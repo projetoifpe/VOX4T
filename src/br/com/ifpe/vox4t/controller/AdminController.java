@@ -7,14 +7,12 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+
 
 import br.com.ifpe.vox4t.dao.AdminDAO;
 import br.com.ifpe.vox4t.dao.UsuarioDAO;
 import br.com.ifpe.vox4t.model.Admin;
 import br.com.ifpe.vox4t.model.Usuario;
-import br.com.ifpe.vox4t.util.Criptografia;
 
 @Controller
 public class AdminController {
