@@ -25,7 +25,8 @@ Exception {
 	|| uri.endsWith("loginCheck")
 	|| uri.endsWith("logout")
 	|| uri.endsWith("")
-	|| uri.endsWith("loginAdminCheck")) {
+	|| uri.endsWith("loginAdminCheck")
+	|| uri.endsWith("admin/gerenciar-usuario")){
 	return true;
 	}	
 	

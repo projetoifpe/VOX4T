@@ -70,8 +70,7 @@ function ExibeDados(token){
     <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
     <link href="<%=request.getContextPath()%>/resources/externo/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="<%=request.getContextPath()%>/resources/externo/css/coming-soon.css" rel="stylesheet">
+ 
     
     <!-- CSS do botão do Google -->
 	<link   rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/style/google.css" />
@@ -193,7 +192,7 @@ function ExibeDados(token){
 	}); 
 	 </script>
 	
-	//---------------------------------------------------------------------------------------------
+
 
 	<div class="overlay">
 

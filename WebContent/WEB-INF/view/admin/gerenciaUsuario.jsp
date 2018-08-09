@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    
 <!DOCTYPE html>
     <html lang="br">
 
@@ -93,27 +95,20 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                
+                                	<c:forEach var="user" items="${usuarios}">
                                     <tr>
-                                        <th scope="row">Mark</th>
-                                        <td>Mark@</td>
+                                        <th scope="row">${user.getNome()}</th>
+                                        <td>${user.getEmail()}</td>
                                         <td><input type="radio" id="" name="atividade"></td>
                                         <td><input type="radio" id="" name="atividade"></td>
-                                         <td><button >X</button></td>
+                                         <td><button class="">X</button></td>
                                     </tr>
-                                    <tr>
-                                        <th scope="row">Jacob</th>
-                                        <td>Jacob@</td>
-                                        <td><input type="radio" id="" name="atividade2"></td>
-                                        <td><input type="radio" id="" name="atividade2"></td>
-                                         <td><button >X</button></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Larry</th>
-                                        <td>Larry@</td>
-                                        <td><input type="radio" id="" name="atividade3"></td>
-                                        <td><input type="radio" id="" name="atividade3"></td>
-                                         <td><button >X</button></td>
-                                    </tr>
+                             	
+                             	<
+                                   
+                                    <br>
+                                </c:forEach>
                                     
                                
                                 </tbody>
@@ -147,4 +142,3 @@
     </body>
 
     </html>
-    

@@ -1,5 +1,7 @@
 package br.com.ifpe.vox4t.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -9,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import br.com.ifpe.vox4t.dao.AdminDAO;
+import br.com.ifpe.vox4t.dao.UsuarioDAO;
 import br.com.ifpe.vox4t.model.Admin;
+import br.com.ifpe.vox4t.model.Usuario;
 import br.com.ifpe.vox4t.util.Criptografia;
 
 @Controller
@@ -56,8 +60,13 @@ public class AdminController {
 	     }
 		 
 		 @RequestMapping("admin/gerenciar-usuario")
-	     public String adminGerenciaUsuario() {
-	         return "admin/gerenciaUsuario";
+	     public String adminGerenciaUsuario(Model model) {
+	         UsuarioDAO dao = new UsuarioDAO();
+	         List<Usuario> listaUsuarios = dao.listar();
+	         
+	         model.addAttribute("usuarios", listaUsuarios);
+			 
+			 return "admin/gerenciaUsuario";
 	     }
 
 }

@@ -100,6 +100,13 @@ public Usuario buscarPorId(int id) {
 		this.manager.close();
 		this.factory.close();
 	}
-
+	
+	public List<Usuario> listar() {
+	    Query query = null;
+	    query = manager.createQuery("FROM Usuario ORDER BY nome");
+	    @SuppressWarnings("unchecked")
+	    List<Usuario> lista = query.getResultList();
+	    return lista;
+	}
 
 }
