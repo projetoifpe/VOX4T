@@ -43,7 +43,7 @@ public class CategoriaController {
 	public String listarCategoria(Model model) {
 
 		CategoriaDAO dao = new CategoriaDAO();
-		List<Categoria> lista = dao.listar(null);
+		List<Categoria> lista = dao.listar();
 		model.addAttribute("listaCategoria", lista);
 
 		return "categoria/listaCategoria"; // Lista todas as categorias na página cadastro.
@@ -85,7 +85,7 @@ public class CategoriaController {
 	public String selectCategoria(Model model) {
 
 		CategoriaDAO dao = new CategoriaDAO();
-		List<Categoria> lista = dao.listar(null);
+		List<Categoria> lista = dao.listar();
 		model.addAttribute("listaCategoria", lista);
 		
 
