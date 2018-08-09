@@ -17,7 +17,7 @@ import br.com.ifpe.vox4t.util.TratamentoPublicacao;
 import twitter4j.Status;
 import twitter4j.TwitterException;
 
-/**
+/** 
  * @Author: rique.
  */
 
