@@ -13,7 +13,8 @@ HttpServletResponse response, Object controller) throws
 Exception {
 	boolean retorno = false;
 	String uri = request.getRequestURI();
-	if (uri.contains("bootstrap") 
+	if (uri.contains("bootstrap")
+	|| uri.contains("externo")
 	|| uri.contains("css") 
 	|| uri.contains("img") 
 	|| uri.contains("js")
@@ -24,9 +25,7 @@ Exception {
 	|| uri.endsWith("disponivel")
 	|| uri.endsWith("loginCheck")
 	|| uri.endsWith("logout")
-	|| uri.endsWith("")
-	|| uri.endsWith("loginAdminCheck")
-	|| uri.endsWith("admin/gerenciar-usuario")){
+	|| uri.endsWith("loginAdminCheck")){
 	return true;
 	}	
 	
@@ -38,7 +37,8 @@ Exception {
 		||uri.endsWith("categoria/edit")
 		||uri.endsWith("categoria/update")
 		||uri.endsWith("categoria/delete")
-		||uri.endsWith("categoria/save")) {
+		||uri.endsWith("categoria/save")
+		|| uri.endsWith("admin/gerenciar-usuario")) {
 		
 		if (request.getSession().getAttribute("adminLogado") != null) {	 
 			
@@ -52,7 +52,7 @@ Exception {
 	}else {
 		
 		if (request.getSession().getAttribute("usuarioLogado") != null){
-			uri.endsWith("exibir");
+			uri.endsWith("exibicao");
 			retorno = true;
 			}
 		else {
