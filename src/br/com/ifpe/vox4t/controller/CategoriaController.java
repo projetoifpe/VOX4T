@@ -93,42 +93,7 @@ public class CategoriaController {
 	}
 	
 	
-	@RequestMapping("/categoria/userselect") // Usuário adciona categoria selecionada
-	@ResponseBody
-	public String categoriaSelecionada(@RequestParam("idUsuario") int idUsuario, @RequestParam("idCategoria") int idCategoria,
-			UsuarioEscolheCategoriaDAO userCatDao) {
-		
-		
-		if(userCatDao.salvar(idUsuario, idCategoria)) {
-			
-			Boolean sucesso = true;
-			
-			return sucesso.toString();
-		}
-		
-		return "false";
-		
-		
-	}
 	
-	
-	@RequestMapping("/categoria/userunselect") // Usuário adciona categoria selecionada
-	@ResponseBody
-	public String categoriaDesSelecionada(@RequestParam("idUsuario") int idUsuario, @RequestParam("idCategoria") int idCategoria) {
-		
-		UsuarioEscolheCategoriaDAO userCatDao = new UsuarioEscolheCategoriaDAO();
-		
-		if(userCatDao.remover(idUsuario, idCategoria)) {
-			
-			Boolean sucesso = true;
-			
-			return sucesso.toString();
-		}
-		
-		return "false";
-		
-		
-}
 	
 	
 }

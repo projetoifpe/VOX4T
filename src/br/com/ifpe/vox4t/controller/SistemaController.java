@@ -6,8 +6,13 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import br.com.ifpe.vox4t.dao.CategoriaDAO;
 import br.com.ifpe.vox4t.dao.TwitterDAO;
+import br.com.ifpe.vox4t.dao.UsuarioEscolheCategoriaDAO;
+import br.com.ifpe.vox4t.model.Categoria;
 import br.com.ifpe.vox4t.util.TratamentoPublicacao;
 import twitter4j.Status;
 import twitter4j.TwitterException;
@@ -57,8 +62,10 @@ public class SistemaController {
 			
 		}
 		
+		CategoriaDAO dao3 = new CategoriaDAO();
+		List<Categoria> categorias =  dao3.listar();
 		
-		
+		model.addAttribute("listaCategoria", categorias);
 		model.addAttribute("canais", nomes);
 		model.addAttribute("publicacoes", publicacoes);
 		return "exibicao";
@@ -68,5 +75,43 @@ public class SistemaController {
 	public String loginGoogle() {
 		return "login/google";
 	}
+	
+	
+	@RequestMapping("userselect") // Usuário adciona categoria selecionada
+	@ResponseBody
+	public String categoriaSelecionada(@RequestParam("idUsuario") int idUsuario, @RequestParam("idCategoria") int idCategoria,
+			UsuarioEscolheCategoriaDAO userCatDao) {
+		
+		
+		if(userCatDao.salvar(idUsuario, idCategoria)) {
+			
+			Boolean sucesso = true;
+			
+			return sucesso.toString();
+		}
+		
+		return "false";
+		
+		
+	}
+	
+	
+	@RequestMapping("userunselect") // Usuário adciona categoria selecionada
+	@ResponseBody
+	public String categoriaDesSelecionada(@RequestParam("idUsuario") int idUsuario, @RequestParam("idCategoria") int idCategoria) {
+		
+		UsuarioEscolheCategoriaDAO userCatDao = new UsuarioEscolheCategoriaDAO();
+		
+		if(userCatDao.remover(idUsuario, idCategoria)) {
+			
+			Boolean sucesso = true;
+			
+			return sucesso.toString();
+		}
+		
+		return "false";
+		
+		
+}
 	
 }
