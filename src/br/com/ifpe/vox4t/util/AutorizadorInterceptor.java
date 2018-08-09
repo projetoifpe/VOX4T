@@ -25,7 +25,8 @@ Exception {
 	|| uri.endsWith("disponivel")
 	|| uri.endsWith("loginCheck")
 	|| uri.endsWith("logout")
-	|| uri.endsWith("loginAdminCheck")){
+	|| uri.endsWith("loginAdminCheck")
+	|| uri.endsWith("usuario/edicaoUsuario")){
 	return true;
 	}	
 	

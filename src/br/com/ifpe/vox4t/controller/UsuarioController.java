@@ -20,6 +20,12 @@ public class UsuarioController {
 
 		return "usuario/cadastro";
 	}
+	
+	@RequestMapping("/usuario/edicaoUsuario")
+	public String edicaoUsuario() {
+
+		return "usuario/edicaoUsuario";
+	}
 
 	@RequestMapping("/usuario/save")
 	public String save(Usuario usuario, Model attr, HttpSession session) {
