@@ -12,10 +12,6 @@ import br.com.ifpe.vox4t.dao.UsuarioDAO;
 import br.com.ifpe.vox4t.model.Usuario;
 import br.com.ifpe.vox4t.util.Criptografia;
 
-/**
- * @Author: henrique
- */
-
 @Controller
 public class UsuarioController {
 
@@ -26,15 +22,15 @@ public class UsuarioController {
 	}
 
 	@RequestMapping("/usuario/save")
-	public String save(Usuario usuario, Model attr) {
-
-		UsuarioDAO dao = new UsuarioDAO();
+	public String save(Usuario usuario, Model attr, HttpSession session) {
 		usuario.setSenha(Criptografia.criptografar(usuario.getSenha()));
+		UsuarioDAO dao = new UsuarioDAO();
 		dao.salvar(usuario);
-
-		attr.addAttribute("msgSucesso", "Usuario adcionado com sucesso."); // Envia string msg para o html.
+		String link = "/VOX4T";
+		attr.addAttribute("msg", "Usuario adcionado com sucesso."); // Envia string msg para o html.
+		session.setAttribute("link", link);
 		dao.fecharConexao();
-		return "usuario/cadastro";
+		return "comum/pageMsg";
 	}
 
 	@RequestMapping("/usuario/facebook")
@@ -110,18 +106,20 @@ public class UsuarioController {
 		result = dao.logar(usuario);
 
 		if (result == true) {
-
+			String link = "/VOX4T/exibicao";
 			attr.addAttribute("msg", "Usuario Logado com sucesso."); // Envia string msg para o html.
+			session.setAttribute("link", link);
 			Usuario user = dao.buscarPorEmail(usuario.getEmail());
 			session.setAttribute("usuarioLogado", user);
 			dao.fecharConexao();
-			return "logado";}
+			return "comum/pageMsg";}
 
 		else {
+			String link = "/VOX4T";
 			dao.fecharConexao();
-			session.invalidate();
+			session.setAttribute("link", link);
 			attr.addAttribute("msg", "Usuario ou senha incorretos."); // Envia string msg para o html.
-			return "logado";
+			return "comum/pageMsg";
 
 		}
 	}

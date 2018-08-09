@@ -29,14 +29,18 @@ public class AdminController {
 			result = dao.logar(adm);
 			
 			if (result == true) {
+				String link = "/VOX4T/admin/menu";
 				attr.addAttribute("msg", "Administrador Logado com sucesso.");
+				session.setAttribute("link", link);
 				Admin admin = dao.buscarPorEmail(adm.getEmail());
 				session.setAttribute("adminLogado", admin);
-				return "admin/menu";
+				return "comum/pageMsg";
 			}
 			else {
+				String link = "/VOX4T/admin";
 				attr.addAttribute("msg", "E-mail ou senha incorreto(s)");
-				return "admin/loginAdmin";
+				session.setAttribute("link", link);
+				return "comum/pageMsg";
 			}
 		}
 		 

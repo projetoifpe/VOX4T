@@ -2,6 +2,8 @@ package br.com.ifpe.vox4t.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,13 +28,14 @@ public class CategoriaController {
 	}
 
 	@RequestMapping("/categoria/save")
-	public String save(Categoria categoria, Model model) {
-
+	public String save(Categoria categoria, Model model,HttpSession session) {
+		String link = "/VOX4T/categoria/add";
 		CategoriaDAO dao = new CategoriaDAO();
 		dao.salvar(categoria);
 		model.addAttribute("msg", "Categoria Incluída com Sucesso");  //envia menssagem de confirmação.
+		session.setAttribute("link", link);
 
-		return "categoria/cadastro"; // inclui uma categoria.
+		return "comum/pageMsg";
 	}
 	
 
@@ -57,24 +60,24 @@ public class CategoriaController {
 		}
 	
 	@RequestMapping("/categoria/update")
-	public String update(Categoria categoria, Model model) {
-
+	public String update(Categoria categoria, Model model, HttpSession session) {
+		String link = "/VOX4T/categoria/add";
 		CategoriaDAO dao = new CategoriaDAO();
 		dao.alterar(categoria);
 		model.addAttribute("msg", "Categoria Alterada com Sucesso !");  //envia menssagem de confirmação.
-
-		return "categoria/cadastro"; // Atualiza o nome da categoria e envia para a pagina de cadastro.
+		session.setAttribute("link", link);
+		return "comum/pageMsg";
 	}
 
 
 	@RequestMapping("/categoria/delete")
-	public String delete(@RequestParam("id") Integer id, Model model) {
-
+	public String delete(@RequestParam("id") Integer id, Model model,HttpSession session) {
+		String link = "/VOX4T/categoria/add";
 		CategoriaDAO dao = new CategoriaDAO();
 		dao.remover(id);
 		model.addAttribute("msg", "Categoria Removida com Sucesso"); // envia menssagem de confirmação.
-
-		return "forward:add";// Exclui a categoria informada pelo id.
+		session.setAttribute("link", link);
+		return "comum/pageMsg";
 	}
 	
 	
