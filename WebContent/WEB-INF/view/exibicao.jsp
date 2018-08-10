@@ -32,6 +32,9 @@
     
     <!-- Import do Style css -->
 	<link   rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/style/style.css" />
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+	
     
    
 	
@@ -96,32 +99,13 @@
 	
 </script>
 
-<body style="overflow-y: hidden;overflow-x: hidden;">
+<body style="overflow-y: hidden;overflow-x: hidden;background-color: #D3D3D3;">
 
 
 
     <div class="overlay">
 <!-- NAV BAR -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-dark" style="background-color: ;">
-            <a class="navbar-brand text-success" href="<%=request.getContextPath()%>/home">VOX4T</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link text-success" href="#">Sobre</a>
-                    </li>
-
-
-                </ul>
-
-                    <a href="<%=request.getContextPath()%>/usuario/cadastro" class="btn btn-outline-success my-2 my-sm-0" style="margin-right: 6px">Cadastre-se</a>
-                    <button class="btn btn-outline-success my-2 my-sm-0" data-toggle="modal" data-target="#modal-mensagem">Login</button>
-
-            </div>
-        </nav>
+<c:import url="/WEB-INF/view/comum/nav-user-logado-comum.jsp"></c:import>
 
 
 
@@ -179,8 +163,10 @@
 				                <br>
 			                    <c:forEach var="twitter" items="${publicacoes.get(i)}">
 									<p>${twitter}</p>
-									<br>
+									<hr style="border-width:2px;">
 								</c:forEach>
+								<br>
+								<hr style="border-width:6px;">
 							</c:forEach> 
                         </div>
 
@@ -190,26 +176,26 @@
                 </div>
 
                 <div class="col-md-2">
-                    <div class="card float-right" style="width: 25em margin-top: 8%;">
+                    <div class="card float-right" style="width: 17rem; margin-top: 8%;">
 
                         <div class="card-body">
-                            <h5 class="card-title center">Modo Voz</h5>
+                            <h5 class="card-title center" style="text-align: center;">Modo Voz</h5>
 
                             <button type="button" class="btn btn-default btn-lg">
-                <span class="glyphicon glyphicon-step-backward" ></span>
+                <i class="fas fa-step-backward" ></i>
                                 
                             </button>
 
                             <button type="button" class="btn btn-default btn-lg">
-                <span class=" glyphicon glyphicon-play" ></span>
+                <i class="fas fa-play"></i>
                             </button>
 
                             <button type="button" class="btn btn-default btn-lg">
-                <span class="glyphicon glyphicon-pause" ></span>
+                <i class="fas fa-stop"></i>
                             </button>
 
                             <button type="button" class="btn btn-default btn-lg">
-                <span class="glyphicon glyphicon-step-forward" ></span>
+                <i class="fas fa-step-forward" ></i>
                             </button>
 
 

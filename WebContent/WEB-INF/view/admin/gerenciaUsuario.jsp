@@ -9,17 +9,6 @@
 
     <head>
     <style>
-   #sobre{
-    position:relative;
-    left: 130px;
-     
-    }
-    
-    a{
-    position:relative;
-    right: 135px;
-    
-    }
     
    /* SWITCH BUTTON */ 
 .switch {
@@ -95,31 +84,7 @@ input:checked + .slider:before {
 
     <body style="overflow:hidden;">
         <div class="overlay">
-
-         	<nav class="navbar navbar-expand-lg navbar-light bg-dark"
-		style="background-color: ;">
-	<div class="container">
-		<a class="navbar-brand text-light h1 mb-0"
-			href="<%=request.getContextPath()%>/home" >VOX4T</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse"
-			data-target="#navbarSupportedContent"
-			aria-controls="navbarSupportedContent" aria-expanded="false"
-			aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav ml-auto">
-				<li class="nav-item"><a class="nav-link text-light" id="sobre" href="#">Sobre</a>
-				</li>
-			</ul>
-		</div>
-	</div>
-
-
-
-	</nav>
-
-
+		<c:import url="/WEB-INF/view/comum/nav-adm.jsp"></c:import>
             <div class="content">
                 <div class="row">
                     <div class="col-sm">
