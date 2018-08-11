@@ -142,6 +142,7 @@ CREATE TABLE `usuario` (
   `senha` varchar(45) DEFAULT NULL,
   `data_nascimento` date DEFAULT NULL,
   `sexo` varchar(1) DEFAULT NULL,
+  `status` int(1) NOT NULL,
   PRIMARY KEY (`id_usuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;

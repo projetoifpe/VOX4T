@@ -43,6 +43,9 @@ public class Usuario {
 	@Column
 	private String sexo;
 	
+	@Column
+	private int status;
+	
 	
 //	-------------------GETTERS AND SETTERS------------------------------------------------------------------------
 	
@@ -94,7 +97,13 @@ public class Usuario {
 		this.sexo = sexo;
 	}
 	
-	
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
 	
 }
 

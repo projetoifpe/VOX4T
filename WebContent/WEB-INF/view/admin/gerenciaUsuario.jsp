@@ -5,9 +5,37 @@
 <!DOCTYPE html>
     <html lang="br">
 
-    <!--  CABEÃ‡ALHO -->
+    <!--  CABEÇALHO -->
 
     <head>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/jquery-3.3.1.min.js"></script>
+
+<script>
+$(document).ready(function(){
+    $('input[type=checkbox]').change(function(){
+                if(this.checked){
+                	$.ajax({
+        	            url : 'x',    //Aqui onde tem x coloca a url de um controler que você vai fazer o método
+         	            type : 'POST',
+        	            data : 'idUsuario=' +this.value,
+        	            success: function(data){
+        	                $('#resultado').html(data);
+        	            }
+        	        });
+                }else{
+                	$.ajax({
+        	            url : 'y',        //Aqui onde tem y coloca a url de um controller pra desativar o usuario
+        	            type : 'POST',
+        	            data : 'idUsuario='+this.value,
+        	            success: function(data){
+        	                $('#resultado').html(data);
+        	            }
+        	        });
+                }
+     });
+
+});
+</script>
     <style>
     
    /* SWITCH BUTTON */ 
@@ -125,7 +153,7 @@ input:checked + .slider:before {
                                         <td>${user.getEmail()}</td>
                                         <td>    
                                         	<label class="switch">
-  											<input type="checkbox" checked>
+  											<input type="checkbox" value="${user.id}" checked>
   											<span class="slider round"></span>
 											</label>
     

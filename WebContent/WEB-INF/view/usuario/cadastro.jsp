@@ -288,7 +288,16 @@ function ExibeDados(token){
                     </div>
                 </div>
                 
+                <!--  CAMPO DE STATUS HIDDEN -->
                 
+                <div class="form-group">
+                    
+                    <div class="col-md-6">
+                         <input type="hidden" name="status"  id="status" class="form-control" style="width: 420px;" value="1" required>
+                    </div>
+                </div>
+                
+                	
                 <!-- Botão submit -->
                 
                 <div class="form-group">
