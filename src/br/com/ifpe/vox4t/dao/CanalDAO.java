@@ -33,6 +33,15 @@ public class CanalDAO {
 		List<Canal> lista = query.getResultList();
 		return lista;
 	}
+	
+	public List<Canal> filtrar(int id) {
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
+		EntityManager manager = factory.createEntityManager();
+		Query query = manager.createQuery("FROM Canal WHERE categoria.id LIKE :paramIdCategoria ORDER BY nome");
+		query.setParameter("paramIdCategoria", id);
+		List<Canal> lista = query.getResultList();
+		return lista;
+	}
 
 	public Canal buscarPorId(int id) {
 		Canal obj = null;

@@ -3,6 +3,8 @@ package br.com.ifpe.vox4t.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +15,8 @@ import br.com.ifpe.vox4t.dao.CategoriaDAO;
 import br.com.ifpe.vox4t.dao.TwitterDAO;
 import br.com.ifpe.vox4t.dao.UsuarioEscolheCategoriaDAO;
 import br.com.ifpe.vox4t.model.Categoria;
+import br.com.ifpe.vox4t.model.Usuario;
+import br.com.ifpe.vox4t.model.UsuarioEscolheCategoria;
 import br.com.ifpe.vox4t.util.TratamentoPublicacao;
 import twitter4j.Status;
 import twitter4j.TwitterException;
@@ -25,10 +29,13 @@ import twitter4j.TwitterException;
 public class SistemaController {
 	
 	@RequestMapping("exibicao")
-	public String testeTwitter(Model model) throws TwitterException {
+	public String testeTwitter(HttpSession session, Model model) throws TwitterException {
+		
 		TwitterDAO user = new TwitterDAO();
 		
-		List<List<Status>> listaTweets = user.coletaTweets();
+		Usuario usu = (Usuario)session.getAttribute("usuarioLogado");
+		
+		List<List<Status>> listaTweets = user.coletaTweets(usu.getId());
 		List<List<String>> publicacoes = new ArrayList<>();
 		List<String> lista = new ArrayList<>();
 
@@ -55,6 +62,7 @@ public class SistemaController {
 					
 				
 			}
+			
 			List<String> lista2 = new ArrayList<>(lista);
 			lista2 = TratamentoPublicacao.converterAbreviacao(lista);
 			publicacoes.add(lista2);
@@ -65,6 +73,20 @@ public class SistemaController {
 		CategoriaDAO dao3 = new CategoriaDAO();
 		List<Categoria> categorias =  dao3.listar();
 		
+		UsuarioEscolheCategoriaDAO uecdao = new UsuarioEscolheCategoriaDAO();
+		List<UsuarioEscolheCategoria> categoriasUsuario = uecdao.listar(usu.getId());
+		
+		for(Categoria y: categorias) {
+			System.out.println(y.getId());
+		}
+		
+		System.out.println("");
+		
+		for(UsuarioEscolheCategoria x: categoriasUsuario) {
+			System.out.println(x.getIdCategoria().getId());
+		}
+		
+		model.addAttribute("categoriasUsuario", categoriasUsuario);
 		model.addAttribute("listaCategoria", categorias);
 		model.addAttribute("canais", nomes);
 		model.addAttribute("publicacoes", publicacoes);

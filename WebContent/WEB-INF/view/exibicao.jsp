@@ -76,7 +76,7 @@
 	            type : 'POST',
 	            data : 'idCategoria=' + this.value + '&idUsuario='+idsessao,
 	            success: function(data){
-	                $('#resultado').html(data);
+	            	location.reload();
 	            }
 	        });
 			
@@ -87,7 +87,7 @@
 	            type : 'POST',
 	            data : 'idCategoria=' + this.value + '&idUsuario='+idsessao,
 	            success: function(data){
-	                $('#resultado').html(data);
+	            	location.reload();
 	            }
 	        });
 		}
@@ -133,8 +133,24 @@
 									<%int i=0; %>
 											
 									<c:forEach var="categoria" items="${listaCategoria}">
-												
-										<input type="checkbox" name="categoriaNome<%=i%>" id="categoriaNome<%=i%>" value="${categoria.id}"> 
+										
+										<c:set var="contem" value="${0}" />
+										<c:forEach var="categoriasUsuario" items="${CategoriasUsuario}">
+										  <c:if test="${categoriasUsuario.idCategoria.id eq categoria.id}">
+										    <c:set var="contem" value="${1}" />
+										  </c:if>
+										</c:forEach>
+										
+										  <c:choose>
+         
+									         <c:when test = "${contem == 1}">
+									            <input type="checkbox" name="categoriaNome<%=i%>" id="categoriaNome<%=i%>" value="${categoria.id}" checked> 
+									         </c:when>
+									         
+									         <c:otherwise>
+									         	<input type="checkbox" name="categoriaNome<%=i%>" id="categoriaNome<%=i%>" value="${categoria.id}"> 
+									         </c:otherwise>
+									      </c:choose>
 													
 										<span class="label-text">${categoria.nome}</span>
 													

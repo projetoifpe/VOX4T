@@ -1,10 +1,13 @@
 package br.com.ifpe.vox4t.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+
 
 import br.com.ifpe.vox4t.model.Categoria;
 import br.com.ifpe.vox4t.model.Usuario;
@@ -107,5 +110,20 @@ public class UsuarioEscolheCategoriaDAO {
 		return obj;
 
 	   }
+	
+	public List<UsuarioEscolheCategoria> listar(int id) {
+
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
+		EntityManager manager = factory.createEntityManager();
+		Query query = manager.createQuery("FROM UsuarioEscolheCategoria WHERE idUsuario.id LIKE :paramIdUsuario ORDER BY idCategoria");
+		query.setParameter("paramIdUsuario", id);
+		
+		List<UsuarioEscolheCategoria> lista = query.getResultList();
+
+		manager.close();
+		factory.close();
+
+		return lista;
+	    }
 
 }

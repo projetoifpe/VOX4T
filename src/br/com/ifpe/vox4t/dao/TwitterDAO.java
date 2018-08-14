@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.apache.taglibs.standard.tag.common.xml.ForEachTag;
 
+import br.com.ifpe.vox4t.model.Canal;
+import br.com.ifpe.vox4t.model.UsuarioEscolheCategoria;
 import twitter4j.Status;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
@@ -13,7 +15,7 @@ import twitter4j.conf.ConfigurationBuilder;
 public class TwitterDAO {
 
 	
-	public List<List<Status>> coletaTweets() throws TwitterException {
+public List<List<Status>> coletaTweets(int id) throws TwitterException {
 		
 		ConfigurationBuilder cb = new ConfigurationBuilder();
 		
@@ -23,11 +25,26 @@ public class TwitterDAO {
 					.setOAuthAccessToken("987757693040545797-wlQva0FLSy6ZQPcrqt6KxiFNnArhms1")
 					.setOAuthAccessTokenSecret("55j6SRHL31KKFC8CC4HH2QdISyMZJs9q8hsch9zF41Fuz")
 					.setTweetModeExtended(true);
-				
+		
+		
 		TwitterFactory tf = new TwitterFactory(cb.build());
 		twitter4j.Twitter twitter = tf.getInstance();
 		List<List<Status>> listaFinal = new ArrayList<List<Status>>();
-		String[] canais = {"@LegiaoDosHerois","@SantosFC","@governope","@EPratica2","@hipsterrecifens","@OficialCelpe"};
+		
+		UsuarioEscolheCategoriaDAO uecdao = new UsuarioEscolheCategoriaDAO();
+		CanalDAO candao = new CanalDAO(); 
+		List<UsuarioEscolheCategoria> uec = uecdao.listar(id);
+		
+		List<String> canais = new ArrayList<>();
+		
+		for(UsuarioEscolheCategoria x: uec) {
+			List<Canal> listacan = candao.filtrar(x.getIdCategoria().getId());
+			for(Canal y: listacan) {
+				canais.add(y.getNome());
+			}
+		}
+		
+		
 		for (String canal : canais) {
 			List<Status> status = twitter.getUserTimeline(canal);
 			listaFinal.add(status);
