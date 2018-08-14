@@ -1,12 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    
-    
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <!-- LOGIN API GOOGLE -->
 <script src="https://apis.google.com/js/platform.js"></script>
 <meta name="google-signin-client_id" content="686903218226-p5t42arftgs3onms88c2pvhj4j5tlvfb.apps.googleusercontent.com">
@@ -23,7 +21,7 @@
 	}(document, 'script', 'facebook-jssdk'));
 
 
-//FUN«√O CHAMADA ASSIM QUE EXECUTA O PROCESSO DE LOGIN	
+//FUN√á√ÉO CHAMADA ASSIM QUE EXECUTA O PROCESSO DE LOGIN	
 function checkLoginState() {
 	FB.getLoginStatus(function(response) {
 		var token = response.authResponse.accessToken;
@@ -32,12 +30,12 @@ function checkLoginState() {
 		});
 }
 
-//FUN«√O CHAMADA AP”S A AUTENTICA«√O COM O FACEBOOK - RETORNA OS DADOS DO USU¡RIO LOGADO	
+//FUN√á√ÉO CHAMADA AP√ìS A AUTENTICA√á√ÉO COM O FACEBOOK - RETORNA OS DADOS DO USU√ÅRIO LOGADO	
 function ExibeDados(token){
 	
 	FB.api('/me?fields=name,email,gender,birthday',function(response) {
 		
-		//Acessa o controller que recebe os dados do usu·rio e ativa a sess„o do usu·rio
+		//Acessa o controller que recebe os dados do usu√°rio e ativa a sess√£o do usu√°rio
 		$.post("https://localhost:8443/VOX4T/usuario/facebook?nome="+response.name+"&email="+response.email, function(data){
 			if(data == "true"){
 				//Url para a tela inicial
@@ -55,7 +53,7 @@ function ExibeDados(token){
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Index</title>
+    <title>Sobre </title>
 	
 	<!-- FONTE ROBOTO -->
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
@@ -70,9 +68,10 @@ function ExibeDados(token){
     <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
     <link href="<%=request.getContextPath()%>/resources/externo/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
- 
+    <!-- Custom styles for this template -->
+    <link href="<%=request.getContextPath()%>/resources/externo/css/coming-soon.css" rel="stylesheet">
     
-    <!-- CSS do bot„o do Google -->
+    <!-- CSS do bot√£o do Google -->
 	<link   rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/style/google.css" />
 	
 	<!-- CSS DO MODAL DO LOGIN -->
@@ -142,13 +141,70 @@ function ExibeDados(token){
     .modal-dialog{
     	width: 400px;
     }
-
+      #wen {
+	    margin-left: 95px;
+	     margin-top:10px;
+    }
+    #mar {
+	    margin-left:80px;
+	     margin-top:10px;
+    }
+    #cla {
+	    margin-left:110px;
+	    margin-top:10px;
+    }
+    #wil {
+	    margin-left:120px;
+	     margin-top:10px;
+    }
+    #hen {
+	    margin-left:140px;
+	     margin-top:10px;
+    }
+    #her {
+	    margin-left:120px;
+	     margin-top:10px;
+    }
+    #emCla {
+	    margin-left:90px;
+        }
+    #emMar {
+	    margin-left:70px;
+        }
+    #emWen {
+	    margin-left:78px;
+        }    
+    #emHen {
+	    margin-left:90px;
+        }
+    #emWil {
+	    margin-left:120px;
+        }
+    #emHer {
+	    margin-left:120px;
+        }           
+        
+    
+    #eq{
+     margin-top: -90px;
+       margin-left: 160px;
+    }
+        .tit{
+    	margin-left:850px;
+    	margin-top:50px;
+    }
+         .c{
+    	margin-left:680px;
+    	margin-top:50px;
+    }
+    .col{
+    width:10px;
+    
+    }
+<!-- FIM DO CSS MODAL LOGIN -->
     
 </style>
-<!-- FIM DO CSS MODAL LOGIN -->
-
 </head>
-
 
 <body>
  	
@@ -163,10 +219,11 @@ function ExibeDados(token){
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/jquery.validate.min.js"></script>
 	
 
+
 		
 	<script>
 	
-	//VALIDA«√O COM JQUERY VALIDATE -----------------------------------------------------------------------
+	//VALIDA√á√ÉO COM JQUERY VALIDATE -----------------------------------------------------------------------
 	
 	 $(document).ready(function(){
 
@@ -192,9 +249,11 @@ function ExibeDados(token){
 	}); 
 	 </script>
 	
-
-
-	<div class="overlay">
+	//---------------------------------------------------------------------------------------------
+	
+	
+	
+	    <div class="overlay">
 
         <nav class="navbar navbar-expand-lg navbar-light bg-dark" style="background-color: ;">
             <a class="navbar-brand text-light" href="<%=request.getContextPath()%>">VOX4T</a>
@@ -205,112 +264,59 @@ function ExibeDados(token){
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="/VOX4T/sobre">Sobre</a>
                     </li>
-						    
-	            </ul>
 
-                <button class="btn btn-outline-light my-2 my-sm-0" data-toggle="modal" data-target="#modal-mensagem">Login</button>
+
+                </ul>
+
+                    <a href="<%=request.getContextPath()%>/usuario/cadastro" class="btn btn-outline-light my-2 my-sm-0" style="margin-right: 6px">Cadastre-se</a>
+                    <button class="btn btn-outline-light my-2 my-sm-0" data-toggle="modal" data-target="#modal-mensagem">Login</button>
 
             </div>
         </nav>
 
+
+        <div class="masthead">
+            <div class="masthead-bg"></div>
+            <div class="container h-100">
+                <div class="row h-100">
+                    <div class="col-12 my-auto">
+                        <div class="masthead-content text-white py-5 py-md-0">
+                            	<h3 id="eq" class="mb-3">Equipe</h3>
+                            <p class="mb-5"></p>
+                            <div class="input-group input-group-newsletter">
+ 							<div class="col" style="background-color:#4682B4;">
+ 							<h5 id="cla"><b>Claudes Gomes</b></h5> <b id="emCla">claudesferreira99@gmail.com</b></div>
+ 							<div class="col" style="background-color:#4682B4;">
+ 							<h5 id="hen"><b>Henrique</b></h5><b id="emHen">henriquenunesti@gmail.com</b></div>
+  							<div class="col" style="background-color:#4682B4;">
+  							<h5 id="mar"><b>Marlysson de Oliveira</b></h5> <b id="emMar">marlysson.oliveira@hotmail.com</b></div>
+    						<div class="col" style="background-color:#4682B4;">
+    						<h5 id="wen"><b>Wendel Marcelino</b></h5> <b id="emWen">wendel_mcr_sp@hotmail.com</b></div>
+    						<div class="col" style="background-color:#4682B4;">
+    						<h5 id="wil"><b>Wildici Lins</b></h5><b id="emWil">wildici@hotmail.com</b></div>
+							<div class="col" style="background-color:#4682B4;">
+							<h5 id="her"><b>Hermes Neto</b></h5> <b id="emHer">hrmslns@gmail.com</b></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     
-    <br><br><br>
-    	
-		<div class="container">
-             <div>
-			<p style="color: red; margin-left: 230px;">${msgSucesso}</p>
-		</div>
-            <form id="cadastroForm" class="form-horizontal" method="post" action="save">
-                
-                <div class="form-group">
-                
-                
-                <!-- Campo Nome -->
-                
-			    <div class="form-group">
-			        <label for="nome" class="col-md-3 control-label">Nome</label>
-			        <div class="col-md-6">
-			            <input type="text" class="form-control" id="nome" placeholder="Informe seu nome" name="nome" style="width: 420px;" maxlength="45" required />
-			    	</div>
-			    </div>
-			    
-			    <!-- Campo Email -->
-			    
-                <div class="form-group">
-                    <label for="email" class="col-sm-3 control-label">Email</label>
-                    <div class="col-md-6">
-                        <input type="email" name="email" id="email" placeholder="Informe seu Email" class="form-control" style="width: 420px;" required />
-                    </div>
-                </div>
-                
-                <!-- Campo Senha -->
-                
-                <div class="form-group">
-                    <label for="senha" class="col-sm-3 control-label">Senha</label>
-                    <div class="col-md-6">
-                        <input type="password" name="senha" id="senha" placeholder="Escolha uma senha" class="form-control" style="width: 420px;" minlength = "6" maxlength="45" required>
-                    </div>
-                </div>
-                
-                <!-- Campo Confirmar Senha -->
-                
-                <div class="form-group">
-                    <label for="confSenha" class="col-sm-3 control-label">Confirmar Senha</label>
-                    <div class="col-md-6">
-                        <input type="password" name="confSenha" placeholder="Confirme a senha" class="form-control" style="width: 420px;" data-match="#senha" data-match-error="senhas n„o correspondem" required>
-					</div>
-                </div>
-                
-                <!-- Campo Data -->
+<br><br><br><br>
+<h3 class="tit"><b>O que √© o VOX4T ?</b></h3>
+<h5 class="c">√â um sistema que destina-se a facilitar a visualiza√ß√£o de tweets,<br>
+com diversos filtros, ferramentas e fun√ß√µes, como por exemplo<br>
+um sistema de transmiss√£o das messagens por voz!</h5>
+<h5 class="c">Al√©m disso, possibilita que o usu√°rio selecione categorias<br> 
+de tweets que mais o agradam, tornando o sistema mais<br> confort√°vel para cada tipo de usu√°rio.</h5>
+    
 
-                <div class="form-group">
-                    <label for="date" class="col-sm-3 control-label">Data de Nascimento</label>
-                    <div class="col-md-6">
-                         <input type="text" name="dataNascimento" maxlength="10" id="dataNascimento" class="form-control" style="width: 420px;" placeholder="Data de nascimento" required>
-                    </div>
-                </div>
-                
-                
-                <!-- Campo GÍnero -->
-         
-                <div class="form-group">
-                    <label class="control-label col-sm-3">GÍnero</label>
-                    
-                    <div class="col-md-6">
-                       <label for="sexo">&nbsp;Masculino</label>
-                       <input type="radio" name="sexo" id="sexo" value="M" checked>
-                    
-                       <label for="sexo">&nbsp;Feminino</label>
-                       <input type="radio" name="sexo" id="sexo" value="F" required>
-                    </div>
-                </div>
-                
-                <!--  CAMPO DE STATUS HIDDEN -->
-                
-                <div class="form-group">
-                    
-                    <div class="col-md-6">
-                         <input type="hidden" name="status"  id="status" class="form-control" style="width: 420px;" value="1" required>
-                    </div>
-                </div>
-                
-                	
-                <!-- Bot„o submit -->
-                
-                <div class="form-group">
-                    <div class="col-sm-9 col-sm-offset-3" style="margin-left: 50px;">
-                        <button type="submit" style="width: 150px; margin-left: 220px;" class="btn btn-primary btn-block">Cadastrar</button>
-                    </div>
-                </div>
-                
-                </div>
-                                
-            </form> 
-        </div>
-		<!-- INICIO MODAL LOGIN -->
+
+
+	<!-- INICIO MODAL LOGIN -->
 	<div class="modal fade" id="modal-mensagem" tabindex="-1">
     <div class="modal-dialog">
          <div class="modal-content">
@@ -345,7 +351,7 @@ function ExibeDados(token){
         		  
         		  <div class="text-center social-btn">
 						
-						<!-- BOT√O LOGIN GOOGLE -->
+						<!-- BOT√ÉO LOGIN GOOGLE -->
 						<div id="gSignInWrapper">
 						    <div id="customBtn" class="customGPlusSignIn">
 						      <span class="icon"></span>
@@ -355,20 +361,52 @@ function ExibeDados(token){
          					<script>startApp();</script>		  	
 						<br> 
 						
-						<!-- BOT√O LOGIN FACEBOOK -->
+						<!-- BOT√ÉO LOGIN FACEBOOK -->
 						<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with"  scope="public_profile"  onlogin="checkLoginState();"></div>
         		  </div>
         		  
     			</form>
     
-    			<p class="text-center text-muted small">VocÍ n„o tem uma conta? <a href="../usuario/cadastro">Cadastre-se aqui!</a></p>
+    			<p class="text-center text-muted small">Voc√™ n√£o tem uma conta? <a href="usuario/cadastro">Cadastre-se aqui!</a></p>
 			
 			</div>
          </div>
      </div>
  </div>
  
- <!-- FIM MODAL LOGIN -->	
+ <!-- FIM MODAL LOGIN -->
+	
 </body>
-
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

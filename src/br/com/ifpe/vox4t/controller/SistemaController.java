@@ -98,6 +98,11 @@ public class SistemaController {
 		return "login/google";
 	}
 	
+	@RequestMapping("/sobre")
+	public String sobre() {
+		return "comum/sobre";
+	}
+	
 	
 	@RequestMapping("userselect") // Usuário adciona categoria selecionada
 	@ResponseBody

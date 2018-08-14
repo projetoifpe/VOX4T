@@ -20,6 +20,7 @@ Exception {
 	|| uri.contains("js")
 	|| uri.contains("google")
 	|| uri.endsWith("admin")
+	|| uri.endsWith("sobre")
 	|| uri.endsWith("usuario/cadastro")
 	|| uri.endsWith("usuario/save")
 	|| uri.endsWith("disponivel")

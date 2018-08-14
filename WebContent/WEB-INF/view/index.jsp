@@ -204,7 +204,7 @@ function ExibeDados(token){
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="#">Sobre</a>
+                        <a class="nav-link text-light" href="sobre">Sobre</a>
                     </li>
 
 
