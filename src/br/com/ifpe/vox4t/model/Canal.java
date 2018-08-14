@@ -21,9 +21,8 @@ public class Canal {
 	@Column
 	private String nome;
 	
-	@ManyToOne
-    @JoinColumn(name = "id_categoria")
-    private Categoria categoria;
+	@Column(name = "id_categoria")
+    private int categoria;
 
 		//@Column
 		//private Categoria categoria;
@@ -46,11 +45,11 @@ public class Canal {
 		this.nome = nome;
 	}
 
-	public Categoria getCategoria() {
+	public int getCategoria() {
 		return categoria;
 	}
 
-	public void setCategoria(Categoria categoria) {
+	public void setCategoria(int categoria) {
 		this.categoria = categoria;
 	}
 

@@ -41,6 +41,8 @@ Exception {
 		||uri.endsWith("categoria/delete")
 		||uri.endsWith("categoria/save")
 		|| uri.endsWith("admin/gerenciar-usuario")
+		|| uri.endsWith("canal/saveCanal")
+		|| uri.endsWith("canal/incluirCanal")
 		|| uri.endsWith("admin/usuario-status-checked")
 		|| uri.endsWith("admin/usuario-status-unchecked")
 		|| uri.endsWith("/admin/excluirUsuario")) {
