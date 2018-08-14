@@ -15,18 +15,18 @@ $(document).ready(function(){
     $('input[type=checkbox]').change(function(){
                 if(this.checked){
                 	$.ajax({
-        	            url : 'x',    //Aqui onde tem x coloca a url de um controler que você vai fazer o método
+        	            url : 'usuario-status-checked',    //Aqui onde tem x coloca a url de um controler que você vai fazer o método
          	            type : 'POST',
-        	            data : 'idUsuario=' +this.value,
+        	            data : 'status=' +this.value,
         	            success: function(data){
         	                $('#resultado').html(data);
         	            }
         	        });
                 }else{
                 	$.ajax({
-        	            url : 'y',        //Aqui onde tem y coloca a url de um controller pra desativar o usuario
+        	            url : 'usuario-status-unchecked',        //Aqui onde tem y coloca a url de um controller pra desativar o usuario
         	            type : 'POST',
-        	            data : 'idUsuario='+this.value,
+        	            data : 'status='+this.value,
         	            success: function(data){
         	                $('#resultado').html(data);
         	            }
@@ -113,15 +113,7 @@ input:checked + .slider:before {
     <body style="overflow:hidden;">
         <div class="overlay">
 		<c:import url="/WEB-INF/view/comum/nav-adm.jsp"></c:import>
-            <div class="content">
-                <div class="row">
-                    <div class="col-sm">
-                        <a class="btn btn-light" style="width: 33%">Usuários</a>
-                        <a class="btn btn-light" style="width: 33%">Categorias</a>
-                        <a class="btn btn-light" style="width: 33%">Canal</a>    
-                    </div>
-                </div>
-            </div>
+            
 
 
             <!-- USUÃRIOS -->
@@ -135,12 +127,14 @@ input:checked + .slider:before {
                                 <input type="text" class="form-control" style="width: 25%" placeholder="Buscar">
 
                             </form>
+                            
+                            <form>
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
                                         <th scope="col">Nome</th>
                                         <th scope="col">Email</th>
-                                        <th scope="col">Ativo</th>
+                                        <th scope="col">Status</th>
                                        
                                         <th scope="col">Excluir</th>
                                     </tr>
@@ -152,13 +146,14 @@ input:checked + .slider:before {
                                         <th scope="row">${user.getNome()}</th>
                                         <td>${user.getEmail()}</td>
                                         <td>    
+                                       
                                         	<label class="switch">
-  											<input type="checkbox" value="${user.id}" checked>
+  											<input type="checkbox" name="status" value="${user.id}" checked>
   											<span class="slider round"></span>
 											</label>
-    
+    								
   										</td>                                      
-                                         <td><button class="btn btn-danger">X</button></td>
+                                         <td><a class="btn btn-danger" href="excluirUsuario?id=${user.id}">X</a></td>
                                     </tr>
                              	
                              	
@@ -169,7 +164,7 @@ input:checked + .slider:before {
                                
                                 </tbody>
                             </table>
-
+							</form>
                         </div>
                     </div>
                 </div>

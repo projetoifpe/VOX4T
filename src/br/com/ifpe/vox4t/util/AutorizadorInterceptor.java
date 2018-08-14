@@ -39,7 +39,10 @@ Exception {
 		||uri.endsWith("categoria/update")
 		||uri.endsWith("categoria/delete")
 		||uri.endsWith("categoria/save")
-		|| uri.endsWith("admin/gerenciar-usuario")) {
+		|| uri.endsWith("admin/gerenciar-usuario")
+		|| uri.endsWith("admin/usuario-status-checked")
+		|| uri.endsWith("admin/usuario-status-unchecked")
+		|| uri.endsWith("/admin/excluirUsuario")) {
 		
 		if (request.getSession().getAttribute("adminLogado") != null) {	 
 			

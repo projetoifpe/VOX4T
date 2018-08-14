@@ -108,5 +108,32 @@ public Usuario buscarPorId(int id) {
 	    List<Usuario> lista = query.getResultList();
 	    return lista;
 	}
+	
+	public void alterar(Usuario usuario) {
 
+	    EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
+	    EntityManager manager = factory.createEntityManager();
+
+	    manager.getTransaction().begin();
+	    manager.merge(usuario);
+	    manager.getTransaction().commit();
+
+	    manager.close();
+	    factory.close();
+	    }
+	
+	public void remover(int id) {
+
+	    EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
+	    EntityManager manager = factory.createEntityManager();
+	    Usuario user = manager.find(Usuario.class, id);
+
+	    manager.getTransaction().begin();
+	    manager.remove(user);
+	    manager.getTransaction().commit();
+
+	    manager.close();
+	    factory.close();
+	    }
+	
 }

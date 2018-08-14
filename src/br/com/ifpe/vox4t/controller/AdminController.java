@@ -7,10 +7,12 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import br.com.ifpe.vox4t.dao.AdminDAO;
 import br.com.ifpe.vox4t.dao.UsuarioDAO;
+import br.com.ifpe.vox4t.dao.UsuarioEscolheCategoriaDAO;
 import br.com.ifpe.vox4t.model.Admin;
 import br.com.ifpe.vox4t.model.Usuario;
 
@@ -66,5 +68,52 @@ public class AdminController {
 			 
 			 return "admin/gerenciaUsuario";
 	     }
+		 
+		 @RequestMapping("admin/usuario-status-checked") // Usuário adciona categoria selecionada
+			@ResponseBody
+			public String statusUsuarioChecked(@RequestParam("status") int id) {
+				
+				UsuarioDAO user = new UsuarioDAO();
+				Usuario userSta = new Usuario();
+				
+				userSta = user.buscarPorId(id);
+				
+				userSta.setStatus(1);
+				
+				user.alterar(userSta);
+				
+				return "true";
+				
+				
+		}
+		 
+		 @RequestMapping("admin/usuario-status-unchecked") // Usuário adciona categoria selecionada
+			@ResponseBody
+			public String statusUsuarioUnchecked(@RequestParam("status") int id) {
+				
+				UsuarioDAO user = new UsuarioDAO();
+				Usuario userSta = new Usuario();
+				
+				userSta = user.buscarPorId(id);
+				
+				userSta.setStatus(0);
+				
+				user.alterar(userSta);
+				
+				return "false";
+				
+				
+		}
+		 
+		 @RequestMapping("/admin/excluirUsuario")
+		    public String delete(@RequestParam("id") Integer id) {
+
+		    UsuarioDAO dao = new UsuarioDAO();
+		    dao.remover(id);
+		    
+
+		    return "forward:gerenciar-usuario";
+		    
+		 } 
 
 }
