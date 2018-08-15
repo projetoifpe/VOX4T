@@ -13,7 +13,7 @@
 
 <script>
 function del(id) {  
-    if (confirm('Deseja realmente excluir o canal X?')) {  
+    if (confirm('Deseja realmente excluir este canal?')) {  
         location.href = 'delete?id=' + id;
     }
 }

@@ -43,6 +43,10 @@ Exception {
 		|| uri.endsWith("admin/gerenciar-usuario")
 		|| uri.endsWith("canal/saveCanal")
 		|| uri.endsWith("canal/incluirCanal")
+		|| uri.endsWith("canal/list")
+		|| uri.endsWith("canal/edit")
+		|| uri.endsWith("canal/update")
+		|| uri.endsWith("canal/delete")
 		|| uri.endsWith("admin/usuario-status-checked")
 		|| uri.endsWith("admin/usuario-status-unchecked")
 		|| uri.endsWith("/admin/excluirUsuario")) {

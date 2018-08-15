@@ -45,7 +45,7 @@
 							<option value="">Categoria</option>
 							<c:forEach items="${listaCategoria}" var="obj">
 								<option value="${obj.id}"
-									<c:if test="${obj.id eq canal.categoria.id}">selected="selected"</c:if>>
+									<c:if test="${obj.id eq canal.categoria}">selected="selected"</c:if>>
 									${obj.nome}
 								</option>
 							</c:forEach>
