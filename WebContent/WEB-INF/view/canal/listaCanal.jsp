@@ -18,14 +18,21 @@ function del(id) {
     }
 }
 </script>
+<style>
+td {
+    white-space: nowrap;
+}
+</style>
 </head>
 
 <body>
-	<div style="text-align: center; color: red;">${msg}</div>
 
-	<br>
 
-	<table border="1px" width="100px" class="table table-dark">
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  <strong>${msg}</strong>
+</div>
+
+	<table class="table table-dark">
 		<thead>
 			<tr class="text-center">
 				<th>Canal</th>
@@ -38,24 +45,21 @@ function del(id) {
 			<tbody>
 				<tr class="text-center">
 					<td>${canal.nome}</td>
-					<td><c:forEach items="${listaCategoria}" var="obj">
+					<td>
+						<c:forEach items="${listaCategoria}" var="obj">
 							<option value="${obj.id}">
 								<c:if test="${obj.id eq canal.categoria}"> ${obj.nome} </c:if>
 							</option>
-						</c:forEach></td>
-						
-					<td><a title="alterar canal" href="edit?id=${canal.id}">
-							<button class="btn btn-info btn-sm" data-toggle="modal"
-								data-target="#exampleModal">
-								
-								Alterar <span class="glyphicon glyphicon-search"></span>
-							</button>
-					</a> &nbsp; &nbsp; <a title="remover canal"
-						href="javascript:del(${canal.id})">
-							<button class="btn btn-danger btn-sm">
-								Excluir <span class="glyphicon glyphicon-search"></span>
-							</button>
-					</a></td>
+						</c:forEach>
+					</td>	
+					<td>
+						<a title="alterar canal" href="edit?id=${canal.id}">
+								<button class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal"> Alterar <span class="glyphicon glyphicon-search"></span> </button>
+						</a> &nbsp; &nbsp; <a title="remover canal"
+							href="javascript:del(${canal.id})">
+								<button class="btn btn-danger btn-sm"> Excluir <span class="glyphicon glyphicon-search"></span> </button>
+						</a>
+					</td>
 				</tr>
 			</tbody>
 		</c:forEach>

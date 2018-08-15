@@ -15,6 +15,7 @@ label {
 
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/bootstrap/css/bootstrap.min.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/style/style.css" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
 </head>
 
@@ -27,7 +28,7 @@ label {
 		<form method="post" action="saveCanal">
 			<div class="form-row my-2 ">
 				<div class="form-group col-md-6 ">
-					<select class="custom-select" id="inputGroupSelect01" name="categoria">
+					<select class="custom-select" required name="categoria">
 							<option selected value="">Selecione a Categoria...</option>
 							<c:forEach items="${listaCategoria}" var="obj">
 								<option value="${obj.id}"> ${obj.nome} </option>
@@ -46,9 +47,7 @@ label {
 	
 	<br> <br>
 
-	<h3>
-		<label>Lista de Canais</label>
-	</h3>
+<h1 align="center" class="display-5"><i class="fab fa-twitter text-primary" aria-hidden="true"></i> Lista de Canais</h1>
 
 	<div class="container">
 		<c:import url="/canal/list" />
