@@ -44,9 +44,10 @@ public class UsuarioDAO {
 	public boolean logar(Usuario usuario) {
 		
 		Query query = null;
-		query = manager.createQuery("FROM Usuario WHERE email = :paramEmail AND senha = :paramSenha");
+		query = manager.createQuery("FROM Usuario WHERE email = :paramEmail AND senha = :paramSenha AND status = :paramStatus");
 		query.setParameter("paramEmail", usuario.getEmail());
 		query.setParameter("paramSenha", usuario.getSenha());
+		query.setParameter("paramStatus", 1);
 		@SuppressWarnings("unchecked")
 		List<Usuario> lista = query.getResultList();
 		

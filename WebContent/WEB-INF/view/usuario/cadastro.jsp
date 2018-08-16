@@ -194,7 +194,7 @@ function ExibeDados(token){
 	
 <c:choose>
 <c:when test="${adminLogado.email != null}">
-			<c:import url="WEB-INF/view/comum/nav-adm.jsp"></c:import>
+			<c:import url="/WEB-INF/view/comum/nav-adm.jsp"></c:import>
 </c:when>
 <c:otherwise>
 

@@ -17,6 +17,6 @@
 	                	<a id="logoff" class="navbar-brand text-light" href="<%=request.getContextPath()%>/exibicao">Tweets</a>
 	                </li>
 				</ul>
-					<a id="logoff" class="navbar-brand text-light" href="#">Sair</a>
+					<a id="logoff" class="navbar-brand text-light" href="<%=request.getContextPath()%>/logout">Sair</a>
             </div>
         </nav>

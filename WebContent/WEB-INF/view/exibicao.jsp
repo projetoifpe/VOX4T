@@ -138,8 +138,7 @@
                             <h5 class="card-title">Categorias</h5>
                             	<form>
 
-									<%int i=0; %>
-											
+									<%int i=0; %> 										
 									<c:forEach var="categoria" items="${listaCategoria}">
 										
 										<c:set var="contem" value="${0}" />
@@ -167,7 +166,7 @@
 										<%i++; %>
 												
 									</c:forEach>
-											
+									
 									<input type="hidden" id="idSessao" value="${usuarioLogado.id}">
 							
 											

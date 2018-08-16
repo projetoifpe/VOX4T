@@ -189,17 +189,16 @@ function ExibeDados(token){
 	}); 
 	 </script>
 	
-	//---------------------------------------------------------------------------------------------
 	
 <!-- INICIO NAV -->
 	<c:choose>
 		<c:when test="${adminLogado.email != null}">
-			<c:import url="WEB-INF/view/comum/nav-adm.jsp"></c:import>
+			<c:import url="/WEB-INF/view/comum/nav-adm.jsp"></c:import>
 		</c:when>
 		<c:otherwise>
 			<c:choose>
 				<c:when test="${usuarioLogado.nome != null}">
-					<c:import url="WEB-INF/view/comum/nav-user-logado-comum.jsp"></c:import>
+					<c:import url="/WEB-INF/view/comum/nav-user-logado-comum.jsp"></c:import>
 				</c:when>		
 				<c:otherwise>
 	    <div class="overlay">
