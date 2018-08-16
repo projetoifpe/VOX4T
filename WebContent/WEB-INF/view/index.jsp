@@ -191,8 +191,17 @@ function ExibeDados(token){
 	
 	//---------------------------------------------------------------------------------------------
 	
-	
-	
+<!-- INICIO NAV -->
+	<c:choose>
+		<c:when test="${adminLogado.email != null}">
+			<c:import url="WEB-INF/view/comum/nav-adm.jsp"></c:import>
+		</c:when>
+		<c:otherwise>
+			<c:choose>
+				<c:when test="${usuarioLogado.nome != null}">
+					<c:import url="WEB-INF/view/comum/nav-user-logado-comum.jsp"></c:import>
+				</c:when>		
+				<c:otherwise>
 	    <div class="overlay">
 
         <nav class="navbar navbar-expand-lg navbar-light bg-dark" style="background-color: ;">
@@ -215,7 +224,11 @@ function ExibeDados(token){
 
             </div>
         </nav>
-
+        	</c:otherwise>
+        </c:choose>
+	</c:otherwise>
+</c:choose>
+<!-- FINAL NAV -->
 
         <div class="masthead">
             <div class="masthead-bg"></div>

@@ -105,7 +105,15 @@
 
     <div class="overlay">
 <!-- NAV BAR -->
-<c:import url="/WEB-INF/view/comum/nav-user-logado-comum.jsp"></c:import>
+<c:choose>
+	<c:when test="${adminLogado.email != null}">
+		<c:import url="/WEB-INF/view/comum/nav-adm.jsp"></c:import>
+	</c:when>
+	<c:otherwise>
+		<c:import url="/WEB-INF/view/comum/nav-user-logado-comum.jsp"></c:import>
+	</c:otherwise>
+</c:choose>
+
 
 
 

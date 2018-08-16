@@ -252,7 +252,17 @@ function ExibeDados(token){
 	//---------------------------------------------------------------------------------------------
 	
 	
-	
+<!-- INICIO NAV -->
+	<c:choose>
+		<c:when test="${adminLogado.email != null}">
+			<c:import url="WEB-INF/view/comum/nav-adm.jsp"></c:import>
+		</c:when>
+		<c:otherwise>
+			<c:choose>
+				<c:when test="${usuarioLogado.nome != null}">
+					<c:import url="WEB-INF/view/comum/nav-user-logado-comum.jsp"></c:import>
+				</c:when>		
+				<c:otherwise>
 	    <div class="overlay">
 
         <nav class="navbar navbar-expand-lg navbar-light bg-dark" style="background-color: ;">
@@ -262,19 +272,17 @@ function ExibeDados(token){
   </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                    </li>
-
-
-                </ul>
 
                     <a href="<%=request.getContextPath()%>/usuario/cadastro" class="btn btn-outline-light my-2 my-sm-0" style="margin-right: 6px">Cadastre-se</a>
                     <button class="btn btn-outline-light my-2 my-sm-0" data-toggle="modal" data-target="#modal-mensagem">Login</button>
 
             </div>
         </nav>
-
+        	</c:otherwise>
+        </c:choose>
+	</c:otherwise>
+</c:choose>
+<!-- FINAL NAV -->
 
         <div class="masthead">
             <div class="masthead-bg"></div>

@@ -192,7 +192,11 @@ function ExibeDados(token){
 	}); 
 	 </script>
 	
-
+<c:choose>
+<c:when test="${adminLogado.email != null}">
+			<c:import url="WEB-INF/view/comum/nav-adm.jsp"></c:import>
+</c:when>
+<c:otherwise>
 
 	<div class="overlay">
 
@@ -216,7 +220,8 @@ function ExibeDados(token){
         </nav>
 
     </div>
-    
+ </c:otherwise>
+</c:choose>   
     <br><br><br>
     	
 		<div class="container">
