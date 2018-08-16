@@ -138,7 +138,7 @@ public class UsuarioController {
 		user.fecharConexao();
 		return disponivel.toString();
 	}
-	@RequestMapping("/usuario/logout")
+	@RequestMapping("")
     public String logoutUsuario(HttpSession session) {
         session.invalidate();
         return "index";
