@@ -5,13 +5,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-            			<a id="usuario" class="navbar-brand text-warning" href="<%=request.getContextPath()%>/admin/gerenciar-usuario">Usuario</a>
+            			<a id="usuario" class="navbar-brand text-light" href="<%=request.getContextPath()%>/admin/gerenciar-usuario">Usuario</a>
                     </li>
                     <li>
-                    	<a id="categoria" class="navbar-brand text-warning" href="<%=request.getContextPath()%>/categoria/add">Categoria</a>
+                    	<a id="categoria" class="navbar-brand text-light" href="<%=request.getContextPath()%>/categoria/add">Categoria</a>
                     </li>
                     <li>                    
-                    	<a id="canal" class="navbar-brand text-warning" href="<%=request.getContextPath()%>/canal/incluirCanal">Canal</a>
+                    	<a id="canal" class="navbar-brand text-light" href="<%=request.getContextPath()%>/canal/incluirCanal">Canal</a>
 	                </li>
 	                <li>
 	                	<a id="logoff" class="navbar-brand text-light" href="<%=request.getContextPath()%>/exibicao">Tweets</a>
