@@ -179,7 +179,7 @@
                 <div class="col-md-8">
 
                     <div class ="card"  style="width: 12 rem;height: 100%; width: 900px; position:fixed;">
-
+					<c:if test="${publicacoes.size() > 0}">
                         <div class="card-body" style="overflow-y: scroll;">
 	                        <c:forEach var = "i" begin = "0" end = "${publicacoes.size()-1}">
 								<h4 class="card-title">${canais.get(i)}</h4>
@@ -192,7 +192,7 @@
 								<hr style="border-width:6px;">
 							</c:forEach> 
                         </div>
-
+					</c:if>
                     </div>
                     
                     

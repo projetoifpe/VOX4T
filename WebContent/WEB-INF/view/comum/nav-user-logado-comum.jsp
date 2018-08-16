@@ -8,8 +8,8 @@
                 	<li class="nav-item dropdown">
                 		<a href="#" class="nav-link dropdown-toggle" id="dropdown1" data-toggle="dropdown" aria-haspopup="true" style="color:white; margin-left: 65px;" aria-expanded="false">Usuario</a>
                 		<ul class="dropdown-menu" aria-labelledby="dropdown1">
-                    		<li class="dropdown-item" href="#"><a>Editar Dados</a></li>
-                    		<li class="dropdown-item" href="<%=request.getContextPath()%>/logout"><a>Sair</a></li>
+                    		<li class="dropdown-item"><a href="#">Editar Dados</a></li>
+                    		<li class="dropdown-item"><a href="<%=request.getContextPath()%>/usuario/logout">Sair</a></li>
                 		</ul>
                		</li>
                 </ul>
