@@ -26,8 +26,7 @@ Exception {
 	|| uri.endsWith("disponivel")
 	|| uri.endsWith("loginCheck")
 	|| uri.endsWith("logout")
-	|| uri.endsWith("loginAdminCheck")
-	|| uri.endsWith("usuario/edicaoUsuario")){
+	|| uri.endsWith("loginAdminCheck")){
 	return true;
 	}	
 	
@@ -64,6 +63,7 @@ Exception {
 		
 		if (request.getSession().getAttribute("usuarioLogado") != null){
 			uri.endsWith("exibicao");
+			uri.endsWith("usuario/edicaoUsuario");
 			retorno = true;
 			}
 		else {

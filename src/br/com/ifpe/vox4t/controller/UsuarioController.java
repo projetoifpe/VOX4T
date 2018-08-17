@@ -103,7 +103,7 @@ public class UsuarioController {
 
 	@RequestMapping("loginCheck")
 
-	public String loginCheck(Usuario usuario, Model attr, HttpSession session) {
+	public String loginCheck(Usuario usuario, HttpSession session) {
 
 		boolean result = false;
 
@@ -112,20 +112,14 @@ public class UsuarioController {
 		result = dao.logar(usuario);
 
 		if (result == true) {
-			String link = "/VOX4T/exibicao";
-			attr.addAttribute("msg", "Usuario Logado com sucesso."); // Envia string msg para o html.
-			session.setAttribute("link", link);
 			Usuario user = dao.buscarPorEmail(usuario.getEmail());
 			session.setAttribute("usuarioLogado", user);
 			dao.fecharConexao();
-			return "comum/pageMsg";}
+			return "/exibicao";}
 
 		else {
-			String link = "/VOX4T";
 			dao.fecharConexao();
-			session.setAttribute("link", link);
-			attr.addAttribute("msg", "Usuario ou senha incorretos."); // Envia string msg para o html.
-			return "comum/pageMsg";
+			return "/VOX4T";
 
 		}
 	}
