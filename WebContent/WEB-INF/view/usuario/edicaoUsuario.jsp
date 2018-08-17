@@ -57,26 +57,7 @@
 
 
 	<div class="overlay">
-
-        <nav class="navbar navbar-expand-lg navbar-light bg-dark" style="background-color: ;">
-            <a class="navbar-brand text-success" href="<%=request.getContextPath()%>">VOX4T</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link text-success" href="#">Sobre</a>
-                    </li>
-						    
-	            </ul>
-
-                <button class="btn btn-outline-success my-2 my-sm-0" data-toggle="modal" data-target="#modal-mensagem">Login</button>
-
-            </div>
-        </nav>
-
+		<c:import url="/WEB-INF/view/comum/nav-user-logado-comum.jsp"></c:import>
     </div>
     
     <br><br><br>
@@ -108,24 +89,6 @@
                     </div>
                 </div>
                 
-                <!-- Campo Senha -->
-                
-                <div class="form-group">
-                    <label for="senha" class="col-sm-3 control-label">Senha</label>
-                    <div class="col-md-6">
-                        <input type="password" name="senha" id="senha" placeholder="Escolha uma senha" class="form-control" style="width: 420px;" minlength = "6" maxlength="45" required>
-                    </div>
-                </div>
-                
-                <!-- Campo Confirmar Senha -->
-                
-                <div class="form-group">
-                    <label for="confSenha" class="col-sm-3 control-label">Confirmar Senha</label>
-                    <div class="col-md-6">
-                        <input type="password" name="confSenha" placeholder="Confirme a senha" class="form-control" style="width: 420px;" data-match="#senha" data-match-error="senhas não correspondem" required>
-					</div>
-                </div>
-                
                 <!-- Campo Data -->
 
                 <div class="form-group">
@@ -135,22 +98,13 @@
                     </div>
                 </div>
                 
-                
-                <!-- Campo Gênero -->
-         
                 <div class="form-group">
-                    <label class="control-label col-sm-3">Gênero</label>
-                    
                     <div class="col-md-6">
-                       <label for="sexo">&nbsp;Masculino</label>
-                       <input type="radio" name="sexo" id="sexo" value="M" checked>
-                    
-                       <label for="sexo">&nbsp;Feminino</label>
-                       <input type="radio" name="sexo" id="sexo" value="F" required>
+                    	<a href="#">Editar Senha</a>
                     </div>
                 </div>
                 
-                
+             
                 <!-- Botão submit -->
                 
                 <div class="form-group">

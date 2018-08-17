@@ -122,13 +122,6 @@ input:checked + .slider:before {
                     <div class="col-md-10">
 
                         <div class="card" style="margin-top: 10px;">
-
-                            <form>
-                                <input type="text" class="form-control" style="width: 25%" placeholder="Buscar">
-
-                            </form>
-                            
-                            <form>
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
@@ -148,7 +141,14 @@ input:checked + .slider:before {
                                         <td>    
                                        
                                         	<label class="switch">
-  											<input type="checkbox" name="status" value="${user.id}" checked>
+                                        	<c:choose>
+                                        		<c:when test="${user.status == 1}">
+                                        			<input type="checkbox" name="status" value="${user.id}" checked>
+                                				</c:when>
+                                        		<c:otherwise>
+                                        			<input type="checkbox" name="status" value="${user.id}">
+                                        		</c:otherwise>
+                                        	</c:choose>
   											<span class="slider round"></span>
 											</label>
     								
