@@ -190,11 +190,11 @@ function ExibeDados(token){
        margin-left: 160px;
     }
         .tit{
-    	margin-left:850px;
-    	margin-top:50px;
+    	margin-left:900px;
+    	margin-top:-600px;
     }
          .c{
-    	margin-left:680px;
+    	margin-left:750px;
     	margin-top:50px;
     }
     .col{
@@ -249,18 +249,17 @@ function ExibeDados(token){
 	}); 
 	 </script>
 	
-	//---------------------------------------------------------------------------------------------
 	
 	
 <!-- INICIO NAV -->
 	<c:choose>
 		<c:when test="${adminLogado.email != null}">
-			<c:import url="WEB-INF/view/comum/nav-adm.jsp"></c:import>
+			<c:import url="/WEB-INF/view/comum/nav-adm.jsp"></c:import>
 		</c:when>
 		<c:otherwise>
 			<c:choose>
 				<c:when test="${usuarioLogado.nome != null}">
-					<c:import url="WEB-INF/view/comum/nav-user-logado-comum.jsp"></c:import>
+					<c:import url="/WEB-INF/view/comum/nav-user-logado-comum.jsp"></c:import>
 				</c:when>		
 				<c:otherwise>
 	    <div class="overlay">
@@ -278,6 +277,7 @@ function ExibeDados(token){
 
             </div>
         </nav>
+        </div>
         	</c:otherwise>
         </c:choose>
 	</c:otherwise>
@@ -311,9 +311,8 @@ function ExibeDados(token){
                 </div>
             </div>
         </div>
-    </div>
     
-<br><br><br><br>
+
 <h3 class="tit"><b>O que é o VOX4T ?</b></h3>
 <h5 class="c">É um sistema que destina-se a facilitar a visualização de tweets,<br>
 com diversos filtros, ferramentas e funções, como por exemplo<br>
