@@ -141,7 +141,7 @@ input:checked + .slider:before {
                                         <td>    
                                        
                                         	<label class="switch">
-                                        	<c:choose>
+                                        	<c:choose> 
                                         		<c:when test="${user.status == 1}">
                                         			<input type="checkbox" name="status" value="${user.id}" checked>
                                 				</c:when>

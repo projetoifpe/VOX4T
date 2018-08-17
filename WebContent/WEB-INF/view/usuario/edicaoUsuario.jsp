@@ -100,7 +100,7 @@
                 
                 <div class="form-group">
                     <div class="col-md-6">
-                    	<a href="#">Editar Senha</a>
+                    	<a href="#">Editar Senha</a> 
                     </div>
                 </div>
                 

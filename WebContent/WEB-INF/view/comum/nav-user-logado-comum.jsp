@@ -4,7 +4,7 @@
             <!-- OPÇÕES DA BARRA -->
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto"></ul>
-                <ul class="navbar-nav mr-left">
+                <ul class="navbar-nav mr-left"> 
                 	<li class="nav-item dropdown">
                 		<a href="#" class="nav-link dropdown-toggle" id="dropdown1" data-toggle="dropdown" aria-haspopup="true" style="color:white; margin-left: 65px;" aria-expanded="false">Usuario</a>
                 		<ul class="dropdown-menu" aria-labelledby="dropdown1">
