@@ -18,7 +18,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Index</title>
+    <title>Edição usuário</title>
 	
 	<!-- FONTE ROBOTO -->
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
@@ -100,7 +100,7 @@
                 
                 <div class="form-group">
                     <div class="col-md-6">
-                    	<a href="#">Editar Senha</a> 
+                    	<a href="#" class="" data-toggle="modal" data-target="#exampleModal">Editar Senha</a> 
                     </div>
                 </div>
                 
@@ -117,7 +117,74 @@
                                 
             </form> 
         </div>
+        
+        
+        <!-- MODAL EDIÇÃO SENHA -->
+     
+     <!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel" style=" text-align: center;">Alterar senha</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method="post" name="formAlterar" id="formAlterar">
+        	
+        	<!--  SENHA ANTIGA   -->
+        	
+        	
+        	<div class="form-group">
+                    <label for="senha" class="col-sm-6 control-label">Senha antiga</label>
+                    <div class="col-md-6">
+                        <input type="password" name="senhaAntiga" id="senha" 
+                        placeholder="Digite sua senha antiga" class="form-control" required />
+                    </div>
+            </div>
+        	
+        	
+        	<!--  NOVA SENHA -->
+        	
+        	
+        	<div class="form-group">
+                    <label for="senha" class="col-sm-3 control-label">Nova senha</label>
+                    <div class="col-md-6">
+                        <input type="password" name="senhaNova" id="senha" 
+                        placeholder="Digite sua nova senha" class="form-control" required />
+                    </div>
+            </div>
+        	
+        	<!-- CONFIRMAR SENHA -->
+        	
+        	<div class="form-group">
+                    <label for="senha" class="col-sm-5 control-label">Confirmar senha</label>
+                    <div class="col-md-6">
+                        <input type="password" name="senhaConfirm" id="senha" 
+                        placeholder="Confirme sua senha" class="form-control" required />
+                    </div>
+            </div>
+        	
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-primary">Salvar alterações</button>
+      </div>
+    </div>
+  </div>
+</div>
 	
+	<script type="text/javascript">
+	
+	$('#myModal').on('shown.bs.modal', function () {
+		  $('#myInput').trigger('focus')
+		})
+	</script>
 </body>
 
 </html>
