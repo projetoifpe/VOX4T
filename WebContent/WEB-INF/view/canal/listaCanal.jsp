@@ -46,11 +46,11 @@ td {
 				<tr class="text-center">
 					<td>${canal.nome}</td>
 					<td>
-						<c:forEach items="${listaCategoria}" var="obj">
-							<option value="${obj.id}">
-								<c:if test="${obj.id eq canal.categoria}"> ${obj.nome} </c:if>
-							</option>
-						</c:forEach>
+					
+							
+								 ${canal.categoria.nome} 
+						
+						
 					</td>	
 					<td>
 						<a title="alterar canal" href="edit?id=${canal.id}">

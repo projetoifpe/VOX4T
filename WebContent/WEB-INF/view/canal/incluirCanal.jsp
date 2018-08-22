@@ -29,7 +29,7 @@ label {
 			<div class="form-row my-2 ">
 				<div class="form-group col-md-6 ">
 					<select class="custom-select" required name="categoria">
-							<option selected value="">Selecione a Categoria...</option>
+							<option selected value="0">Selecione a Categoria...</option>
 							<c:forEach items="${listaCategoria}" var="obj">
 								<option value="${obj.id}"> ${obj.nome} </option>
 							</c:forEach> 
@@ -50,7 +50,7 @@ label {
 <h1 align="center" class="display-5"><i class="fab fa-twitter text-primary" aria-hidden="true"></i> Lista de Canais</h1>
 
 	<div class="container">
-		<c:import url="/canal/list" />
+		<c:import url="/canal/list"></c:import>
 	</div>
 </body>
 </html>

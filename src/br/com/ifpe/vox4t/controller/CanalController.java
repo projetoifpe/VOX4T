@@ -31,8 +31,15 @@ public class CanalController {
 	}
 
 	@RequestMapping("/canal/saveCanal")
-	public String saveCanal(Canal canal, Model model) {
+	public String saveCanal(@RequestParam("categoria") Integer categoria,@RequestParam("nome") String nome, Model model) {
 
+		Canal canal = new Canal();
+		CategoriaDAO daoCategoria = new CategoriaDAO();
+		Categoria cat = daoCategoria.buscarPorId(categoria);
+		canal.setNome(nome);
+		canal.setCategoria(cat);
+		
+		
 		CanalDAO dao = new CanalDAO();
 		dao.salvar(canal);
 		model.addAttribute("msg", "Canal cadastrado com sucesso!");
@@ -71,9 +78,16 @@ public class CanalController {
 	}
 
 	@RequestMapping("/canal/update")
-	public String update(Canal canal, Model model) {
+	public String update(@RequestParam("categoria") Integer categoria,@RequestParam("id") Integer idCanal, @RequestParam("nome") String nome, Model model) {
 
+		
+		Canal canal = new Canal();
+		CategoriaDAO daoCategoria = new CategoriaDAO();
+		Categoria cat = daoCategoria.buscarPorId(categoria);
 		CanalDAO dao = new CanalDAO();
+		canal.setId(idCanal);
+		canal.setNome(nome);
+		canal.setCategoria(cat);
 		dao.alterar(canal);
 		model.addAttribute("msg", "Canal alterado com sucesso!");
 		

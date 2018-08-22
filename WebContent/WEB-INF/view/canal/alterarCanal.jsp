@@ -24,7 +24,7 @@
 	<div class="container">
 		<form action="update" method="post">
 			<!-- recebe id -->
-			<input type="hidden" name="id" value="${canal.id}">
+			<input type="hidden" name="id" id="id" value="${canal.id}">
 
 			<!-- DIV do Modal -->
 			<div class="modal-content container " style="width: 350px;">
@@ -42,10 +42,10 @@
 					<label for="categoria">Categoria</label>
 						<select id="categoria" name="categoria" class="custom-select"
 							style="width: 280px;">
-							<option value="">Categoria</option>
+							
 							<c:forEach items="${listaCategoria}" var="obj">
 								<option value="${obj.id}"
-									<c:if test="${obj.id eq canal.categoria}">selected="selected"</c:if>>
+									<c:if test="${obj.id eq canal.categoria.id}">selected="selected"</c:if>  >
 									${obj.nome}
 								</option>
 							</c:forEach>
@@ -54,7 +54,7 @@
 						<br> <br> 
 						
 						<label for="nome">Nome do Canal</label>
-						
+					
 						<input type="text" id="nome" value="${canal.nome}" class="form-control" name="nome" style="width: 280px;" maxlength="45" required />
 					</div>
 				</div>

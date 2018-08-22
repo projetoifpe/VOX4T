@@ -29,7 +29,7 @@ public class CanalDAO {
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
 		EntityManager manager = factory.createEntityManager();
 		Query query = null;
-		query = manager.createQuery("FROM Canal ORDER BY nome");
+		query = manager.createQuery("FROM Canal ORDER BY id");
 		List<Canal> lista = query.getResultList();
 		return lista;
 	}
@@ -37,7 +37,7 @@ public class CanalDAO {
 	public List<Canal> filtrar(int id) {
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
 		EntityManager manager = factory.createEntityManager();
-		Query query = manager.createQuery("FROM Canal WHERE categoria.id LIKE :paramIdCategoria ORDER BY nome");
+		Query query = manager.createQuery("FROM Canal WHERE categoria.id LIKE :paramIdCategoria ORDER BY id");
 		query.setParameter("paramIdCategoria", id);
 		List<Canal> lista = query.getResultList();
 		return lista;
