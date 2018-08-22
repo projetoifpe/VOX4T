@@ -29,13 +29,13 @@ public class CategoriaController {
 
 	@RequestMapping("/categoria/save")
 	public String save(Categoria categoria, Model model,HttpSession session) {
-		String link = "/VOX4T/categoria/add";
+		//String link = "/VOX4T/categoria/add";
 		CategoriaDAO dao = new CategoriaDAO();
 		dao.salvar(categoria);
-		model.addAttribute("msg", "Categoria Incluída com Sucesso");  //envia menssagem de confirmação.
-		session.setAttribute("link", link);
+		model.addAttribute("msg", "Categoria incluída com Sucesso!");  //envia menssagem de confirmação.
+		//session.setAttribute("link", link);
 
-		return "comum/pageMsg";
+		return "categoria/cadastro";
 	}
 	
 
@@ -61,23 +61,23 @@ public class CategoriaController {
 	
 	@RequestMapping("/categoria/update")
 	public String update(Categoria categoria, Model model, HttpSession session) {
-		String link = "/VOX4T/categoria/add";
+		//String link = "/VOX4T/categoria/add";
 		CategoriaDAO dao = new CategoriaDAO();
 		dao.alterar(categoria);
-		model.addAttribute("msg", "Categoria Alterada com Sucesso !");  //envia menssagem de confirmação.
-		session.setAttribute("link", link);
-		return "comum/pageMsg";
+		model.addAttribute("msg", "Categoria alterada com sucesso!");  //envia menssagem de confirmação.
+		//session.setAttribute("link", link);
+		return "categoria/cadastro";
 	}
 
 
 	@RequestMapping("/categoria/delete")
 	public String delete(@RequestParam("id") Integer id, Model model,HttpSession session) {
-		String link = "/VOX4T/categoria/add";
+		//String link = "/VOX4T/categoria/add";
 		CategoriaDAO dao = new CategoriaDAO();
 		dao.remover(id);
-		model.addAttribute("msg", "Categoria Removida com Sucesso"); // envia menssagem de confirmação.
-		session.setAttribute("link", link);
-		return "comum/pageMsg";
+		model.addAttribute("msg", "Categoria removida com sucesso!"); // envia menssagem de confirmação.
+		//session.setAttribute("link", link);
+		return "categoria/cadastro";
 	}
 	
 	

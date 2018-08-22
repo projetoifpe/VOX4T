@@ -34,7 +34,7 @@ public class CategoriaDAO {
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
 		EntityManager manager = factory.createEntityManager();
 		Query query = null;
-		query = manager.createQuery("FROM Categoria ORDER BY nome");
+		query = manager.createQuery("FROM Categoria ORDER BY id");
 		List<Categoria> lista = query.getResultList();
 		return lista;
 	}
