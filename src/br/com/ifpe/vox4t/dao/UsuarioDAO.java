@@ -76,6 +76,28 @@ public class UsuarioDAO {
 
 	    }
 	
+	public Usuario verificarEmail(String email, Usuario user) {
+
+		Usuario obj = null;
+
+		
+		Query query = null;
+		query = manager.createQuery("FROM Usuario WHERE email = :paramEmail");
+		query.setParameter("paramEmail", email);
+		
+		try {
+			obj = (Usuario) query.getSingleResult();
+			if(obj.getId()== user.getId()) {
+				return null;
+			}
+		}catch(NoResultException nre) {
+			return null;
+		}
+		
+		return obj;
+
+	    }
+	
 	
 public Usuario buscarPorId(int id) {
 		

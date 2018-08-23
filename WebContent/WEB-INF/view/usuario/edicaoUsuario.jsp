@@ -19,6 +19,23 @@
     <meta name="author" content="">
 
     <title>Edição usuário</title>
+    
+
+
+    <!-- Import do jQuery 3.3.1 -->
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/jquery-3.3.1.min.js"></script>
+
+<!-- Import do jQuery validate -->
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/jquery.validate.min.js"></script>
+
+<!-- Import do bootstrap css -->
+<link   rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/bootstrap/css/bootstrap.min.css" />
+
+<!-- Import do Style css -->
+<link   rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/style/style.css" />
+
+<!-- Import do bootstrap js -->
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.min.js"></script>
 	
 	<!-- FONTE ROBOTO -->
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
@@ -51,6 +68,7 @@
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/jquery.validate.min.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/externo/jquery/inputSenha.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/valid.js"></script>
 
 		
 	
@@ -72,6 +90,7 @@
                 <input type="hidden" name="senhaOriginal" value="${usuario.senha}" />
                 <input type="hidden" name="sexo" value="${usuario.sexo}" />
                 <input type="hidden" name="status" value="1" />
+                <input type="hidden" name="emailVal" id="emailVal" value="${usuario.email}" />
                 <div class="form-group">
                 
                 
@@ -98,7 +117,7 @@
                 <div class="form-group">
                     <label for="date" class="col-sm-3 control-label">Data de Nascimento</label>
                     <div class="col-md-6">
-                         <input type="text" name="dataNascimento" value="<fmt:formatDate value="${usuario.dataNascimento}" pattern="dd/MM/yyyy" />" maxlength="10" id="dataNascimento" class="form-control" style="width: 420px;" placeholder="Data de nascimento" required>
+                         <input type="text" name="dataNascimento" value="<fmt:formatDate value="${usuario.dataNascimento}" pattern="dd/MM/yyyy" />" maxlength="10" id="dataNascimento" class="form-control" style="width: 420px;" placeholder="Data de nascimento" onkeyup="dataConta(this);" required/>
                     </div>
                 </div>
                 

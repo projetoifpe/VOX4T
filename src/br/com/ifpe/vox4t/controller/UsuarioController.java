@@ -1,10 +1,13 @@
 package br.com.ifpe.vox4t.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -152,11 +155,21 @@ public class UsuarioController {
 		user.fecharConexao();
 		return disponivel.toString();
 	}
+	
+	@RequestMapping("/usuario/verificarEmail")
+	@ResponseBody
+	public String verificarEmail(@RequestParam("email") String email,UsuarioDAO user,HttpServletRequest session) {
+
+		Usuario usuario = (Usuario) session.getSession().getAttribute("usuarioLogado");
+		Boolean disponivel = (user.verificarEmail(email, usuario) == null);
+		user.fecharConexao();
+		return disponivel.toString();
+	}
+	
 	@RequestMapping("/usuario/logout")
     public String logoutUsuario(HttpSession session) {
         session.invalidate();
         return "index";
     }
-
-
 }
+	/////////////////////////////////////////////////////////////////////////////////

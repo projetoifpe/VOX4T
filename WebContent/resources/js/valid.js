@@ -1,4 +1,3 @@
-
 $(document).ready(function(){
 
 	$('#cadastroForm').validate({
@@ -10,11 +9,13 @@ $(document).ready(function(){
 				required:true,
 				email:true,
 				remote:{
-					url:"disponivel",
+					url:"verificarEmail",
 					type:"get",
 					data:{
 						email: function(){
-							return $("#email").val();
+							
+								return $("#email").val();	
+							
 						}
 					}
 				}
@@ -38,7 +39,7 @@ $(document).ready(function(){
 		email:{
 			required:"Digite um email",
 			email: "Digite um email válido",
-			remote: "Esse email já Existe"
+			remote: "Esse email já está sendo usado"
 		},
 	}
 });
@@ -47,40 +48,15 @@ $(document).ready(function(){
 /**************************************************************************************************************/
 
 
-//Máscara da data//
-
-$(document).ready(function () {
-    $('#dataNascimento').inputmask('99/99/9999');
-});
-
-
-
-/**************************************************************************************************************/
-
-//Jquery da edição de usuario//
-
-$(document).ready(function(){
-// var conteudo = $("#nome").val();
-    $("#nome").mousedown(function(){
-    	$("#nome").val('');
-        });
-    
-    /*$("#nome").focusout(function(){
-    	if($("#nome").val(null)){
-    		$("#nome").val(conteudo);
-    	}else {
-    		$("#nome").val('caso2');
-    	}
-    });*/
-    
-    $("#email").mousedown(function(){
-    	$("#email").val('');
-        });
-
-    $("#dataNascimento").mousedown(function(){
-    	$("#dataNascimento").val('');
-        });
+function dataConta(c){
+  if(c.value.length ==2){
+	c.value += '/';
+	  }
+  if(c.value.length ==5){
+		c.value += '/';
+	  }
+  }
 
 
-});
+
 /**************************************************************************************************************/
