@@ -6,9 +6,9 @@
                 <ul class="navbar-nav mr-auto"></ul>
                 <ul class="navbar-nav mr-left"> 
                 	<li class="nav-item dropdown">
-                		<a href="#" class="nav-link dropdown-toggle" id="dropdown1" data-toggle="dropdown" aria-haspopup="true" style="color:white; margin-left: 65px;" aria-expanded="false">Usuario</a>
+                		<a href="#" class="nav-link dropdown-toggle" id="dropdown1" data-toggle="dropdown" aria-haspopup="true" style="color:white; margin-left: 65px;" aria-expanded="false">${usuarioLogado.nome}</a>
                 		<ul class="dropdown-menu" aria-labelledby="dropdown1">
-                    		<li class="dropdown-item"><a href="<%=request.getContextPath()%>/usuario/edicaoUsuario">Editar Dados</a></li>
+                    		<li class="dropdown-item"><a href="<%=request.getContextPath()%>/usuario/edicaoUsuario?id=${usuarioLogado.id}">Editar Dados</a></li>
                     		<li class="dropdown-item"><a href="<%=request.getContextPath()%>/usuario/logout">Sair</a></li>
                 		</ul>
                		</li>

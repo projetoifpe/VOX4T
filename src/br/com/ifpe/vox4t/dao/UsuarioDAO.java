@@ -111,16 +111,9 @@ public Usuario buscarPorId(int id) {
 	}
 	
 	public void alterar(Usuario usuario) {
-
-	    EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
-	    EntityManager manager = factory.createEntityManager();
-
 	    manager.getTransaction().begin();
 	    manager.merge(usuario);
 	    manager.getTransaction().commit();
-
-	    manager.close();
-	    factory.close();
 	    }
 	
 	public void remover(int id) {

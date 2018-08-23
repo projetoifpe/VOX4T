@@ -22,10 +22,30 @@ public class UsuarioController {
 	}
 	
 	@RequestMapping("/usuario/edicaoUsuario")
-	public String edicaoUsuario() {
+	public String edicaoUsuario(@RequestParam("id") Integer id, Model model) {
+		
+		UsuarioDAO dao = new UsuarioDAO();
+		Usuario usuario = dao.buscarPorId(id);
+		model.addAttribute("usuario", usuario);
 
 		return "usuario/edicaoUsuario";
 	}
+	
+	 @RequestMapping("/usuario/update")
+	    public String update(Usuario usuario, Model attr , @RequestParam("senhaNova") String senhaNova) {
+		 
+		 if (!senhaNova.equals(usuario.getSenha()) && !senhaNova.equals("")) {
+			    usuario.setSenha(Criptografia.criptografar(senhaNova));
+			}
+		 
+		UsuarioDAO dao = new UsuarioDAO();
+		dao.alterar(usuario);
+		dao.fecharConexao();
+		String link = "/VOX4T/exibicao";
+		attr.addAttribute("link", link);
+		attr.addAttribute("msg", "Usuario alterado com sucesso."); // Envia string msg para o html.
+		return "comum/pageMsg";
+	    }
 
 	@RequestMapping("/usuario/save")
 	public String save(Usuario usuario, Model attr, HttpSession session) {
@@ -115,11 +135,11 @@ public class UsuarioController {
 			Usuario user = dao.buscarPorEmail(usuario.getEmail());
 			session.setAttribute("usuarioLogado", user);
 			dao.fecharConexao();
-			return "/exibicao";}
+			return "forward:exibicao";}
 
 		else {
 			dao.fecharConexao();
-			return "/VOX4T";
+			return "index";
 
 		}
 	}

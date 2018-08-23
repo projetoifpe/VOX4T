@@ -3,7 +3,7 @@
     
     
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -50,7 +50,7 @@
     <script src="<%=request.getContextPath()%>/resources/externo/js/coming-soon.min.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/jquery.validate.min.js"></script>
-	
+	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/externo/jquery/inputSenha.js"></script>
 
 		
 	
@@ -66,17 +66,21 @@
              <div>
 			<p style="color: red; margin-left: 230px;">${msgSucesso}</p>
 		</div>
-            <form id="cadastroForm" class="form-horizontal" method="post" action="save">
-                
+            <form id="cadastroForm" class="form-horizontal" method="post" action="update">
+            
+                <input type="hidden" name="id" value="${usuario.id}">
+                <input type="hidden" name="senhaOriginal" value="${usuario.senha}" />
+                <input type="hidden" name="sexo" value="${usuario.sexo}" />
+                <input type="hidden" name="status" value="1" />
                 <div class="form-group">
                 
                 
                 <!-- Campo Nome -->
                 
 			    <div class="form-group">
-			        <label for="nome" class="col-md-3 control-label">Nome</label>
+			        <label for="nome" class="col-md-3 control-label">Nome*</label>
 			        <div class="col-md-6">
-			            <input type="text" class="form-control" id="nome" placeholder="Informe seu nome" name="nome" style="width: 420px;" maxlength="45" required />
+			            <input type="text" class="form-control" value="${usuario.nome}" id="nome" placeholder="Informe seu nome" name="nome" style="width: 420px;" maxlength="45" required />
 			    	</div>
 			    </div>
 			    
@@ -85,7 +89,7 @@
                 <div class="form-group">
                     <label for="email" class="col-sm-3 control-label">Email</label>
                     <div class="col-md-6">
-                        <input type="email" name="email" id="email" placeholder="Informe seu Email" class="form-control" style="width: 420px;" required />
+                        <input type="email" name="email" id="email" value="${usuario.email}" placeholder="Informe seu Email" class="form-control" style="width: 420px;" required />
                     </div>
                 </div>
                 
@@ -94,13 +98,21 @@
                 <div class="form-group">
                     <label for="date" class="col-sm-3 control-label">Data de Nascimento</label>
                     <div class="col-md-6">
-                         <input type="text" name="dataNascimento" maxlength="10" id="dataNascimento" class="form-control" style="width: 420px;" placeholder="Data de nascimento" required>
+                         <input type="text" name="dataNascimento" value="<fmt:formatDate value="${usuario.dataNascimento}" pattern="dd/MM/yyyy" />" maxlength="10" id="dataNascimento" class="form-control" style="width: 420px;" placeholder="Data de nascimento" required>
                     </div>
                 </div>
                 
                 <div class="form-group">
                     <div class="col-md-6">
-                    	<a href="#" class="" data-toggle="modal" data-target="#exampleModal">Editar Senha</a> 
+                    	<a href="#" class="" id="linkSenha" data-toggle="modal" data-target="#exampleModal">Editar Senha</a> 
+                    </div>
+                </div>
+                
+                <div class="form-group" >
+                    <div class="col-md-6">
+                    	 <input type="hidden" name="senha" value="${usuario.senha}" />
+                         <input type="password" id="inputSenha" name="senhaNova" maxlength="45" id="senhaNova" class="form-control" style="width: 420px;" placeholder="Nova Senha">
+                         <a href="#" id="cancelarSenha">Cancelar Edição</a>
                     </div>
                 </div>
                 
@@ -112,79 +124,12 @@
                         <button type="submit" style="width: 150px; margin-left: 220px;" class="btn btn-primary btn-block">Alterar</button>
                     </div>
                 </div>
-                
+                	<label style="font-size: 12px">*Em caso de alteração é necessario relogar para ver as mudanças!</label>
                 </div>
                                 
             </form> 
         </div>
         
-        
-        <!-- MODAL EDIÇÃO SENHA -->
-     
-     <!-- Button trigger modal -->
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel" style=" text-align: center;">Alterar senha</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form method="post" name="formAlterar" id="formAlterar">
-        	
-        	<!--  SENHA ANTIGA   -->
-        	
-        	
-        	<div class="form-group">
-                    <label for="senha" class="col-sm-6 control-label">Senha antiga</label>
-                    <div class="col-md-6">
-                        <input type="password" name="senhaAntiga" id="senha" 
-                        placeholder="Digite sua senha antiga" class="form-control" required />
-                    </div>
-            </div>
-        	
-        	
-        	<!--  NOVA SENHA -->
-        	
-        	
-        	<div class="form-group">
-                    <label for="senha" class="col-sm-3 control-label">Nova senha</label>
-                    <div class="col-md-6">
-                        <input type="password" name="senhaNova" id="senha" 
-                        placeholder="Digite sua nova senha" class="form-control" required />
-                    </div>
-            </div>
-        	
-        	<!-- CONFIRMAR SENHA -->
-        	
-        	<div class="form-group">
-                    <label for="senha" class="col-sm-5 control-label">Confirmar senha</label>
-                    <div class="col-md-6">
-                        <input type="password" name="senhaConfirm" id="senha" 
-                        placeholder="Confirme sua senha" class="form-control" required />
-                    </div>
-            </div>
-        	
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary">Salvar alterações</button>
-      </div>
-    </div>
-  </div>
-</div>
-	
-	<script type="text/javascript">
-	
-	$('#myModal').on('shown.bs.modal', function () {
-		  $('#myInput').trigger('focus')
-		})
-	</script>
 </body>
 
 </html>
