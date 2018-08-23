@@ -90,14 +90,13 @@
                 <input type="hidden" name="senhaOriginal" value="${usuario.senha}" />
                 <input type="hidden" name="sexo" value="${usuario.sexo}" />
                 <input type="hidden" name="status" value="1" />
-                <input type="hidden" name="emailVal" id="emailVal" value="${usuario.email}" />
                 <div class="form-group">
                 
                 
                 <!-- Campo Nome -->
                 
 			    <div class="form-group">
-			        <label for="nome" class="col-md-3 control-label">Nome*</label>
+			        <label for="nome" class="col-md-3 control-label">Nome</label>
 			        <div class="col-md-6">
 			            <input type="text" class="form-control" value="${usuario.nome}" id="nome" placeholder="Informe seu nome" name="nome" style="width: 420px;" maxlength="45" required />
 			    	</div>
@@ -143,7 +142,6 @@
                         <button type="submit" style="width: 150px; margin-left: 220px;" class="btn btn-primary btn-block">Alterar</button>
                     </div>
                 </div>
-                	<label style="font-size: 12px">*Em caso de alteração é necessario relogar para ver as mudanças!</label>
                 </div>
                                 
             </form> 

@@ -35,7 +35,7 @@ public class UsuarioController {
 	}
 	
 	 @RequestMapping("/usuario/update")
-	    public String update(Usuario usuario, Model attr , @RequestParam("senhaNova") String senhaNova) {
+	    public String update(Usuario usuario, Model attr , @RequestParam("senhaNova") String senhaNova, HttpSession session) {
 		 
 		 if (!senhaNova.equals(usuario.getSenha()) && !senhaNova.equals("")) {
 			    usuario.setSenha(Criptografia.criptografar(senhaNova));
@@ -44,6 +44,7 @@ public class UsuarioController {
 		UsuarioDAO dao = new UsuarioDAO();
 		dao.alterar(usuario);
 		dao.fecharConexao();
+		session.setAttribute("usuarioLogado", usuario);
 		String link = "/VOX4T/exibicao";
 		attr.addAttribute("link", link);
 		attr.addAttribute("msg", "Usuario alterado com sucesso."); // Envia string msg para o html.
