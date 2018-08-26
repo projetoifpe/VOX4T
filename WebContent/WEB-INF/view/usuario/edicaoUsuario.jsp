@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
-    
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -20,13 +19,11 @@
 
     <title>Edição usuário</title>
     
-
-
     <!-- Import do jQuery 3.3.1 -->
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/jquery-3.3.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
-<!-- Import do jQuery validate -->
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/jquery.validate.min.js"></script>
+<!-- Import de uma lista de funções personalizadas em JS -->
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/valid.js" charset="utf-8"></script>
 
 <!-- Import do bootstrap css -->
 <link   rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/bootstrap/css/bootstrap.min.css" />
@@ -36,6 +33,8 @@
 
 <!-- Import do bootstrap js -->
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.min.js"></script>
+ 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	
 	<!-- FONTE ROBOTO -->
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
@@ -43,21 +42,17 @@
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/bootstrap/css/bootstrap.min.css" />
    	
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    
    
     <!-- Custom fonts for this template -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
     <link href="<%=request.getContextPath()%>/resources/externo/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
- 
-	
-
 </head>
 
-
 <body>
- 	
+	
  	<!-- Bootstrap core JavaScript -->
     <script src="<%=request.getContextPath()%>/resources/externo/js/jquery.min.js"></script>    
     <script src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -68,7 +63,6 @@
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/jquery.validate.min.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/externo/jquery/inputSenha.js"></script>
-	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/valid.js"></script>
 
 		
 	
@@ -96,7 +90,7 @@
                 <!-- Campo Nome -->
                 
 			    <div class="form-group">
-			        <label for="nome" class="col-md-3 control-label">Nome</label>
+			        <label for="nome" class="col-md-3 control-label">Nome*</label>
 			        <div class="col-md-6">
 			            <input type="text" class="form-control" value="${usuario.nome}" id="nome" placeholder="Informe seu nome" name="nome" style="width: 420px;" maxlength="45" required />
 			    	</div>
@@ -116,7 +110,7 @@
                 <div class="form-group">
                     <label for="date" class="col-sm-3 control-label">Data de Nascimento</label>
                     <div class="col-md-6">
-                         <input type="text" name="dataNascimento" value="<fmt:formatDate value="${usuario.dataNascimento}" pattern="dd/MM/yyyy" />" maxlength="10" id="dataNascimento" class="form-control" style="width: 420px;" placeholder="Data de nascimento" onkeyup="dataConta(this);" required/>
+                         <input type="text" name="dataNascimento"  value="<fmt:formatDate value="${usuario.dataNascimento}" pattern="dd/MM/yyyy" />" minlength="10" id="dataNascimento" class="form-control" style="width: 420px;" placeholder="Data de nascimento" required>
                     </div>
                 </div>
                 
@@ -129,7 +123,7 @@
                 <div class="form-group" >
                     <div class="col-md-6">
                     	 <input type="hidden" name="senha" value="${usuario.senha}" />
-                         <input type="password" id="inputSenha" name="senhaNova" maxlength="45" id="senhaNova" class="form-control" style="width: 420px;" placeholder="Nova Senha">
+                         <input type="password" id="inputSenha" name="senhaNova" maxlength="45" class="form-control" style="width: 420px;" placeholder="Nova Senha">
                          <a href="#" id="cancelarSenha">Cancelar Edição</a>
                     </div>
                 </div>
@@ -142,11 +136,12 @@
                         <button type="submit" style="width: 150px; margin-left: 220px;" class="btn btn-primary btn-block">Alterar</button>
                     </div>
                 </div>
+                	<label style="font-size: 12px">*Em caso de alteração é necessario relogar para ver as mudanças!</label>
                 </div>
                                 
             </form> 
         </div>
-        
+
 </body>
 
 </html>
