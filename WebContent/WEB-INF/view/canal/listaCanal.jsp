@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -7,32 +8,35 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Listar Canal</title>
 
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/bootstrap/css/bootstrap.min.css" />
-<script src="<%=request.getContextPath()%>/resources/bootstrap/js/jquery-3.3.1.min.js"></script>
-<script src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/resources/bootstrap/css/bootstrap.min.css" />
+<script
+	src="<%=request.getContextPath()%>/resources/bootstrap/js/jquery-3.3.1.min.js"></script>
+
+	
+<script
+	src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.min.js"></script>
+	
 
 <script>
-function del(id) {  
-    if (confirm('Deseja realmente excluir este canal?')) {  
-        location.href = 'delete?id=' + id;
-    }
-}
+	function del(id) {
+		if (confirm('Deseja realmente excluir este canal?')) {
+			location.href = 'delete?id=' + id;
+		}
+	}
 </script>
-<style>
-td {
-    white-space: nowrap;
-}
-</style>
+
 </head>
 
 <body>
 
 
-<div class="alert alert-danger alert-dismissible fade show" role="alert">
-  <strong>${msg}</strong>
-</div>
+	<div class="alert alert-danger alert-dismissible fade show"
+		role="alert">
+		<strong>${msg}</strong>
+	</div>
 
-	<table class="table table-dark">
+	<table class="table table-responsive-sm table-dark">
 		<thead>
 			<tr class="text-center">
 				<th>Canal</th>
@@ -45,21 +49,18 @@ td {
 			<tbody>
 				<tr class="text-center">
 					<td>${canal.nome}</td>
-					<td>
-					
-							
-								 ${canal.categoria.nome} 
-						
-						
-					</td>	
-					<td>
-						<a title="alterar canal" href="edit?id=${canal.id}">
-								<button class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal"> Alterar <span class="glyphicon glyphicon-search"></span> </button>
-						</a> &nbsp; &nbsp; <a title="remover canal"
-							href="javascript:del(${canal.id})">
-								<button class="btn btn-danger btn-sm"> Excluir <span class="glyphicon glyphicon-search"></span> </button>
-						</a>
-					</td>
+					<td>${canal.categoria.nome}</td>
+					<td><a title="alterar canal" href="edit?id=${canal.id}">
+							<button class="btn btn-info btn-sm" data-toggle="modal"
+								data-target="#exampleModal">
+								Alterar <span class="glyphicon glyphicon-search"></span>
+							</button>
+					</a> &nbsp; &nbsp; <a title="remover canal"
+						href="javascript:del(${canal.id})">
+							<button class="btn btn-danger btn-sm">
+								Excluir <span class="glyphicon glyphicon-search"></span>
+							</button>
+					</a></td>
 				</tr>
 			</tbody>
 		</c:forEach>

@@ -52,5 +52,7 @@ label {
 	<div class="container">
 		<c:import url="/canal/list"></c:import>
 	</div>
+	
+
 </body>
 </html>

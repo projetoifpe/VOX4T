@@ -32,7 +32,7 @@ td {
   <strong>${msg}</strong>
 </div>
 
-	<table class="table table-dark">
+	<table class="table table-responsive-sm table-dark">
 		<thead>
 			<tr class="text-center">
 				<th>Categoria</th>
