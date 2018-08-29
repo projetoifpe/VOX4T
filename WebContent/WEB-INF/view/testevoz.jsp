@@ -23,15 +23,21 @@ $( document ).ready(function() {
 	
 	lista = [["tu gay", "bixa", "ordinaria"],["bola", "peixe", "gato"], ["verdade"]];
 	
-	i = -1;
-	j = 0;
+	var i = -1;
+	var j = 0;
 	
 	function voiceEndCallback() {
 		i++;
-		if(i >= lista.length){
+		if(i >= lista[j].length){
 			j++;
-			i = -1;
-			responsiveVoice.speak(" ", "Brazilian Portuguese Female", parameters);
+			i = 0;
+			if(j >= lista.length){
+				console.log("The End");
+				i = -1;
+				j = 0;
+			}else{
+				responsiveVoice.speak(lista[j][i], "Brazilian Portuguese Female", parameters);
+			}
 		}else{
 			responsiveVoice.speak(lista[j][i], "Brazilian Portuguese Female", parameters);
 		}
@@ -46,37 +52,51 @@ $( document ).ready(function() {
     	 
 	$('#play').click(function(){
 
-    		
-    		 responsiveVoice.speak(" ", "Brazilian Portuguese Female", parameters);
+    	responsiveVoice.speak(" ", "Brazilian Portuguese Female", parameters);
     });
 	
 	 $('#pause').click(function(){
-
- 		
 		responsiveVoice.pause();
 	});
 	 
-	 $('#passa').click(function(){
+	 $('#passar').click(function(){
 		 responsiveVoice.pause();
 	 		i++;
-	 		responsiveVoice.speak(" ", "Brazilian Portuguese Female", parameters);
+	 		if(i >= lista[j].length){
+	 			j++;
+	 			i = 0;
+	 			
+	 			if(j >= lista.length){
+	 				j = 0;
+	 				i = -1;
+	 				console.log("The end");
+	 			}else{
+	 				responsiveVoice.speak(lista[j][i], "Brazilian Portuguese Female", parameters);
+	 			}
+	 		}else{
+	 			responsiveVoice.speak(lista[j][i], "Brazilian Portuguese Female", parameters);
+	 		}
+	 		
 		});
+	 
 	 $('#voltar').click(function(){
-		 responsiveVoice.pause();
-	 		i-=2;
+			responsiveVoice.pause();
+	 		i--;
 	 		if(i < 0){
 	 			j--;
 	 			if(j < 0){
-	 				i=0
+	 				i= -1;
 	 				j=0
-	 				responsiveVoice.speak(" ", "Brazilian Portuguese Female", parameters);
+	 				responsiveVoice.speak(lista[j][i], "Brazilian Portuguese Female", parameters);
 	 			}else{
-	 				i = lista.length-1;
-	 				responsiveVoice.speak(" ", "Brazilian Portuguese Female", parameters);
+	 				i = lista[j].length-1;
+	 				responsiveVoice.speak(lista[j][i], "Brazilian Portuguese Female", parameters);
 	 			}
 	 			
+	 		}else{
+	 			responsiveVoice.speak(lista[j][i], "Brazilian Portuguese Female", parameters);
 	 		}
-	 		responsiveVoice.speak(" ", "Brazilian Portuguese Female", parameters);
+	 		
 		});
 });
 

@@ -28,6 +28,12 @@ import twitter4j.TwitterException;
 @Controller
 public class SistemaController {
 	
+	@RequestMapping("testevoz")
+	public String testeVoz() {
+		
+		return "testevoz";
+	}
+	
 	@RequestMapping("exibicao")
 	public String testeTwitter(HttpSession session, Model model) throws TwitterException {
 		
