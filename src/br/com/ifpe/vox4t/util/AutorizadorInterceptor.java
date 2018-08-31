@@ -27,7 +27,9 @@ Exception {
 	|| uri.endsWith("loginCheck")
 	|| uri.endsWith("logout")
 	|| uri.endsWith("loginAdminCheck")
-	|| uri.endsWith("testevoz")){
+	|| uri.endsWith("testevoz")
+	|| uri.endsWith("comum/pageMsg")
+	|| uri.endsWith("home")){
 	return true;
 	}	
 	

@@ -118,6 +118,12 @@ public class UsuarioController {
 
 		return "logado";
 	}
+	
+	@RequestMapping("home")
+	public String entrar() {
+
+		return "index";
+	}
 
 	@RequestMapping("/usuario/logadoGoogle")
 	public String logadoGoogle() {
@@ -127,7 +133,7 @@ public class UsuarioController {
 
 	@RequestMapping("loginCheck")
 
-	public String loginCheck(Usuario usuario, HttpSession session) {
+	public String loginCheck(Usuario usuario, HttpSession session,  Model model) {
 
 		boolean result = false;
 
@@ -142,8 +148,11 @@ public class UsuarioController {
 			return "forward:exibicao";}
 
 		else {
+			String link = "/VOX4T";
+			model.addAttribute("msg", "Senha ou usuário incorretos."); // Envia string msg para o html.
+			model.addAttribute("link", link);
 			dao.fecharConexao();
-			return "index";
+			return "comum/pageMsg";
 
 		}
 	}
@@ -168,9 +177,12 @@ public class UsuarioController {
 	}
 	
 	@RequestMapping("/usuario/logout")
-    public String logoutUsuario(HttpSession session) {
-        session.invalidate();
-        return "index";
+    public String logoutUsuario(HttpSession session, Model model) {
+		String link = "/VOX4T";
+		session.invalidate();
+		model.addAttribute("msg", "usuário deslogado."); // Envia string msg para o html.
+		model.addAttribute("link", link);
+        return "comum/pageMsg";
     }
 }
 	/////////////////////////////////////////////////////////////////////////////////
