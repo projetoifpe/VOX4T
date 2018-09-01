@@ -98,7 +98,7 @@
 
 }); 
 $( document ).ready(function() {
-
+		//ESTA LISTA TEM QUE SER A LISTA DE CANAIS E PUBLICACOES!
 		var lista = [["item um da lista um","item dois da lista um"],["item um da lista dois","item dois da lista dois"]];
 		var i = -1;
 		var j = 0;
