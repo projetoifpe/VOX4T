@@ -97,13 +97,16 @@ public class UsuarioController {
 		usuarioGoogle.setNome(nome);
 		usuarioGoogle.setEmail(email);
 		UsuarioDAO dao = new UsuarioDAO();
+		
 
 		if (dao.buscarPorEmail(email) == null) {
 
 			dao.salvar(usuarioGoogle);
+			usuarioGoogle.setId(dao.buscarPorEmail(email).getId());
 			session.setAttribute("usuarioLogado", usuarioGoogle);
 			retorno = true;
 		} else {
+			usuarioGoogle.setId(dao.buscarPorEmail(email).getId());
 			session.setAttribute("usuarioLogado", usuarioGoogle);
 			retorno = true;
 		}
@@ -116,7 +119,7 @@ public class UsuarioController {
 	@RequestMapping("/usuario/logadoFacebook")
 	public String logadoFacebook() {
 
-		return "logado";
+		return "forward:/exibicao";
 	}
 	
 	@RequestMapping("home")
@@ -128,7 +131,7 @@ public class UsuarioController {
 	@RequestMapping("/usuario/logadoGoogle")
 	public String logadoGoogle() {
 
-		return "logado";
+		return "forward:/exibicao";
 	}
 
 	@RequestMapping("loginCheck")
