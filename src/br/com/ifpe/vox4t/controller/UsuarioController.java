@@ -76,9 +76,11 @@ public class UsuarioController {
 		if (dao.buscarPorEmail(email) == null) {
 
 			dao.salvar(usuarioFacebook);
+			usuarioFacebook.setId(dao.buscarPorEmail(email).getId());
 			session.setAttribute("usuarioLogado", usuarioFacebook);
 			retorno = true;
 		} else {
+			usuarioFacebook.setId(dao.buscarPorEmail(email).getId());
 			session.setAttribute("usuarioLogado", usuarioFacebook);
 			retorno = true;
 		}
