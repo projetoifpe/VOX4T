@@ -55,6 +55,7 @@
 	<!-- Custom scripts for this template -->
 	<script src="<%=request.getContextPath()%>/resources/externo/js/coming-soon.min.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.min.js"></script>	
+	<script src="http://code.responsivevoice.org/responsivevoice.js"></script>
 	
 </head>
 
@@ -96,6 +97,88 @@
 
 
 }); 
+$( document ).ready(function() {
+
+		var lista = [["item um da lista um","item dois da lista um"],["item um da lista dois","item dois da lista dois"]];
+		var i = -1;
+		var j = 0;
+		
+		function voiceEndCallback() {
+			i++;
+			if(i >= lista[j].length){
+				j++;
+				i = 0;
+				if(j >= lista.length){
+					console.log("Final da reprodução");
+					i = -1;
+					j = 0;
+				}else{
+					responsiveVoice.speak(lista[j][i], "Brazilian Portuguese Female", parameters);
+				}
+			}else{
+				responsiveVoice.speak(lista[j][i], "Brazilian Portuguese Female", parameters);
+			}
+		    
+		}
+		 
+		var parameters = {
+		    onend: voiceEndCallback
+		}
+		 
+	    	 
+		$('#play').click(function(){
+
+	    	responsiveVoice.speak(" ", "Brazilian Portuguese Female", parameters);
+
+	    });
+		
+		 $('#stop').click(function(){
+			responsiveVoice.pause();
+			i--;
+		});
+		 
+		 $('#passar').click(function(){
+			 responsiveVoice.pause();
+		 		i++;
+		 		if(i >= lista[j].length){
+		 			j++;
+		 			i = 0;
+		 			
+		 			if(j >= lista.length){
+		 				j = 0;
+		 				i = -1;
+		 				console.log("Final da reprodução");
+		 			}else{
+		 				responsiveVoice.speak(lista[j][i], "Brazilian Portuguese Female", parameters);
+		 			}
+		 		}else{
+		 			responsiveVoice.speak(lista[j][i], "Brazilian Portuguese Female", parameters);
+		 		}
+		 		
+			});
+		 
+		 $('#voltar').click(function(){
+				responsiveVoice.pause();
+		 		i--;
+		 		if(i < 0){
+		 			j--;
+		 			if(j < 0){
+		 				i= -1;
+		 				j=0
+		 				responsiveVoice.speak(lista[j][i], "Brazilian Portuguese Female", parameters);
+		 			}else{
+		 				i = lista[j].length-1;
+		 				responsiveVoice.speak(lista[j][i], "Brazilian Portuguese Female", parameters);
+		 			}
+		 			
+		 		}else{
+		 			responsiveVoice.speak(lista[j][i], "Brazilian Portuguese Female", parameters);
+		 		}
+		 		
+			});
+	});
+
+	    
 	
 </script>
 
@@ -172,6 +255,7 @@
 											
 								</form>
                         </div>
+                        <input type="hidden" id="publicacoes" value="${publicacoes}">
 
                     </div>
                 </div>
@@ -204,20 +288,20 @@
                         <div class="card-body">
                             <h5 class="card-title center" style="text-align: center;">Modo Voz</h5>
 
-                            <button type="button" class="btn btn-default btn-lg">
+                            <button type="button" id="voltar" class="btn btn-default btn-lg">
                 <i class="fas fa-step-backward" ></i>
                                 
                             </button>
 
-                            <button type="button" class="btn btn-default btn-lg">
+                            <button type="button" id="play" class="btn btn-default btn-lg">
                 <i class="fas fa-play"></i>
                             </button>
 
-                            <button type="button" class="btn btn-default btn-lg">
+                            <button type="button" id="stop" class="btn btn-default btn-lg">
                 <i class="fas fa-stop"></i>
                             </button>
 
-                            <button type="button" class="btn btn-default btn-lg">
+                            <button type="button" id="passar" class="btn btn-default btn-lg">
                 <i class="fas fa-step-forward" ></i>
                             </button>
 
