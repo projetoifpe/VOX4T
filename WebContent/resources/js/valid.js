@@ -1,3 +1,4 @@
+
 /************************************jquery validação***************************************************************/
 $(document).ready(function(){
 
@@ -5,10 +6,10 @@ $(document).ready(function(){
 		rules:{
 			nome:{
 				required:true
-			},
+			},    
 			email:{
 				required:true,
-				email:true,
+				email:true,  
 				remote:{
 					url:"verificarEmail",
 					type:"get",

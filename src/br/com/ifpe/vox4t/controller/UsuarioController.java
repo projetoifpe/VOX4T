@@ -21,7 +21,7 @@ public class UsuarioController {
 	@RequestMapping("/usuario/cadastro")
 	public String cadastroUsuario() {
 
-		return "usuario/cadastro";
+		return "usuario/cadastro";   
 	}
 	
 	@RequestMapping("/usuario/edicaoUsuario")

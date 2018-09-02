@@ -7,7 +7,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-
+    
 
 <!-- LOGIN API GOOGLE -->
 <script src="https://apis.google.com/js/platform.js"></script>
@@ -55,16 +55,10 @@ function ExibeDados(token){
     <meta name="author" content="">
 
     <title>Cadastro</title>
-	 
-<!-- Import do jQuery 3.3.1 -->
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/jquery-3.3.1.min.js"></script>
-
-<!-- Import do jQuery validate -->
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/jquery.validate.min.js"></script>
-
-<!-- Import da máscara -->
-<script type="text/javascript" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/jquery.inputmask.bundle.js"></script>
-
+    <!-- Import do jQuery 3.3.1 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<!-- Import do bootstrap js -->
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.min.js"></script>
 <!-- Import de uma lista de funções personalizadas em JS -->
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/functions.js" charset="utf-8"></script>
 
@@ -74,12 +68,15 @@ function ExibeDados(token){
 <!-- Import do Style css -->
 <link   rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/style/style.css" />
 
-<!-- Import do bootstrap js -->
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.min.js"></script>
+
  
-    
-    <!-- CSS do botão do Google -->
-	<link   rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/style/google.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	
+	<!-- FONTE ROBOTO -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+	
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/bootstrap/css/bootstrap.min.css" />
 	
 	<!-- CSS DO MODAL DO LOGIN -->
 	<style type="text/css">
@@ -152,6 +149,11 @@ function ExibeDados(token){
 </style>
 <!-- FIM DO CSS MODAL LOGIN -->
 
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+    <link href="<%=request.getContextPath()%>/resources/externo/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
 </head>
 
 
@@ -166,7 +168,6 @@ function ExibeDados(token){
     <script src="<%=request.getContextPath()%>/resources/externo/js/coming-soon.min.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/jquery.validate.min.js"></script>
-	
 
 		
 	<script>
@@ -277,7 +278,7 @@ function ExibeDados(token){
                 <div class="form-group">
                     <label for="date" class="col-sm-3 control-label">Data de Nascimento</label>
                     <div class="col-md-6">
-                         <input type="text" name="dataNascimento" maxlength="10" id="dataNascimento" class="form-control" style="width: 420px;" placeholder="Data de nascimento" required>
+                         <input type="text" name="dataNascimento" minlength="10" id="dataNascimento" class="form-control" style="width: 420px;" placeholder="Data de nascimento" required>
                     </div>
                 </div>
                 

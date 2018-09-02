@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -10,7 +11,6 @@
 <meta name="google-signin-client_id" content="686903218226-p5t42arftgs3onms88c2pvhj4j5tlvfb.apps.googleusercontent.com">
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/google.js"></script>
 
-<div id="fb-root"></div>
 <script>
 (function(d, s, id) {
 	  var js, fjs = d.getElementsByTagName(s)[0];
@@ -19,7 +19,7 @@
 	  js.src = 'https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v3.0&appId=1924110817611014&autoLogAppEvents=1';
 	  fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));
-
+    
 
 //FUNÇÃO CHAMADA ASSIM QUE EXECUTA O PROCESSO DE LOGIN	
 function checkLoginState() {
@@ -76,7 +76,7 @@ function ExibeDados(token){
 	
 	<!-- CSS DO MODAL DO LOGIN -->
 	<style type="text/css">
-	.login-form {
+	.login-form {		
 		width: 300px;
 		margin: 30px auto;
 	}
@@ -183,7 +183,12 @@ function ExibeDados(token){
     #emHer {
 	    margin-left:120px;
         }           
-        
+    #bt {
+	    margin-right:-820px;
+        }   
+    #ab {
+	    margin-right:1220px;
+        } 
     
     #eq{
      margin-top: -90px;
@@ -249,41 +254,15 @@ function ExibeDados(token){
 	}); 
 	 </script>
 	
-	
-	
-<!-- INICIO NAV -->
-	<c:choose>
-		<c:when test="${adminLogado.email != null}">
-			<c:import url="/WEB-INF/view/comum/nav-adm.jsp"></c:import>
-		</c:when>
-		<c:otherwise>
-			<c:choose>
-				<c:when test="${usuarioLogado.nome != null}">
-					<c:import url="/WEB-INF/view/comum/nav-user-logado-comum.jsp"></c:import>
-				</c:when>		
-				<c:otherwise>
-	    <div class="overlay">
-
-        <nav class="navbar navbar-expand-lg navbar-light bg-dark" style="background-color: ;">
-            <a class="navbar-brand text-light" href="<%=request.getContextPath()%>">VOX4T</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-                    <a href="<%=request.getContextPath()%>/usuario/cadastro" class="btn btn-outline-light my-2 my-sm-0" style="margin-right: 6px">Cadastre-se</a>
-                    <button class="btn btn-outline-light my-2 my-sm-0" data-toggle="modal" data-target="#modal-mensagem">Login</button>
-
-            </div>
-        </nav>
-        </div>
-        	</c:otherwise>
-        </c:choose>
+	<!-- NAV BAR -->
+<c:choose>
+	<c:when test="${adminLogado.email != null}">
+		<c:import url="/WEB-INF/view/comum/nav-adm.jsp"></c:import>
+	</c:when>
+	<c:otherwise>
+		<c:import url="/WEB-INF/view/comum/nav-comum.jsp"></c:import>
 	</c:otherwise>
 </c:choose>
-<!-- FINAL NAV -->
-
         <div class="masthead">
             <div class="masthead-bg"></div>
             <div class="container h-100">
@@ -310,20 +289,17 @@ function ExibeDados(token){
                     </div>
                 </div>
             </div>
-        </div>
-    
-
+            </div>
 <h3 class="tit"><b>O que é o VOX4T ?</b></h3>
 <h5 class="c">É um sistema que destina-se a facilitar a visualização de tweets,<br>
 com diversos filtros, ferramentas e funções, como por exemplo<br>
 um sistema de transmissão das messagens por voz!</h5>
 <h5 class="c">Além disso, possibilita que o usuário selecione categorias<br> 
 de tweets que mais o agradam, tornando o sistema mais<br> confortável para cada tipo de usuário.</h5>
-    
 
 
+		<!-- INICIO MODAL LOGIN -->
 
-	<!-- INICIO MODAL LOGIN -->
 	<div class="modal fade" id="modal-mensagem" tabindex="-1">
     <div class="modal-dialog">
          <div class="modal-content">
@@ -385,16 +361,6 @@ de tweets que mais o agradam, tornando o sistema mais<br> confortável para cada
 	
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
 
 
 
