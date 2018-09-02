@@ -5,11 +5,15 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.google.gson.Gson;
 
 import br.com.ifpe.vox4t.dao.CategoriaDAO;
 import br.com.ifpe.vox4t.dao.TwitterDAO;
@@ -97,6 +101,49 @@ public class SistemaController {
 		model.addAttribute("canais", nomes);
 		model.addAttribute("publicacoes", publicacoes);
 		return "exibicao";
+	}
+	
+	@RequestMapping(value = "publicacoes", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody String publicacoesJson(HttpSession session) throws TwitterException {
+		
+		TwitterDAO user = new TwitterDAO();
+		Usuario usu = (Usuario)session.getAttribute("usuarioLogado");
+		
+		List<List<Status>> listaTweets = user.coletaTweets(usu.getId());
+		List<List<String>> publicacoes = new ArrayList<>();
+		List<String> lista = new ArrayList<>();
+		
+		
+		for (int i = 0; i < listaTweets.size(); i++) {
+			for(Status a: listaTweets.get(i)){
+				if(a.getText().startsWith("RT") || a.getText().startsWith("@")){
+					continue;
+				}else {
+					String tt = a.getText();									
+					try {
+						String ntt = tt.substring(0, tt.indexOf("https"));
+						lista.add(ntt);
+					}catch(Exception e) {
+						try {
+							String ntt = tt.substring(0, tt.indexOf("goo.gl"));
+							lista.add(ntt);
+						}catch(Exception e2) {
+							lista.add(a.getText());
+						}
+					}
+				}	
+					
+				
+			}
+			
+			List<String> lista2 = new ArrayList<>(lista);
+			lista2 = TratamentoPublicacao.converterAbreviacao(lista);
+			publicacoes.add(lista2);
+			lista.clear();
+			
+		}
+		
+		return new Gson().toJson(publicacoes);
 	}
 
 	@RequestMapping("/login/google")

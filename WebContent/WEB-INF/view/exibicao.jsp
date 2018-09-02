@@ -63,8 +63,7 @@
 <script>
 	
  $(document).ready(function(){
-	
-	
+	 
 	var idsessao = $("#idSessao").val();
 	
 	
@@ -98,8 +97,19 @@
 
 }); 
 $( document ).ready(function() {
+	
+	var lista = [];
+	$.post("publicacoes", {}, function(dadosJSON){
+		/* for(i = 0; i < dadosJSON.length; i++){
+			var string = ${canais.get(i)}.toString();
+			dadosJSON[i].unshift(string);
+		}
+		*/
+		lista = dadosJSON;
+		console.log(dadosJSON);
+	});
+	console.log(lista);
 		//ESTA LISTA TEM QUE SER A LISTA DE CANAIS E PUBLICACOES!
-		var lista = [["item um da lista um","item dois da lista um"],["item um da lista dois","item dois da lista dois"]];
 		var i = -1;
 		var j = 0;
 		
@@ -255,32 +265,32 @@ $( document ).ready(function() {
 											
 								</form>
                         </div>
-                        <input type="hidden" id="publicacoes" value="${publicacoes}">
 
                     </div>
                 </div>
 <!-- DIV DO MEIO -->
-                <div class="col-md-8">
+<div class="col-md-8">
 
                     <div class ="card"  style="width: 12 rem;height: 100%; width: 900px; position:fixed;">
-					<c:if test="${publicacoes.size() > 0}">
+                    <c:if test="${publicacoes.size() > 0}">
                         <div class="card-body" style="overflow-y: scroll;">
-	                        <c:forEach var = "i" begin = "0" end = "${publicacoes.size()-1}">
-								<h4 class="card-title">${canais.get(i)}</h4>
-				                <br>
-			                    <c:forEach var="twitter" items="${publicacoes.get(i)}">
-									<p>${twitter}</p>
-									<hr style="border-width:2px;">
-								</c:forEach>
-								<br>
-								<hr style="border-width:6px;">
-							</c:forEach> 
+                            <c:forEach var = "i" begin = "0" end = "${publicacoes.size()-1}">
+                                <h4 class="card-title">${canais.get(i)}</h4>
+                                <br>
+                                <c:forEach var="twitter" items="${publicacoes.get(i)}">
+                                    <p>${twitter}</p>
+                                    <hr style="border-width:2px;">
+                                </c:forEach>
+                                <br>
+                                <hr style="border-width:6px;">
+                            </c:forEach> 
                         </div>
-					</c:if>
+                    </c:if>
                     </div>
-                    
-                    
+
+
                 </div>
+
 
                 <div class="col-md-2">
                     <div class="card float-right" style="width: 17rem; margin-top: 8%;">
