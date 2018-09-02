@@ -145,7 +145,7 @@ public class UsuarioController {
 		UsuarioDAO dao = new UsuarioDAO();
 		usuario.setSenha(Criptografia.criptografar(usuario.getSenha()));
 		result = dao.logar(usuario);
-
+ 
 		if (result == true) {
 			Usuario user = dao.buscarPorEmail(usuario.getEmail());
 			session.setAttribute("usuarioLogado", user);

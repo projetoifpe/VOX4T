@@ -144,7 +144,7 @@ public class SistemaController {
 			lista2 = TratamentoPublicacao.converterAbreviacao(lista);
 			publicacoes.add(lista2);
 			lista.clear();
-			
+			 
 		}
 		
 		return new Gson().toJson(publicacoes);
