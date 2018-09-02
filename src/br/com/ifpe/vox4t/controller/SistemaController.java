@@ -15,9 +15,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
 
+import br.com.ifpe.vox4t.dao.CanalDAO;
 import br.com.ifpe.vox4t.dao.CategoriaDAO;
 import br.com.ifpe.vox4t.dao.TwitterDAO;
 import br.com.ifpe.vox4t.dao.UsuarioEscolheCategoriaDAO;
+import br.com.ifpe.vox4t.model.Canal;
 import br.com.ifpe.vox4t.model.Categoria;
 import br.com.ifpe.vox4t.model.Usuario;
 import br.com.ifpe.vox4t.model.UsuarioEscolheCategoria;
@@ -86,19 +88,21 @@ public class SistemaController {
 		UsuarioEscolheCategoriaDAO uecdao = new UsuarioEscolheCategoriaDAO();
 		List<UsuarioEscolheCategoria> categoriasUsuario = uecdao.listar(usu.getId());
 		
-		for(Categoria y: categorias) {
-			System.out.println(y.getId());
-		}
+		CanalDAO candao = new CanalDAO(); 
 		
-		System.out.println("");
-		
+		List<Canal> listacan = new ArrayList<>();
+		List<Canal> canalfinal = new ArrayList<>();
 		for(UsuarioEscolheCategoria x: categoriasUsuario) {
-			System.out.println(x.getIdCategoria().getId());
+			listacan = candao.filtrar(x.getIdCategoria().getId());
+			for(Canal y: listacan) {
+				canalfinal.add(y);
+			}
 		}
 		
 		model.addAttribute("categoriasUsuario", categoriasUsuario);
 		model.addAttribute("listaCategoria", categorias);
 		model.addAttribute("canais", nomes);
+		model.addAttribute("objcanais", canalfinal);
 		model.addAttribute("publicacoes", publicacoes);
 		return "exibicao";
 	}

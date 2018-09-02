@@ -35,12 +35,6 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
 	
-    
-   
-	
-	<!-- Import do bootstrap js -->
-	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.min.js"></script>
-	
 	
 	<!-- Import do jQuery 3.3.1 -->
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/jquery-3.3.1.min.js"></script>
@@ -48,9 +42,6 @@
 	<!-- Bootstrap core JavaScript -->
 	<script src="<%=request.getContextPath()%>/resources/externo/js/jquery.min.js"></script>    
 	<script src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.bundle.min.js"></script>
-	
-	<!-- Import de uma lista de funções personalizadas em JS -->
-	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/functions.js" charset="utf-8"></script>
 	
 	<!-- Custom scripts for this template -->
 	<script src="<%=request.getContextPath()%>/resources/externo/js/coming-soon.min.js"></script>
@@ -100,15 +91,28 @@ $( document ).ready(function() {
 	
 	var lista = [];
 	$.post("publicacoes", {}, function(dadosJSON){
-		/* for(i = 0; i < dadosJSON.length; i++){
-			var string = ${canais.get(i)}.toString();
-			dadosJSON[i].unshift(string);
+		var canais = [];
+		var categorias = [];
+		
+		<c:set var="canaisobj" value="${objcanais}" scope="page" />
+		console.log(${canaisobj.size()}); 
+		<c:if test="${canaisobj.size() > 0}">
+			<c:forEach var="canal" begin = "0" end = "${objcanais.size()-1}">
+				<c:forEach var="categorias" items="${listaCategoria}">
+					<c:if test="${categorias.id eq canaisobj.get(canal).categoria.id}">
+						canais.push("Categoria: " + "${categorias.nome}" + ", Canal: " + "${canais.get(canal)}" + " a seguir: ");
+					</c:if>
+				</c:forEach>
+	    	</c:forEach> 
+    	</c:if>
+    	 
+    	for(dados = 0; dados < dadosJSON.length; dados++){
+			dadosJSON[dados].unshift(canais[dados]);
 		}
-		*/
+
 		lista = dadosJSON;
-		console.log(dadosJSON);
+		console.log(lista);
 	});
-	console.log(lista);
 		//ESTA LISTA TEM QUE SER A LISTA DE CANAIS E PUBLICACOES!
 		var i = -1;
 		var j = 0;
@@ -234,16 +238,16 @@ $( document ).ready(function() {
 									<%int i=0; %> 										
 									<c:forEach var="categoria" items="${listaCategoria}">
 										
-										<c:set var="contem" value="${0}" />
-										<c:forEach var="categoriasUsuario" items="${CategoriasUsuario}">
-										  <c:if test="${categoriasUsuario.idCategoria.id eq categoria.id}">
-										    <c:set var="contem" value="${1}" />
+										<c:set var="valor" value="false" scope="page"/>
+										<c:forEach var="catuser" items="${categoriasUsuario}">
+										  <c:if test="${catuser.idCategoria.id eq categoria.id}">
+										    <c:set var="valor" value="true" scope="page"/>
 										  </c:if>
 										</c:forEach>
 										
 										  <c:choose>
          
-									         <c:when test = "${contem == 1}">
+									         <c:when test = "${valor eq 'true'}">
 									            <input type="checkbox" name="categoriaNome<%=i%>" id="categoriaNome<%=i%>" value="${categoria.id}" checked> 
 									         </c:when>
 									         

@@ -150,7 +150,7 @@ public class UsuarioController {
 			Usuario user = dao.buscarPorEmail(usuario.getEmail());
 			session.setAttribute("usuarioLogado", user);
 			dao.fecharConexao();
-			return "forward:exibicao";}
+			return "forward:/exibicao";}
 
 		else {
 			String link = "/VOX4T";
