@@ -255,14 +255,8 @@ function ExibeDados(token){
 	 </script>
 	
 	<!-- NAV BAR -->
-<c:choose>
-	<c:when test="${adminLogado.email != null}">
-		<c:import url="/WEB-INF/view/comum/nav-adm.jsp"></c:import>
-	</c:when>
-	<c:otherwise>
+
 		<c:import url="/WEB-INF/view/comum/nav-comum.jsp"></c:import>
-	</c:otherwise>
-</c:choose>
         <div class="masthead">
             <div class="masthead-bg"></div>
             <div class="container h-100">

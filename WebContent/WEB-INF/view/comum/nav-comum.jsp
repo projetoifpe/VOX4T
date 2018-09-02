@@ -1,16 +1,4 @@
 <!-- INICIO NAV -->
-	<c:choose>
-		<c:when test="${adminLogado.email != null}">
-			<c:import url="/WEB-INF/view/comum/nav-adm.jsp"></c:import>
-		</c:when>
-		<c:otherwise>
-			<c:choose>
-				<c:when test="${usuarioLogado.nome != null}">
-					<c:import url="/WEB-INF/view/comum/nav-user-logado-comum.jsp"></c:import>
-				</c:when>		
-				<c:otherwise>
-	    <div class="overlay">
-
         <nav class="navbar navbar-expand-lg navbar-light bg-dark" style="background-color: ;">
             <a class="navbar-brand text-light" href="<%=request.getContextPath()%>">VOX4T</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,8 +19,5 @@
 
             </div>
         </nav>
-        	</c:otherwise>
-        </c:choose>
-	</c:otherwise>
-</c:choose>
+
 <!-- FINAL NAV -->
