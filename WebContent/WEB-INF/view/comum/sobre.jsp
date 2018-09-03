@@ -150,7 +150,7 @@ function ExibeDados(token){
 	     margin-top:10px;
     }
     #cla {
-	    margin-left:110px;
+	    margin-left:120px;
 	    margin-top:10px;
     }
     #wil {
@@ -158,11 +158,11 @@ function ExibeDados(token){
 	     margin-top:10px;
     }
     #hen {
-	    margin-left:140px;
+	    margin-left:115px;
 	     margin-top:10px;
     }
     #her {
-	    margin-left:120px;
+	    margin-left:115px;
 	     margin-top:10px;
     }
     #emCla {
@@ -172,16 +172,16 @@ function ExibeDados(token){
 	    margin-left:70px;
         }
     #emWen {
-	    margin-left:78px;
+	    margin-left:80px;
         }    
     #emHen {
 	    margin-left:90px;
         }
     #emWil {
-	    margin-left:120px;
+	    margin-left:110px;
         }
     #emHer {
-	    margin-left:120px;
+	    margin-left:110px;
         }           
     #bt {
 	    margin-right:-820px;
@@ -257,6 +257,7 @@ function ExibeDados(token){
 	<!-- NAV BAR -->
 
 		<c:import url="/WEB-INF/view/comum/nav-comum.jsp"></c:import>
+		
         <div class="masthead">
             <div class="masthead-bg"></div>
             <div class="container h-100">
@@ -269,7 +270,7 @@ function ExibeDados(token){
  							<div class="col" style="background-color:#4682B4;">
  							<h5 id="cla"><b>Claudes Gomes</b></h5> <b id="emCla">claudesferreira99@gmail.com</b></div>
  							<div class="col" style="background-color:#4682B4;">
- 							<h5 id="hen"><b>Henrique</b></h5><b id="emHen">henriquenunesti@gmail.com</b></div>
+ 							<h5 id="hen"><b>Henrique Nunes</b></h5><b id="emHen">henriquenunesti@gmail.com</b></div>
   							<div class="col" style="background-color:#4682B4;">
   							<h5 id="mar"><b>Marlysson de Oliveira</b></h5> <b id="emMar">marlysson.oliveira@hotmail.com</b></div>
     						<div class="col" style="background-color:#4682B4;">
@@ -280,9 +281,9 @@ function ExibeDados(token){
 							<h5 id="her"><b>Hermes Neto</b></h5> <b id="emHer">hrmslns@gmail.com</b></div>
                             </div>
                         </div>
-                    </div>
+                    </div>   
                 </div>
-            </div>
+            </div>   
             </div>
 <h3 class="tit"><b>O que é o VOX4T ?</b></h3>
 <h5 class="c">É um sistema que destina-se a facilitar a visualização de tweets,<br>
