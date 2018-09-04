@@ -1,380 +1,101 @@
-
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
 
-<!-- LOGIN API GOOGLE -->
-<script src="https://apis.google.com/js/platform.js"></script>
-<meta name="google-signin-client_id" content="686903218226-p5t42arftgs3onms88c2pvhj4j5tlvfb.apps.googleusercontent.com">
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/google.js"></script>
+<!DOCTYPE html>
+<html lang="pt-br">
 
-<script>
-(function(d, s, id) {
-	  var js, fjs = d.getElementsByTagName(s)[0];
-	  if (d.getElementById(id)) return;
-	  js = d.createElement(s); js.id = id;
-	  js.src = 'https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v3.0&appId=1924110817611014&autoLogAppEvents=1';
-	  fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));
-    
+  <head>
 
-//FUNÇÃO CHAMADA ASSIM QUE EXECUTA O PROCESSO DE LOGIN	
-function checkLoginState() {
-	FB.getLoginStatus(function(response) {
-		var token = response.authResponse.accessToken;
-		   //console.log(token);
-		   ExibeDados(token);
-		});
-}
-
-//FUNÇÃO CHAMADA APÓS A AUTENTICAÇÃO COM O FACEBOOK - RETORNA OS DADOS DO USUÁRIO LOGADO	
-function ExibeDados(token){
-	
-	FB.api('/me?fields=name,email,gender,birthday',function(response) {
-		
-		//Acessa o controller que recebe os dados do usuário e ativa a sessão do usuário
-		$.post("https://localhost:8443/VOX4T/usuario/facebook?nome="+response.name+"&email="+response.email, function(data){
-			if(data == "true"){
-				//Url para a tela inicial
-				window.location.href = "/VOX4T/usuario/logadoFacebook";
-			}
-		});
-		
-		
-		
-		});
-}
-</script>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
 
-    <title>Sobre </title>
-	
-	<!-- FONTE ROBOTO -->
-	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
-	
+    <title> Sobre </title>
+
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/bootstrap/css/bootstrap.min.css" />
-   	
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-   
-    <!-- Custom fonts for this template -->
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-    <link href="<%=request.getContextPath()%>/resources/externo/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/bootstrap/css/bootstrap.min.css" />
 
     <!-- Custom styles for this template -->
     <link href="<%=request.getContextPath()%>/resources/externo/css/coming-soon.css" rel="stylesheet">
     
-    <!-- CSS do botão do Google -->
-	<link   rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/style/google.css" />
-	
-	<!-- CSS DO MODAL DO LOGIN -->
-	<style type="text/css">
-	.login-form {		
-		width: 300px;
-		margin: 30px auto;
-	}
-    .login-form form {        
-    	margin-bottom: 15px;
-        background: #f7f7f7;
-        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-        padding: 30px;
-    }
-    .login-form h2 {
-        margin: 0 0 15px;
-    }
-    .form-control, .login-btn {
-        min-height: 38px;
-        border-radius: 2px;
-    }
-    .input-group-addon .fa {
-        font-size: 18px;
-    }
-    .login-btn {
-        font-size: 15px;
-        font-weight: bold;
-    }
-	.social-btn .btn {
-		border: none;
-        margin: 10px 3px 0;
-        opacity: 1;
-	}
-    .social-btn .btn:hover {
-        opacity: 0.9; 
-    }
-	.social-btn .btn-primary {
-        background: #507cc0;
-    }
-	.social-btn .btn-info {
-		background: #64ccf1;
-	}
-	.social-btn .btn-danger {
-		background: #df4930;
-	}
-    .or-seperator {
-        margin-top: 20px;
-        text-align: center;
-        border-top: 1px solid #ccc;
-    }
-    .or-seperator i {
-        padding: 0 10px;
-        background: #f7f7f7;
-        position: relative;
-        top: -11px;
-        z-index: 1;
-    }   
-    
-    #form .form-group label.error {
-    	color: #FB3A3A;
-    	display: inline-block;
-    	margin: 0px 0 0px 0px;
-    	padding: 0;
-    	text-align: left;
-    }
-    
-    .modal-dialog{
-    	width: 400px;
-    }
-      #wen {
-	    margin-left: 95px;
-	     margin-top:10px;
-    }
-    #mar {
-	    margin-left:80px;
-	     margin-top:10px;
-    }
-    #cla {
-	    margin-left:120px;
-	    margin-top:10px;
-    }
-    #wil {
-	    margin-left:120px;
-	     margin-top:10px;
-    }
-    #hen {
-	    margin-left:115px;
-	     margin-top:10px;
-    }
-    #her {
-	    margin-left:115px;
-	     margin-top:10px;
-    }
-    #emCla {
-	    margin-left:90px;
-        }
-    #emMar {
-	    margin-left:70px;
-        }
-    #emWen {
-	    margin-left:80px;
-        }    
-    #emHen {
-	    margin-left:90px;
-        }
-    #emWil {
-	    margin-left:110px;
-        }
-    #emHer {
-	    margin-left:110px;
-        }           
-    #bt {
-	    margin-right:-820px;
-        }   
-    #ab {
-	    margin-right:1220px;
-        } 
-    
-    #eq{
-     margin-top: -90px;
-       margin-left: 160px;
-    }
-        .tit{
-    	margin-left:900px;
-    	margin-top:-600px;
-    }
-         .c{
-    	margin-left:750px;
-    	margin-top:50px;
-    }
-    .col{
-    width:10px;
-    
-    }
-<!-- FIM DO CSS MODAL LOGIN -->
-    
-</style>
-</head>
+    <style>
+    	#inicio {
+    		margin-top: 100px;
+    	}
+    </style>
 
-<body>
- 	
- 	<!-- Bootstrap core JavaScript -->
-    <script src="<%=request.getContextPath()%>/resources/externo/js/jquery.min.js"></script>    
+  </head>
+
+  <body>
+
+	<c:import url="/WEB-INF/view/comum/nav-comum.jsp"></c:import>
+
+    <!-- Page Content -->
+    <div class="container" id="inicio">
+
+      <!-- Introduction Row -->
+      <h1 class="my-3">O que é o VOX4T ? </h1>
+		<h5>É um sistema que se destina a facilitar a visualização de tweets com diversos filtros, ferramentas e funções, como por exemplo um sistema de transmissão das mensagens por voz!
+			Além disso, possibilita que o usuário selecione categorias de tweets que mais o agradam, tornando o sistema mais confortável para cada tipo de usuário.
+		</h5>
+
+      <!-- Team Members Row -->
+      <div class="row my-5">
+        <div class="col-lg-12">
+          <h2 class="my-4">Equipe</h2>
+        </div>
+        <div class="col-lg-4 col-sm-6 text-center mb-4">
+          <img class="rounded-circle img-fluid d-block mx-auto" src="<%=request.getContextPath()%>/resources/img/claudes.jpg" alt="">
+          <h3>Claudes Gomes
+          </h3>
+          <p>claudesferreira99@gmail.com</p>
+        </div>
+        <div class="col-lg-4 col-sm-6 text-center mb-4">
+          <img class="rounded-circle img-fluid d-block mx-auto" src="<%=request.getContextPath()%>/resources/img/henrique.jpg" alt="">
+          <h3>Henrique Nunes
+          </h3>
+          <p>henriquenunesti@gmail.com</p>
+        </div>
+        <div class="col-lg-4 col-sm-6 text-center mb-4">
+          <img class="rounded-circle img-fluid d-block mx-auto" src="<%=request.getContextPath()%>/resources/img/hermes.jpg" alt="">
+          <h3>Hermes Neto
+          </h3>
+          <p>hrmslns@gmail.com</p>
+        </div>
+        <div class="col-lg-4 col-sm-6 text-center mb-4">
+          <img class="rounded-circle img-fluid d-block mx-auto" src="<%=request.getContextPath()%>/resources/img/marl.jpg" alt="">
+          <h3>Marlysson de Oliveira
+          </h3>
+          <p>marlysson.oliveira@hotmail.com</p>
+        </div>
+        <div class="col-lg-4 col-sm-6 text-center mb-4">
+          <img class="rounded-circle img-fluid d-block mx-auto" src="<%=request.getContextPath()%>/resources/img/wendel.jpg" alt="">
+          <h3>Wendel Marcelino
+          </h3>
+          <p>wendel_mcr_sp@hotmail.com</p>
+        </div>
+        <div class="col-lg-4 col-sm-6 text-center mb-4">
+          <img class="rounded-circle img-fluid d-block mx-auto" src="<%=request.getContextPath()%>/resources/img/wildici.jpg" alt="">
+          <h3>Wildici Lins
+          </h3>
+          <p>wildici@hotmail.com</p>
+        </div>
+      </div>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-2 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; 2018 VOX4T - Todos os direitos reservados</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="<%=request.getContextPath()%>/resources/externo/js/jquery.min.js"></script>
     <script src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+  </body>
 
-    <!-- Custom scripts for this template -->
-    <script src="<%=request.getContextPath()%>/resources/externo/js/coming-soon.min.js"></script>
-	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/jquery.validate.min.js"></script>
-	
-
-
-		
-	<script>
-	
-	//VALIDAÇÃO COM JQUERY VALIDATE -----------------------------------------------------------------------
-	
-	 $(document).ready(function(){
-
-	    $("#formLogin").validate({
-	        rules: {
-	            email: {
-	                required: true
-	            },
-	            senha: {
-	                required: true
-	            }
-	        },
-	        messages: {
-	            email: {
-	                required: "Digite seu email"
-	            },
-	            senha: {
-	                required: "Digite sua senha"
-	            }
-	        }
-	    });
-
-	}); 
-	 </script>
-	
-	<!-- NAV BAR -->
-
-		<c:import url="/WEB-INF/view/comum/nav-comum.jsp"></c:import>
-		
-        <div class="masthead">
-            <div class="masthead-bg"></div>
-            <div class="container h-100">
-                <div class="row h-100">
-                    <div class="col-12 my-auto">
-                        <div class="masthead-content text-white py-5 py-md-0">
-                            	<h3 id="eq" class="mb-3">Equipe</h3>
-                            <p class="mb-5"></p>
-                            <div class="input-group input-group-newsletter">
- 							<div class="col" style="background-color:#4682B4;">
- 							<h5 id="cla"><b>Claudes Gomes</b></h5> <b id="emCla">claudesferreira99@gmail.com</b></div>
- 							<div class="col" style="background-color:#4682B4;">
- 							<h5 id="hen"><b>Henrique Nunes</b></h5><b id="emHen">henriquenunesti@gmail.com</b></div>
-  							<div class="col" style="background-color:#4682B4;">
-  							<h5 id="mar"><b>Marlysson de Oliveira</b></h5> <b id="emMar">marlysson.oliveira@hotmail.com</b></div>
-    						<div class="col" style="background-color:#4682B4;">
-    						<h5 id="wen"><b>Wendel Marcelino</b></h5> <b id="emWen">wendel_mcr_sp@hotmail.com</b></div>
-    						<div class="col" style="background-color:#4682B4;">
-    						<h5 id="wil"><b>Wildici Lins</b></h5><b id="emWil">wildici@hotmail.com</b></div>
-							<div class="col" style="background-color:#4682B4;">
-							<h5 id="her"><b>Hermes Neto</b></h5> <b id="emHer">hrmslns@gmail.com</b></div>
-                            </div>
-                        </div>
-                    </div>   
-                </div>
-            </div>   
-            </div>
-<h3 class="tit"><b>O que é o VOX4T ?</b></h3>
-<h5 class="c">É um sistema que destina-se a facilitar a visualização de tweets,<br>
-com diversos filtros, ferramentas e funções, como por exemplo<br>
-um sistema de transmissão das messagens por voz!</h5>
-<h5 class="c">Além disso, possibilita que o usuário selecione categorias<br> 
-de tweets que mais o agradam, tornando o sistema mais<br> confortável para cada tipo de usuário.</h5>
-
-
-		<!-- INICIO MODAL LOGIN -->
-
-	<div class="modal fade" id="modal-mensagem" tabindex="-1">
-    <div class="modal-dialog">
-         <div class="modal-content">
-              <div class="login-form">
-              	<form action="loginCheck" method="post" name="formLogin" id="formLogin">
-        			
-        			<h2 class="text-center">Entrar</h2>   
-        			
-        		   <div class="form-group">
-        				<div class="input-group">
-                			<span class="input-group-text"><i class="fa fa-user"></i></span>
-                			<input type="email" class="form-control" name="email" id="email" class="required" placeholder="Email">				
-            			</div>            			
-        		   </div>
-				   
-				   
-				   <div class="form-group">
-            			<div class="input-group">
-                			<span class="input-group-text"><i class="fa fa-lock"></i></span>
-                			<input type="password" class="form-control" name="senha" id="senha" class="required" placeholder="Senha">				
-            			</div>
-        		  </div>
-        		          
-        		  
-        		  <div class="form-group">
-            			<button type="submit" class="btn btn-primary login-btn btn-block">Login</button>
-        		  </div>
-       
-        		  
-        		  <p class="text-center">Entrar com redes sociais</p>
-        		  
-        		  
-        		  <div class="text-center social-btn">
-						
-						<!-- BOTÃO LOGIN GOOGLE -->
-						<div id="gSignInWrapper">
-						    <div id="customBtn" class="customGPlusSignIn">
-						      <span class="icon"></span>
-						      <span class="buttonText">Entrar com o Google</span>
-						    </div>
-					  	</div>
-         					<script>startApp();</script>		  	
-						<br> 
-						
-						<!-- BOTÃO LOGIN FACEBOOK -->
-						<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with"  scope="public_profile"  onlogin="checkLoginState();"></div>
-        		  </div>
-        		  
-    			</form>
-    
-    			<p class="text-center text-muted small">Você não tem uma conta? <a href="usuario/cadastro">Cadastre-se aqui!</a></p>
-			
-			</div>
-         </div>
-     </div>
- </div>
- 
- <!-- FIM MODAL LOGIN -->
-	
-</body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
